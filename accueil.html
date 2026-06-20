@@ -1,11 +1,247 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Mon site</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Dissidents</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    line-height:1.6;
+    background:#111;
+    color:white;
+}
+
+header{
+    background:url('https://images.unsplash.com/photo-1501386761578-eac5c94b800') center/cover;
+    height:60vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+header h1{
+    font-size:4rem;
+    text-shadow:2px 2px 8px black;
+}
+
+header p{
+    font-size:1.3rem;
+    margin-top:10px;
+}
+
+nav{
+    background:#222;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    list-style:none;
+    flex-wrap:wrap;
+}
+
+nav li{
+    margin:0;
+}
+
+nav a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:15px 25px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    background:#e63946;
+}
+
+section{
+    max-width:1000px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+h2{
+    margin-bottom:20px;
+    color:#e63946;
+}
+
+.members{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.member{
+    background:#1f1f1f;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.placeholder{
+    background:#333;
+    height:180px;
+    border-radius:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.contact{
+    background:#1f1f1f;
+    padding:25px;
+    border-radius:10px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#000;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+</style>
 </head>
+
 <body>
-    <h1>Bienvenue sur mon site</h1>
-    <p>Mon premier site hébergé gratuitement avec GitHub Pages.</p>
+
+<header>
+    <h1>The Dissidents</h1>
+    <p>Pop • Rock • Reprises & Compositions</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#presentation">Présentation</a></li>
+        <li><a href="#membres">Les membres</a></li>
+        <li><a href="#media">Photos & Vidéos</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="presentation">
+    <h2>Présentation</h2>
+
+    <p>
+        Groupe de musique de la région orléanaise, nous faisons des reprises
+        et des compositions pop rock.
+    </p>
+
+    <br>
+
+    <p>
+        Né d'une envie de réaliser nos propres chansons afin de les partager
+        au public dans des lieux publics et privés, sur petites et grandes scènes.
+    </p>
+
+    <br>
+
+    <p>
+        Animé par le désir de vous faire danser et chanter, nous interprétons
+        également des reprises connues qui rassemblent toutes les générations.
+    </p>
+</section>
+
+<section id="membres">
+    <h2>Les membres</h2>
+
+    <div class="members">
+
+        <div class="member">
+            <h3>Tom</h3>
+            <p>Guitare</p>
+        </div>
+
+        <div class="member">
+            <h3>Thierry</h3>
+            <p>Basse</p>
+        </div>
+
+        <div class="member">
+            <h3>Édouard</h3>
+            <p>Chant masculin</p>
+        </div>
+
+        <div class="member">
+            <h3>Gabrielle</h3>
+            <p>Chant féminin</p>
+        </div>
+
+        <div class="member">
+            <h3>Batteur</h3>
+            <p>À compléter</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="media">
+    <h2>Photos & Vidéos</h2>
+
+    <div class="gallery">
+
+        <div class="placeholder">
+            Photo 1
+        </div>
+
+        <div class="placeholder">
+            Photo 2
+        </div>
+
+        <div class="placeholder">
+            Vidéo YouTube
+        </div>
+
+    </div>
+
+    <p style="margin-top:20px;">
+        Ajoutez ici vos photos de concerts et vos vidéos YouTube.
+    </p>
+
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+
+    <div class="contact">
+        <p>
+            Ajoutez ici vos coordonnées :
+        </p>
+
+        <br>
+
+        <p>Email : votre@email.fr</p>
+        <p>Téléphone : 06 XX XX XX XX</p>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 The Dissidents - Tous droits réservés
+</footer>
+
 </body>
 </html>
