@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Contact</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main>
+
+<div class="card contact">
+
+<h2>Contact</h2>
+
+<p>
+Téléphone : À compléter
+</p>
+
+<p>
+Email : À compléter
+</p>
+
+<p>
+Facebook : À compléter
+</p>
+
+<p>
+Instagram : À compléter
+</p>
+
+</div>
+
+</main>
+
+</body>
+</html>
