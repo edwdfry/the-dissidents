@@ -4,6 +4,13 @@ padding:0;
 box-sizing:border-box;
 }
 
+@font-face {
+    font-family: 'TheStranger';
+    src: url('../fonts/TheStranger.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body{
 font-family:Segoe UI,Arial,sans-serif;
 color:white;
