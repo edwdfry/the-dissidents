@@ -113,8 +113,11 @@ margin-bottom:25px;
 }
 
 .photo-groupe{
-    width:500px;
-    text-align:center;
+    display:block;
+    width:100%;
+    max-width:700px;
+    margin:0 auto 20px auto;
+    border-radius:10px;
 }
 
 .gallery{
