@@ -30,6 +30,12 @@ min-height:100vh;
 }
 
 header{
+font-family:'TheStranger',sans-serif;
+font-size:4rem;
+letter-spacing:4px;
+text-shadow:
+    3px 3px 0 rgba(0,0,0,.5),
+    6px 6px 10px rgba(0,0,0,.3);
 background:rgba(0,0,0,.75);
 padding:25px;
 backdrop-filter:blur(5px);
