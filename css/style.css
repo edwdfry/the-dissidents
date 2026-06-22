@@ -54,6 +54,7 @@ text-shadow:
 }
 
 .logo p{
+justify-content:center;
 color:#ddd;
 }
 
