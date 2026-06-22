@@ -11,8 +11,14 @@ box-sizing:border-box;
     font-style: normal;
 }
 
+@font-face {
+    font-family:'Kalam';
+    src:url('../fonts/Kalam-Regular.ttf') format('truetype');
+}
+
 body{
-font-family:Segoe UI,Arial,sans-serif;
+<!-- font-family:Segoe UI,Arial,sans-serif; --!>
+font-family:'Kalam',cursive;
 color:white;
 line-height:1.7;
 
