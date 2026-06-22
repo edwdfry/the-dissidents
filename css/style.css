@@ -105,7 +105,9 @@ backdrop-filter:blur(4px);
 }
 
 h2{
-justify-content:center;
+font-family:'TheStranger',sans-serif;
+font-size:2rem;
+text-align:center;
 margin-bottom:25px;
 color:#ff6b6b;
 }
