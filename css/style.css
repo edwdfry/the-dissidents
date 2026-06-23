@@ -124,6 +124,11 @@ border-radius:15px;
 backdrop-filter:blur(4px);
 }
 
+.card p{
+font-size:2rem;
+font-family:'Blackrush',sans-serif;
+}
+
 h2{
 font-family:'Granesta',sans-serif;
 font-size:3rem;
