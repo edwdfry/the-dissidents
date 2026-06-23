@@ -67,7 +67,7 @@ margin-bottom:10px;
 }
 
 .logo h1{
-font-family:'TheStranger',sans-serif;
+font-family:'Granesta',sans-serif;
 font-size:4rem;
 letter-spacing:4px;
 text-shadow:
@@ -85,7 +85,7 @@ margin-top:20px;
 }
 
 nav ul{
-font-family:'TheStranger',sans-serif;
+font-family:'Granesta',sans-serif;
 font-size:2rem;
 list-style:none;
 display:flex;
@@ -123,7 +123,7 @@ backdrop-filter:blur(4px);
 }
 
 h2{
-font-family:'TheStranger',sans-serif;
+font-family:'Granesta',sans-serif;
 font-size:3rem;
 text-align:center;
 margin-bottom:25px;
@@ -131,7 +131,7 @@ color:#ff6b6b;
 }
 
 h3{
-font-family:'TheStranger',sans-serif;
+font-family:'Granesta',sans-serif;
 font-size:2rem;
 margin-bottom:25px;
 }
