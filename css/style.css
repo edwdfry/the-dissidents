@@ -34,6 +34,7 @@ font-family:'Blackrush',cursive;
 color:white;
 line-height:1.7;
 
+
 background:
 linear-gradient(
 rgba(0,0,0,0.35),
@@ -60,6 +61,7 @@ text-align:center;
 .presentation{
     text-align:center;
     font-family:'Blackrush',sans-serif;
+    font-size:2rem;
 }
 
 .logo img{
