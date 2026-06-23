@@ -29,11 +29,9 @@ box-sizing:border-box;
 
 
 body{
-/*font-family:Segoe UI,Arial,sans-serif; */
-font-family:'Blackrush',cursive;
+font-family:Segoe UI,Arial,sans-serif; 
 color:white;
 line-height:1.7;
-font-size:2rem;
 
 
 background:
@@ -200,6 +198,8 @@ border-radius:10px;
 .contact p{
 margin-bottom:15px;
 text-align:center;
+font-size:2rem;
+font-family:'Blackrush',sans-serif;
 }
 
 .presentation p{
