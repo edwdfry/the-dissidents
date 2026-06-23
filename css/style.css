@@ -131,6 +131,25 @@ line-height:1;
 text-align:center;
 }
 
+.audio{
+background:rgba(0,0,0,.70);
+padding:35px;
+border-radius:15px;
+backdrop-filter:blur(4px);
+}
+
+.audio p{
+font-size:3rem;
+font-family:'Blackrush',sans-serif;
+line-height:1;
+text-align:center;
+}
+
+.audio h3 {
+font-family:'Granesta',sans-serif;
+font-size:2rem;
+}
+
 h2{
 font-family:'Granesta',sans-serif;
 font-size:3rem;
