@@ -67,6 +67,39 @@
 <footer>
 <a href="index.html">Retour accueil</a>
 </footer>
-  
+
+<script>
+const images = document.querySelectorAll(
+    '.gallery img, .member img, .photo-groupe'
+);
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightbox-image');
+const closeLightbox = document.getElementById('close-lightbox');
+
+images.forEach(img => {
+    img.addEventListener('click', () => {
+        lightboxImage.src = img.src;
+        lightbox.classList.add('active');
+    });
+});
+
+closeLightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+});
+
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        lightbox.classList.remove('active');
+    }
+});
+</script>
+    
 </body>
 </html>
