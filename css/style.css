@@ -5,8 +5,8 @@ box-sizing:border-box;
 }
 
 @font-face {
-    font-family: 'TheStranger';
-    src: url('../fonts/TheStranger.ttf') format('truetype');
+    font-family: 'Granesta';
+    src: url('../fonts/Granesta.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
