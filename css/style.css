@@ -12,13 +12,13 @@ box-sizing:border-box;
 }
 
 @font-face {
-    font-family:'Kalam';
-    src:url('../fonts/Kalam-Regular.ttf') format('truetype');
+    font-family:'BlackRush';
+    src:url('../fonts/BlackRush.ttf') format('truetype');
 }
 
 body{
 <!-- font-family:Segoe UI,Arial,sans-serif; --!>
-font-family:'Kalam',cursive;
+font-family:'BlackRush',cursive;
 color:white;
 line-height:1.7;
 
