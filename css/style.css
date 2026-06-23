@@ -12,13 +12,25 @@ box-sizing:border-box;
 }
 
 @font-face {
-    font-family:'BlackRush';
-    src:url('../fonts/BlackRush.ttf') format('truetype');
+    font-family:'Kalam';
+    src:url('../fonts/Kalam-Regular.ttf') format('truetype');
 }
+
+@font-face {
+    font-family:'Granesta';
+    src:url('../fonts/Granesta.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family:'Blackrush';
+    src:url('../fonts/Blackrush.ttf') format('truetype');
+}
+
 
 body{
 <!-- font-family:Segoe UI,Arial,sans-serif; --!>
-font-family:'BlackRush',cursive;
+font-family:'Blackrush',cursive;
 color:white;
 line-height:1.7;
 
