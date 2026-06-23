@@ -189,6 +189,13 @@ border-radius:10px;
 margin-bottom:15px;
 }
 
+.member p{
+font-size:3rem;
+font-family:'Blackrush',sans-serif;
+line-height:1.2;
+}
+
+
 audio{
 width:100%;
 margin-top:15px;
