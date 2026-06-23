@@ -210,10 +210,9 @@ border-radius:10px;
 }
 
 .contact p{
-margin-bottom:15px;
-text-align:center;
-font-size:2rem;
+font-size:3rem;
 font-family:'Blackrush',sans-serif;
+line-height:1.2;
 }
 
 .presentation p{
