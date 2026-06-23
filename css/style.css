@@ -131,6 +131,10 @@ line-height:1;
 text-align:center;
 }
 
+audio{
+width:100%;
+margin-top:15px;
+}
 .audio{
 background:rgba(0,0,0,.70);
 padding:35px;
@@ -216,12 +220,6 @@ cursor:pointer;
 font-size:3rem;
 font-family:'Blackrush',sans-serif;
 line-height:1.2;
-}
-
-
-audio{
-width:100%;
-margin-top:15px;
 }
 
 iframe{
