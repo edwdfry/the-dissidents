@@ -209,6 +209,7 @@ height:250px;
 object-fit:contain;
 border-radius:10px;
 margin-bottom:15px;
+cursor:pointer;
 }
 
 .member p{
