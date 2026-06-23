@@ -16,44 +16,6 @@
 --!>
 </div>
 </header>
-
-<div id="lightbox">
-    <span id="close-lightbox">&times;</span>
-    <img id="lightbox-image" src="" alt="">
-</div>
-
-<script>
-const images = document.querySelectorAll(
-    '.gallery img, .member img, .photo-groupe'
-);
-
-const lightbox = document.getElementById('lightbox');
-const lightboxImage = document.getElementById('lightbox-image');
-const closeLightbox = document.getElementById('close-lightbox');
-
-images.forEach(img => {
-    img.addEventListener('click', () => {
-        lightboxImage.src = img.src;
-        lightbox.classList.add('active');
-    });
-});
-
-closeLightbox.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-});
-
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-        lightbox.classList.remove('active');
-    }
-});
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        lightbox.classList.remove('active');
-    }
-});
-</script>
     
 <body>
 
@@ -61,7 +23,7 @@ document.addEventListener('keydown', (e) => {
 
 <div class="card">
 
-<h2>Photoss</h2>
+<h2>Photos</h2>
 
 <div class="gallery">
 
@@ -123,6 +85,45 @@ allowfullscreen>
 <footer>
 <a href="index.html">Retour accueil</a>
 </footer>
-  
+
+
+<div id="lightbox">
+    <span id="close-lightbox">&times;</span>
+    <img id="lightbox-image" src="" alt="">
+</div>
+
+<script>
+const images = document.querySelectorAll(
+    '.gallery img, .member img, .photo-groupe'
+);
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightbox-image');
+const closeLightbox = document.getElementById('close-lightbox');
+
+images.forEach(img => {
+    img.addEventListener('click', () => {
+        lightboxImage.src = img.src;
+        lightbox.classList.add('active');
+    });
+});
+
+closeLightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+});
+
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        lightbox.classList.remove('active');
+    }
+});
+</script>
+
 </body>
 </html>
