@@ -127,7 +127,8 @@ backdrop-filter:blur(4px);
 .card p{
 font-size:3rem;
 font-family:'Blackrush',sans-serif;
-line-height:1.2;
+line-height:1;
+text-align:center;
 }
 
 h2{
