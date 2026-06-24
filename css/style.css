@@ -233,6 +233,7 @@ line-height:1.2;
     flex-wrap: wrap;   /* passe à la ligne si plus de place */
     gap: 15px;         /* espace entre les images */
     justify-content: center; /* optionnel */
+    align-items: center;
 }
 
 .cover img {
