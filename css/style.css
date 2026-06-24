@@ -228,35 +228,18 @@ font-family:'Blackrush',sans-serif;
 line-height:1.2;
 }
 
-.cover-grid{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(180px,1fr));
-gap:20px;
+.covers {
+    display: flex;
+    flex-wrap: wrap;   /* passe à la ligne si plus de place */
+    gap: 15px;         /* espace entre les images */
+    justify-content: center; /* optionnel */
 }
 
-.cover{
-background:rgba(255,255,255,.08);
-padding:20px;
-border-radius:10px;
-text-align:center;
-}
-
-.cover img{
-width:100%;
-max-width:100px;
-height:auto;
-object-position:center center;
-object-fit:contain;
-border-radius:10px;
-margin-bottom:15px;
-cursor:pointer;
-}
-
-.cover p{
-font-size:3rem;
-font-family:'Blackrush',sans-serif;
-line-height:1.2;
+.cover img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
 }
 
 iframe{
