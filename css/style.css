@@ -239,6 +239,7 @@ line-height:1.2;
     width: 150px;
     height: auto;
     display: block;
+    object-fit:contain;
 }
 
 iframe{
