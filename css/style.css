@@ -238,7 +238,6 @@ line-height:1.2;
 .cover img {
     width: 150px;
     height: auto;
-    object-fit: cover;
     display: block;
 }
 
