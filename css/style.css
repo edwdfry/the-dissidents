@@ -228,6 +228,35 @@ font-family:'Blackrush',sans-serif;
 line-height:1.2;
 }
 
+.cover-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.cover{
+background:rgba(255,255,255,.08);
+padding:20px;
+border-radius:10px;
+text-align:center;
+}
+
+.cover img{
+width:100%;
+height:250px;
+object-fit:contain;
+border-radius:10px;
+margin-bottom:15px;
+cursor:pointer;
+}
+
+.cover p{
+font-size:3rem;
+font-family:'Blackrush',sans-serif;
+line-height:1.2;
+}
+
 iframe{
 width:100%;
 height:450px;
