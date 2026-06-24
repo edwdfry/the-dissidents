@@ -245,7 +245,9 @@ text-align:center;
 .cover img{
 width:100%;
 max-width:100px;
-height:auto;object-fit:contain;
+height:auto;
+object-position:center center;
+object-fit:contain;
 border-radius:10px;
 margin-bottom:15px;
 cursor:pointer;
