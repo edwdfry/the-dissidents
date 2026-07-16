@@ -125,9 +125,8 @@ backdrop-filter:blur(4px);
 }
 
 .card p{
-font-size:0.5rem;
+font-size:1rem;
 font-family:Segoe UI,Arial,sans-serif;
-<!--line-height:1;-->
 text-align:center;
 }
 
