@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Musiqu</title>
+<title>Musique</title>
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -222,30 +222,58 @@ Retour accueil
 
 <script>
 
-const motDePasse = "EGTT";
+async function hashPassword(password) {
 
-function checkPassword() {
+    const data = new TextEncoder().encode(password);
+
+    const hashBuffer =
+        await crypto.subtle.digest("SHA-256", data);
+
+    const hashArray =
+        Array.from(new Uint8Array(hashBuffer));
+
+    return hashArray
+        .map(byte => byte.toString(16).padStart(2, "0"))
+        .join("");
+
+}
+
+
+async function checkPassword() {
 
     const motDePasseEntre =
         document.getElementById("passwordInput").value;
 
-    if (motDePasseEntre === motDePasse) {
+    const hash = await hashPassword(motDePasseEntre);
+
+
+    /*
+       Hash SHA-256 de "EGTT"
+       À remplacer par le hash réel
+    */
+
+    const hashCorrect =
+        "À_REMPLACER";
+
+
+    if (hash === hashCorrect) {
 
         document
-        .getElementById("passwordOverlay")
-        .style.display = "none";
+            .getElementById("passwordOverlay")
+            .style.display = "none";
 
     }
 
     else {
 
         document
-        .getElementById("passwordError")
-        .textContent = "Mot de passe incorrect.";
+            .getElementById("passwordError")
+            .textContent =
+                "Mot de passe incorrect.";
 
         document
-        .getElementById("passwordInput")
-        .value = "";
+            .getElementById("passwordInput")
+            .value = "";
 
     }
 
