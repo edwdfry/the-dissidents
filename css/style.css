@@ -59,7 +59,7 @@ text-align:center;
 
 .presentation{
     text-align:center;
-    font-family:'Blackrush',sans-serif;
+    font-family:Segoe UI,Arial,sans-serif;
     font-size:2rem;
 }
 
@@ -126,7 +126,7 @@ backdrop-filter:blur(4px);
 
 .card p{
 font-size:3rem;
-font-family:'Blackrush',sans-serif;
+font-family:Segoe UI,Arial,sans-serif;
 line-height:1;
 text-align:center;
 }
@@ -144,7 +144,7 @@ backdrop-filter:blur(4px);
 
 .audio p{
 font-size:3rem;
-font-family:'Blackrush',sans-serif;
+font-family:Segoe UI,Arial,sans-serif;
 line-height:1;
 text-align:center;
 }
@@ -224,7 +224,7 @@ cursor:pointer;
 
 .member p{
 font-size:3rem;
-font-family:'Blackrush',sans-serif;
+font-family:Segoe UI,Arial,sans-serif;
 line-height:1.2;
 }
 
@@ -252,7 +252,7 @@ border-radius:10px;
 
 .contact p{
 font-size:3rem;
-font-family:'Blackrush',sans-serif;
+font-family:Segoe UI,Arial,sans-serif;
 text-align:center;
 }
 
