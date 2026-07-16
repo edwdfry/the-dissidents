@@ -60,7 +60,7 @@ text-align:center;
 .presentation{
     text-align:center;
     font-family:Segoe UI,Arial,sans-serif;
-    font-size:2rem;
+    font-size:1rem;
 }
 
 .logo img{
@@ -223,7 +223,7 @@ cursor:pointer;
 }
 
 .member p{
-font-size:3rem;
+font-size:2rem;
 font-family:Segoe UI,Arial,sans-serif;
 line-height:1.2;
 }
@@ -258,7 +258,7 @@ text-align:center;
 
 .presentation p{
 margin-bottom:15px;
-font-size:2rem;
+font-size:1rem;
 text-align:center;
 }
 
