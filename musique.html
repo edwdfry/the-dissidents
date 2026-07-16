@@ -6,6 +6,62 @@
 <title>Musique</title>
 <link rel="stylesheet" href="css/style.css">
 
+<style>
+    .password-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .password-box {
+        background: white;
+        width: 90%;
+        max-width: 400px;
+        padding: 35px;
+        text-align: center;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .password-box img {
+        width: 130px;
+        margin-bottom: 20px;
+    }
+
+    .password-box h2 {
+        margin-bottom: 10px;
+    }
+
+    .password-box p {
+        margin-bottom: 20px;
+    }
+
+    .password-box input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px;
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .password-box button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .password-error {
+        color: red;
+        min-height: 20px;
+        margin-top: 15px;
+    }
+</style>
+    
     <!--
 <script>
     const motDePasse = "EGTT";
@@ -36,6 +92,32 @@
   
 <body>
 
+<div class="password-overlay" id="passwordOverlay">
+
+    <div class="password-box">
+
+        <img src="images/logo.jpg" alt="Logo The Dissidents">
+
+        <h2>Accès membres</h2>
+
+        <p>Cette page est réservée aux membres du groupe.</p>
+
+        <input
+            type="password"
+            id="passwordInput"
+            placeholder="Mot de passe"
+        >
+
+        <button onclick="checkPassword()">
+            Accéder
+        </button>
+
+        <div class="password-error" id="passwordError"></div>
+
+    </div>
+
+</div>
+    
 <main>
 
 <div class="audio">
@@ -104,6 +186,32 @@
 <footer>
 <a href="index.html">Retour accueil</a>
 </footer>
-  
+
+<script>
+
+    const motDePasse = "EGTT";
+
+    function checkPassword() {
+
+        const motDePasseEntre =
+            document.getElementById("passwordInput").value;
+
+        if (motDePasseEntre === motDePasse) {
+
+            document.getElementById("passwordOverlay").style.display = "none";
+
+        } else {
+
+            document.getElementById("passwordError").textContent =
+                "Mot de passe incorrect.";
+
+            document.getElementById("passwordInput").value = "";
+
+        }
+
+    }
+
+</script>
+    
 </body>
 </html>
