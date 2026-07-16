@@ -247,13 +247,9 @@ async function checkPassword() {
     const hash = await hashPassword(motDePasseEntre);
 
 
-    /*
-       Hash SHA-256 de "EGTT"
-       À remplacer par le hash réel
-    */
-
+   
     const hashCorrect =
-        "À_REMPLACER";
+        75d9f1b908717b5db2250a7ee407844f4689624f754bac6f6d0579bedeb82dc1;
 
 
     if (hash === hashCorrect) {
