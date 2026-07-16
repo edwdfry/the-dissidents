@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Musique</title>
+<title>Musiqu</title>
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -475,29 +475,58 @@ async function checkPassword() {
 
 <script>
 
-    const motDePasse = "EGTT";
+async function hashPassword(password) {
 
-    function checkPassword() {
+    const data = new TextEncoder().encode(password);
 
-        const motDePasseEntre =
-            document.getElementById("passwordInput").value;
+    const hashBuffer =
+        await crypto.subtle.digest("SHA-256", data);
 
-        if (motDePasseEntre === motDePasse) {
+    const hashArray =
+        Array.from(new Uint8Array(hashBuffer));
 
-            document.getElementById("passwordOverlay").style.display = "none";
+    return hashArray
+        .map(byte => byte.toString(16).padStart(2, "0"))
+        .join("");
 
-        } else {
+}
 
-            document.getElementById("passwordError").textContent =
-                "Mot de passe incorrect.";
 
-            document.getElementById("passwordInput").value = "";
+async function checkPassword() {
 
-        }
+    const motDePasseEntre =
+        document.getElementById("passwordInput").value;
+
+    const hash = await hashPassword(motDePasseEntre);
+
+
+    const hashCorrect =
+        75d9f1b908717b5db2250a7ee407844f4689624f754bac6f6d0579bedeb82dc1;
+
+
+    if (hash === hashCorrect) {
+
+        document
+            .getElementById("passwordOverlay")
+            .style.display = "none";
 
     }
 
-</script>
-    
+    else {
+
+        document
+            .getElementById("passwordError")
+            .textContent =
+                "Mot de passe incorrect.";
+
+        document
+            .getElementById("passwordInput")
+            .value = "";
+
+    }
+
+}
+
+</script>    
 </body>
 </html>
