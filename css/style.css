@@ -301,3 +301,61 @@ text-align:center;
 padding:20px;
 background:rgba(0,0,0,.8);
 }
+
+/* PAGE DE CONNEXION */
+
+.login-page {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    padding: 30px;
+}
+
+.login-logo {
+    width: 150px;
+    max-width: 80%;
+    margin-bottom: 20px;
+}
+
+.login-box h1 {
+    margin-bottom: 10px;
+}
+
+.login-box p {
+    margin-bottom: 25px;
+}
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.login-box input {
+    padding: 12px;
+    font-size: 16px;
+}
+
+.login-box button {
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#errorMessage {
+    color: red;
+    min-height: 20px;
+    margin: 5px 0;
+}
+
+.login-box a {
+    display: inline-block;
+    margin-top: 25px;
+}
