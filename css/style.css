@@ -60,7 +60,7 @@ text-align:center;
 .presentation{
     text-align:center;
     font-family:Segoe UI,Arial,sans-serif;
-    font-size:1rem;
+    font-size:2rem;
 }
 
 .logo img{
@@ -125,7 +125,7 @@ backdrop-filter:blur(4px);
 }
 
 .card p{
-font-size:1rem;
+font-size:2rem;
 font-family:Segoe UI,Arial,sans-serif;
 text-align:center;
 }
