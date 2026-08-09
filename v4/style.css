@@ -337,7 +337,7 @@ img {
 .video-band {
     position: relative;
 
-    height: 500px;
+    height: 700px;
     overflow: hidden;
 
     background: var(--color-background);
