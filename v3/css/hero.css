@@ -318,9 +318,34 @@ gap:20px;
 
     padding: 130px 8%;
 
-    background: #0b0b0b;
+    background-image: url("../assets/images/fond.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 
     position: relative;
+    overflow: hidden;
+
+}
+
+.members::before {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: var(--hero-overlay);
+
+    z-index: 0;
+
+}
+
+.members-header,
+.members-grid {
+
+    position: relative;
+    z-index: 1;
 
 }
 
@@ -627,13 +652,9 @@ gap:20px;
    SECTION MUSIQUE
 ========================================================== */
 
-/* ==========================================================
-SECTION — LES MEMBRES
-========================================================== */
+.music-section {
 
-.members {
-
-    padding: 130px 8%;
+    padding: 140px 8%;
 
     background-image: url("../assets/images/fond.jpg");
     background-size: cover;
@@ -645,7 +666,7 @@ SECTION — LES MEMBRES
 
 }
 
-.members::before {
+.music-section::before {
 
     content: "";
 
@@ -658,16 +679,10 @@ SECTION — LES MEMBRES
 
 }
 
-.members-header,
-.members-grid {
+.music-container {
 
     position: relative;
     z-index: 1;
-
-}
-
-
-.music-container {
 
     max-width: 1200px;
 
@@ -1113,18 +1128,40 @@ SECTION — LES MEMBRES
 
     padding: 140px 8%;
 
-    background: #090909;
+    background-image: url("../assets/images/fond.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    position: relative;
+    overflow: hidden;
 
 }
 
+.gallery-section::before {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: var(--hero-overlay);
+
+    z-index: 0;
+
+}
 
 .gallery-container {
+
+    position: relative;
+    z-index: 1;
 
     max-width: 1400px;
 
     margin: 0 auto;
 
 }
+
 
 
 /* ----------------------------------------------------------
@@ -1830,14 +1867,33 @@ SECTION — LES MEMBRES
 
     padding: 140px 8%;
 
-    background: #0b0b0b;
+    background-image: url("../assets/images/fond.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 
-    border-top: 1px solid rgba(255,255,255,.06);
+    position: relative;
+    overflow: hidden;
 
 }
 
+.contact-section::before {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: var(--hero-overlay);
+
+    z-index: 0;
+
+}
 
 .contact-container {
+
+    position: relative;
+    z-index: 1;
 
     max-width: 1400px;
 
