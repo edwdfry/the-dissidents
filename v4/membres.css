@@ -1,0 +1,530 @@
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+:root {
+    --color-background: #090909;
+    --color-background-dark: #0d0d0d;
+
+    --color-text: #ffffff;
+
+    --color-yellow: #ffdc18;
+    --color-red: #e51b23;
+    --color-blue: #3d5c5d;
+
+    --color-black: #080808;
+    --color-border: #222222;
+
+    --font-body: "Poppins", Arial, sans-serif;
+    --font-display: "Audiowide", sans-serif;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--color-background);
+    color: var(--color-text);
+
+    font-family: var(--font-body);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+    position: relative;
+    z-index: 10;
+
+    height: 103px;
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+
+    background: var(--color-background-dark);
+}
+
+
+/* Logo */
+
+.brand {
+    width: 101px;
+    flex: 0 0 101px;
+}
+
+.brand img {
+    width: 101px;
+    height: 68px;
+
+    object-fit: contain;
+}
+
+
+/* Navigation */
+
+.main-nav {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 53px;
+    margin-left: 78px;
+}
+
+.main-nav a {
+    font-family: var(--font-display);
+    font-size: 16px;
+
+    white-space: nowrap;
+}
+
+.main-nav .active {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+
+/* Menu */
+
+.menu-toggle {
+    display: none;
+
+    width: 38px;
+
+    background: none;
+    border: 0;
+
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+
+    height: 2px;
+    margin: 7px 0;
+
+    background: var(--color-text);
+}
+
+
+/* =========================================================
+   MEMBRES
+   ========================================================= */
+
+.members {
+    padding: 90px 7vw 120px;
+}
+
+.members h1 {
+    margin-bottom: 65px;
+
+    color: var(--color-yellow);
+
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 58px);
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   GRILLE
+   ========================================================= */
+
+.members-grid {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 35px 28px;
+}
+
+
+/* =========================================================
+   CARTE
+   ========================================================= */
+
+.member-card {
+    padding: 10px;
+
+    background: var(--color-red);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Couleurs */
+
+.member-red {
+    background: var(--color-red);
+}
+
+.member-yellow {
+    background: var(--color-yellow);
+}
+
+.member-blue {
+    background: var(--color-blue);
+}
+
+
+/* Survol */
+
+.member-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
+.member-image-link {
+    display: block;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    background: #111;
+
+    cursor: zoom-in;
+}
+
+.member-image-link img {
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.member-card:hover .member-image-link img {
+    transform: scale(1.03);
+}
+
+
+/* =========================================================
+   INFORMATIONS
+   ========================================================= */
+
+.member-info {
+    padding: 18px 12px 14px;
+
+    text-align: center;
+}
+
+.member-info h2 {
+    color: var(--color-black);
+
+    font-family: var(--font-display);
+    font-size: 20px;
+
+    line-height: 1.2;
+}
+
+.member-info p {
+    margin-top: 5px;
+
+    color: var(--color-black);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    padding: 55px 7vw 25px;
+
+    border-top: 1px solid var(--color-border);
+
+    background: var(--color-background-dark);
+}
+
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    align-items: center;
+}
+
+
+.footer-logo img {
+    width: 120px;
+    height: auto;
+}
+
+
+.footer-contact {
+    font-size: 14px;
+    line-height: 2;
+
+    text-align: center;
+}
+
+.footer-contact a {
+    transition: opacity 0.2s ease;
+}
+
+.footer-contact a:hover {
+    opacity: 0.7;
+}
+
+
+.footer-social {
+    min-height: 1px;
+}
+
+
+.copyright {
+    margin-top: 35px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background: rgba(0, 0, 0, 0.94);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-image {
+    display: block;
+
+    max-width: 90vw;
+    max-height: 90vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+
+    top: 20px;
+    right: 30px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #fff;
+
+    font-size: 45px;
+    font-weight: 300;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   TABLETTE
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .main-nav {
+        gap: 27px;
+        margin-left: 20px;
+    }
+
+    .main-nav a {
+        font-size: 12px;
+    }
+
+    .members-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .header {
+        height: 82px;
+        padding: 0 18px;
+    }
+
+    .brand {
+        width: 82px;
+        flex-basis: 82px;
+    }
+
+    .brand img {
+        width: 82px;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+    }
+
+
+    /* Menu ouvert */
+
+    .main-nav.is-open {
+        position: absolute;
+
+        top: 82px;
+        left: 0;
+        right: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 25px;
+
+        margin: 0;
+        padding: 30px 20px;
+
+        background: var(--color-background-dark);
+    }
+
+
+    /* Membres */
+
+    .members {
+        padding: 55px 7vw 75px;
+    }
+
+    .members h1 {
+        margin-bottom: 40px;
+
+        font-size: 34px;
+        line-height: 1.1;
+    }
+
+    .members-grid {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+
+    /* Footer */
+
+    .footer {
+        padding: 45px 7vw 25px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        text-align: center;
+    }
+
+    .footer-logo img {
+        margin: 0 auto;
+    }
+
+
+    /* Lightbox */
+
+    .lightbox {
+        padding: 20px;
+    }
+
+    .lightbox-image {
+        max-width: 94vw;
+        max-height: 85vh;
+    }
+
+    .lightbox-close {
+        top: 10px;
+        right: 15px;
+    }
+}
