@@ -30,9 +30,9 @@
 
         <li><a href="#hero">Accueil</a></li>
 
-        <li><a href="#about">Le Groupe</a></li>
+        <li><a href="#about">Groupe</a></li>
 
-        <li><a href="#members">Les Membres</a></li>
+        <li><a href="#members">Membres</a></li>
 
         <li><a href="#music">Musique</a></li>
 
@@ -60,8 +60,10 @@
 
         <p>
 
-            Rock<br>
-            Le bruit. La poésie. La résistance.
+            Groupe pop-rock de la région orléanaise, nous partageons notre passion de la musique à travers nos compositions originales et des reprises incontournables. <br>
+
+
+            Découvrez notre univers, nos membres, nos photos, nos vidéos et nos créations musicales.
 
         </p>
 
@@ -102,7 +104,7 @@
 
             <span class="section-title">
 
-                LE GROUPE
+                GROUPE
 
             </span>
 
@@ -115,23 +117,25 @@
 
             <p>
 
-                The Dissidents proposent un rock
-                puissant, sincère et profondément humain.
-                Entre compositions originales et reprises
-                revisitées, le groupe construit un univers
-                où les guitares répondent à des textes
-                engagés et mélodiques.
+                Groupe de musique de la région orléanaise, nous jouons des reprises et des compositions pop rock.
 
             </p>
 
             <p>
 
-                Sur scène, chaque concert est pensé comme
-                une rencontre avec le public :
-                de l'énergie, de l'émotion et une véritable
-                proximité qui fait de chaque prestation
-                un moment unique.
+                Nous nous produisons dans des lieux publics et privés, sur petites et grandes scènes. Nous vous ferons découvrir notre univers avec des compositions originales pour toutes oreilles.
 
+            </p>
+
+            <p>
+
+Animés par le désir de vous faire danser et chanter, nous interprétons également des reprises connues.
+
+            </p>
+
+            <p>
+
+N'hésitez pas à nous contacter !
             </p>
 
             <!--
@@ -197,7 +201,7 @@
     <div class="members-header">
 
         <span class="section-label">
-            LES MEMBRES
+            MEMBRES
         </span>
 
         <h2>
@@ -369,7 +373,12 @@
         </article>
 
 
-        
+        <a href="#music"
+               class="btn-main">
+
+                Ecoutez notre musique
+
+        </a>
 
 
     </div>
@@ -383,16 +392,1557 @@
 </section>
 
 
-<section id="music"></section>
+<!-- ==========================================================
+     MUSIQUE
+     ----------------------------------------------------------
+     Les morceaux sont protégés par un mot de passe simple.
 
-<section id="gallery"></section>
+     IMPORTANT :
+     Le mot de passe est géré côté navigateur.
+     Cette protection est adaptée à un partage privé,
+     mais ne constitue pas une sécurité forte.
+=========================================================== -->
 
-<section id="contact"></section>
+<section id="music" class="music-section">
+
+    <div class="music-container">
+
+        <!-- --------------------------------------------------
+             EN-TÊTE
+        --------------------------------------------------- -->
+
+        <div class="music-header">
+
+            <span class="section-label">
+                MUSIQUE
+            </span>
+
+            <h2>
+                Entrez dans<br>
+                notre univers sonore.
+            </h2>
+
+            <p>
+                Retrouvez ici les compositions originales de The Dissidents.
+            </p>
+
+        </div>
+
+
+        <!-- --------------------------------------------------
+             ZONE PROTÉGÉE
+        --------------------------------------------------- -->
+
+        <div id="passwordOverlay" class="music-lock">
+
+    <div class="lock-icon">
+        🔒
+    </div>
+
+    <h3>
+        Espace privé
+    </h3>
+
+    <p>
+        Cette partie du site est réservée
+        aux personnes ayant accès aux morceaux.
+    </p>
+
+    <label for="passwordInput">
+        Mot de passe
+    </label>
+
+    <div class="password-row">
+
+        <input
+            type="password"
+            id="passwordInput"
+            placeholder="Mot de passe"
+            autocomplete="off"
+        >
+
+        <button
+            type="button"
+            class="btn-main"
+            onclick="checkPassword()"
+        >
+            Écouter
+        </button>
+
+    </div>
+
+    <p
+        id="passwordError"
+        class="music-error"
+    ></p>
+
+</div>
+
+
+
+        <!-- --------------------------------------------------
+             PLAYLIST
+             --------------------------------------------------
+             Cette zone est cachée tant que le mot de passe
+             n'est pas correctement saisi.
+        --------------------------------------------------- -->
+
+        <div
+            id="musicPlayer"
+            class="music-player"
+            hidden
+        >
+
+            <div class="music-player-header">
+
+                <span class="section-label">
+                    ACCÈS AUTORISÉ
+                </span>
+
+                <h3>
+                    Les morceaux
+                </h3>
+
+            </div>
+
+
+            <!-- MORCEAU 01 -->
+
+            <article class="track">
+
+                <div class="track-number">
+                    01
+                </div>
+
+                <div class="track-info">
+
+                    <h4>
+                        At that time
+                    </h4>
+
+                    <span>
+                        The Dissidents
+                    </span>
+
+                </div>
+
+                <audio controls preload="none">
+
+                    <source
+                        src="assets/audio/AUD-20260418-WA0002_AtThatTime.mp3"
+                        type="audio/mpeg"
+                    >
+
+                    Votre navigateur ne peut pas lire
+                    ce fichier audio.
+
+                </audio>
+
+            </article>
+
+
+            <!-- MORCEAU 02 -->
+
+            <article class="track">
+
+                <div class="track-number">
+                    02
+                </div>
+
+                <div class="track-info">
+
+                    <h4>
+                        Trigger
+                    </h4>
+
+                    <span>
+                        The Dissidents
+                    </span>
+
+                </div>
+
+                <audio controls preload="none">
+
+                    <source
+                        src="assets/audio/trigger_2026_06_17.mp3"
+                        type="audio/mpeg"
+                    >
+
+                    Votre navigateur ne peut pas lire
+                    ce fichier audio.
+
+                </audio>
+
+            </article>
+
+
+            <!-- MORCEAU 03 -->
+
+            <article class="track">
+
+                <div class="track-number">
+                    03
+                </div>
+
+                <div class="track-info">
+
+                    <h4>
+                        Vine Roots
+                    </h4>
+
+                    <span>
+                        The Dissidents
+                    </span>
+
+                </div>
+
+                <audio controls preload="none">
+
+                    <source
+                        src="assets/audio/vine_roots_voixGAB_v3_studio_fxt.mp3"
+                        type="audio/mpeg"
+                    >
+
+                    Votre navigateur ne peut pas lire
+                    ce fichier audio.
+
+                </audio>
+            </article>
+
+            <!-- MORCEAU 04 -->
+
+            <article class="track">
+
+                <div class="track-number">
+                    04
+                </div>
+
+                <div class="track-info">
+
+                    <h4>
+                        Hush
+                    </h4>
+
+                    <span>
+                        The Dissidents
+                    </span>
+
+                </div>
+
+                <audio controls preload="none">
+
+                    <source
+                        src="assets/audio/HUSH_2026_06_17.mp3"
+                        type="audio/mpeg"
+                    >
+
+                    Votre navigateur ne peut pas lire
+                    ce fichier audio.
+
+                </audio>
+            </article>
+
+            <!-- MORCEAU 05 -->
+
+            <article class="track">
+
+                <div class="track-number">
+                    05
+                </div>
+
+                <div class="track-info">
+
+                    <h4>
+                        Talk to me
+                    </h4>
+
+                    <span>
+                        The Dissidents
+                    </span>
+
+                </div>
+
+                <audio controls preload="none">
+
+                    <source
+                        src="assets/audio/TALK_TO_ME_piano_voix_ed_2026_07_11.mp3"
+                        type="audio/mpeg"
+                    >
+
+                    Votre navigateur ne peut pas lire
+                    ce fichier audio.
+
+                </audio>
+            </article>
+
+            <!-- MORCEAU 06 -->
+
+            <article class="track">
+
+                <div class="track-number">
+                    06
+                </div>
+
+                <div class="track-info">
+
+                    <h4>
+                        #1 Priority
+                    </h4>
+
+                    <span>
+                        The Dissidents
+                    </span>
+
+                </div>
+
+                <audio controls preload="none">
+
+                    <source
+                        src="assets/audio/e_roots_voixGAB_v3_studio_fxt.mp3"
+                        type="audio/mpeg"
+                    >
+
+                    Votre navigateur ne peut pas lire
+                    ce fichier audio.
+
+                </audio>
+            </article>
+
+            <!-- MORCEAU 07 -->
+
+            <article class="track">
+
+                <div class="track-number">
+                    07
+                </div>
+
+                <div class="track-info">
+
+                    <h4>
+                        Brains are burning
+                    </h4>
+
+                    <span>
+                        The Dissidents
+                    </span>
+
+                </div>
+
+                <audio controls preload="none">
+
+                    <source
+                        src="assets/audio/_roots_voixGAB_v3_studio_fxt.mp3"
+                        type="audio/mpeg"
+                    >
+
+                    Votre navigateur ne peut pas lire
+                    ce fichier audio.
+
+                </audio>
+            </article>
+
+            <!-- MORCEAU 08 -->
+
+            <article class="track">
+
+                <div class="track-number">
+                    08
+                </div>
+
+                <div class="track-info">
+
+                    <h4>
+                        Love @ First Sight
+                    </h4>
+
+                    <span>
+                        The Dissidents
+                    </span>
+
+                </div>
+
+                <audio controls preload="none">
+
+                    <source
+                        src="assets/audio/vie_roots_voixGAB_v3_studio_fxt.mp3"
+                        type="audio/mpeg"
+                    >
+
+                    Votre navigateur ne peut pas lire
+                    ce fichier audio.
+
+                </audio>
+
+            </article>
+
+
+            <!-- ------------------------------------------------
+                 BOUTON VERROUILLAGE
+            ------------------------------------------------- -->
+
+            <button
+        type="button"
+        class="music-lock-button"
+        onclick="lockMusic()"
+        >
+        🔒 Verrouiller les morceaux
+            </button>
+
+        </div>
+
+        <a href="#gallery"
+               class="btn-main">
+
+                Regardez nos photos
+
+        </a>
+
+        <div class="scroll-indicator">
+
+        ↓
+
+    </div>
+    </div>
+
+    
+
+</section>
+
+
+
+<!-- ==========================================================
+     GALERIE
+     ----------------------------------------------------------
+     Les images sont stockées dans :
+
+     assets/media/
+     ├── image1.png
+     ├── image2.png
+     ├── ...
+     └── image27.png
+
+     Pour ajouter/remplacer une photo :
+     il suffit de conserver le nom du fichier.
+=========================================================== -->
+
+<section id="gallery" class="gallery-section">
+
+    <div class="gallery-container">
+
+        <!-- ==================================================
+             EN-TÊTE
+        =================================================== -->
+
+        <div class="gallery-header">
+
+            <div>
+
+                <span class="section-label">
+                    GALERIE
+                </span>
+
+                <h2>
+                    Le groupe.<br>
+                    En images.
+                </h2>
+
+            </div>
+
+            <p>
+                Concerts, répétitions, coulisses et moments
+                partagés : quelques fragments de l'univers
+                de The Dissidents.
+            </p>
+
+        </div>
+
+
+        <!-- ==================================================
+             GRILLE DES IMAGES
+        =================================================== -->
+
+        <div class="gallery-grid">
+
+
+            <!-- IMAGE 01 -->
+
+            <button
+                class="gallery-item gallery-item-large"
+                type="button"
+                data-gallery="0"
+                aria-label="Ouvrir la photo 1"
+            >
+
+                <img
+                    src="assets/images/gallery/image1.jpg"
+                    alt="The Dissidents — photo 1"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    01
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 02 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="1"
+                aria-label="Ouvrir la photo 2"
+            >
+
+                <img
+                    src="assets/images/gallery/image2.JPG"
+                    alt="Les Dissidents — photo 2"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    02
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 03 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="2"
+                aria-label="Ouvrir la photo 3"
+            >
+
+                <img
+                    src="assets/images/gallery/image3.JPG"
+                    alt="Les Dissidents — photo 3"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    03
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 04 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="3"
+                aria-label="Ouvrir la photo 4"
+            >
+
+                <img
+                    src="assets/images/gallery/image4.JPG"
+                    alt="Les Dissidents — photo 4"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    04
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 05 -->
+
+            <button
+                class="gallery-item gallery-item-wide"
+                type="button"
+                data-gallery="4"
+                aria-label="Ouvrir la photo 5"
+            >
+
+                <img
+                    src="assets/images/gallery/image5.jpg"
+                    alt="Les Dissidents — photo 5"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    05
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 06 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="5"
+                aria-label="Ouvrir la photo 6"
+            >
+
+                <img
+                    src="assets/images/gallery/image6.jpg"
+                    alt="Les Dissidents — photo 6"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    06
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 07 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="6"
+                aria-label="Ouvrir la photo 7"
+            >
+
+                <img
+                    src="assets/images/gallery/image7.jpg"
+                    alt="Les Dissidents — photo 7"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    07
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 08 -->
+
+            <button
+                class="gallery-item gallery-item-large"
+                type="button"
+                data-gallery="7"
+                aria-label="Ouvrir la photo 8"
+            >
+
+                <img
+                    src="assets/images/gallery/image8.jpg"
+                    alt="Les Dissidents — photo 8"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    08
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 09 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="8"
+                aria-label="Ouvrir la photo 9"
+            >
+
+                <img
+                    src="assets/images/gallery/image9.jpg"
+                    alt="Les Dissidents — photo 9"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    09
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 10 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="9"
+                aria-label="Ouvrir la photo 10"
+            >
+
+                <img
+                    src="assets/images/gallery/image10.jpg"
+                    alt="Les Dissidents — photo 10"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    10
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 11 -->
+
+            <button
+                class="gallery-item gallery-item-wide"
+                type="button"
+                data-gallery="10"
+                aria-label="Ouvrir la photo 11"
+            >
+
+                <img
+                    src="assets/images/gallery/image11.jpg"
+                    alt="Les Dissidents — photo 11"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    11
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 12 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="11"
+                aria-label="Ouvrir la photo 12"
+            >
+
+                <img
+                    src="assets/images/gallery/image12.jpg"
+                    alt="Les Dissidents — photo 12"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    12
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 13 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="12"
+                aria-label="Ouvrir la photo 13"
+            >
+
+                <img
+                    src="assets/images/gallery/image13.jpg"
+                    alt="Les Dissidents — photo 13"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    13
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 14 -->
+
+            <button
+                class="gallery-item gallery-item-large"
+                type="button"
+                data-gallery="13"
+                aria-label="Ouvrir la photo 14"
+            >
+
+                <img
+                    src="assets/images/gallery/2026_06_23/photo (1).jpg"
+                    alt="Les Dissidents — photo 14"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    14
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 15 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="14"
+                aria-label="Ouvrir la photo 15"
+            >
+
+                <img
+                    src="assets/images/gallery/2026_06_23/photo (2).jpg"
+                    alt="Les Dissidents — photo 15"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    15
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 16 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="15"
+                aria-label="Ouvrir la photo 16"
+            >
+
+                <img
+                    src="assets/images/gallery/2026_06_23/photo (3).jpg"
+                    alt="Les Dissidents — photo 16"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    16
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 17 -->
+
+            <button
+                class="gallery-item gallery-item-wide"
+                type="button"
+                data-gallery="16"
+                aria-label="Ouvrir la photo 17"
+            >
+
+                <img
+                    src="assets/images/gallery/2026_06_23/photo (4).JPG"
+                    alt="Les Dissidents — photo 17"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    17
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 18 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="17"
+                aria-label="Ouvrir la photo 18"
+            >
+
+                <img
+                    src="assets/images/gallery/2026_06_23/photo (5).JPG"
+                    alt="Les Dissidents — photo 18"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    18
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 19 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="18"
+                aria-label="Ouvrir la photo 19"
+            >
+
+                <img
+                    src="assets/images/gallery/2026_06_23/photo (6).JPG"
+                    alt="Les Dissidents — photo 19"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    19
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 20 -->
+
+            <button
+                class="gallery-item gallery-item-large"
+                type="button"
+                data-gallery="19"
+                aria-label="Ouvrir la photo 20"
+            >
+
+                <img
+                    src="assets/images/gallery/2026_06_23/photo (7).JPG"
+                    alt="Les Dissidents — photo 20"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    20
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 21 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="20"
+                aria-label="Ouvrir la photo 21"
+            >
+
+                <img
+                    src="assets/images/gallery/2026_06_23/photo (8).JPG"
+                    alt="Les Dissidents — photo 21"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    21
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 22 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="21"
+                aria-label="Ouvrir la photo 22"
+            >
+
+                <img
+                    src="assets/images/gallery/2026_06_23/photo (9).JPG"
+                    alt="Les Dissidents — photo 22"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    22
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 23 -->
+
+            <button
+                class="gallery-item gallery-item-wide"
+                type="button"
+                data-gallery="22"
+                aria-label="Ouvrir la photo 23"
+            >
+
+                <img
+                    src="assets/images/gallery/2026_06_23/photo (10).JPG"
+                    alt="Les Dissidents — photo 23"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    23
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 24 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="23"
+                aria-label="Ouvrir la photo 24"
+            >
+
+                <img
+                    src="assets/images/gallery/2026_06_23/photo (11).JPG"
+                    alt="Les Dissidents — photo 24"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    24
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 25 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="24"
+                aria-label="Ouvrir la photo 25"
+            >
+
+                <img
+                    src="assets/images/gallery/2026_06_23/photo (12).JPG"
+                    alt="Les Dissidents — photo 25"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    25
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 26 -->
+
+            <button
+                class="gallery-item gallery-item-large"
+                type="button"
+                data-gallery="25"
+                aria-label="Ouvrir la photo 26"
+            >
+
+                <img
+                    src="assets/images/gallery/2026_06_23/photo (13).JPG"
+                    alt="Les Dissidents — photo 26"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    26
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+            <!-- IMAGE 27 -->
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-gallery="26"
+                aria-label="Ouvrir la photo 27"
+            >
+
+                <img
+                    src="assets/images/gallery/2026_06_23/photo (14).JPG"
+                    alt="Les Dissidents — photo 27"
+                    loading="lazy"
+                >
+
+                <span class="gallery-number">
+                    27
+                </span>
+
+                <span class="gallery-overlay">
+                    Voir →
+                </span>
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- ======================================================
+         LIGHTBOX
+         ------------------------------------------------------
+         Une image s'ouvre en grand lorsque l'utilisateur
+         clique dessus.
+    ======================================================= -->
+
+    <div
+        id="galleryLightbox"
+        class="gallery-lightbox"
+        aria-hidden="true"
+    >
+
+        <button
+            id="galleryClose"
+            class="gallery-close"
+            type="button"
+            aria-label="Fermer"
+        >
+            ×
+        </button>
+
+        <button
+            id="galleryPrevious"
+            class="gallery-navigation gallery-previous"
+            type="button"
+            aria-label="Photo précédente"
+        >
+            ←
+        </button>
+
+        <div class="gallery-lightbox-content">
+
+            <img
+                id="galleryLightboxImage"
+                src=""
+                alt=""
+            >
+
+            <div class="gallery-lightbox-caption">
+
+                <span id="galleryLightboxNumber">
+                    01
+                </span>
+
+                <span>
+                    THE DISSIDENTS
+                </span>
+
+            </div>
+
+        </div>
+
+        <button
+            id="galleryNext"
+            class="gallery-navigation gallery-next"
+            type="button"
+            aria-label="Photo suivante"
+        >
+            →
+        </button>
+
+    </div>
+
+    <a href="#contact"
+               class="btn-main">
+
+                Contactez-nous
+
+    </a>
+
+    <div class="scroll-indicator">
+
+        ↓
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================================
+     CONTACT
+=========================================================== -->
+
+<section id="contact" class="contact-section">
+
+    <div class="contact-container">
+
+        <!-- ==================================================
+             EN-TÊTE
+        =================================================== -->
+
+        <div class="contact-header">
+
+            <span class="section-label">
+                CONTACT
+            </span>
+
+            <h2>
+                Parlons-nous.
+            </h2>
+
+            <p>
+                Une question, une proposition de concert,
+                une collaboration ou simplement envie
+                de nous écrire ?
+            </p>
+
+        </div>
+
+
+        <!-- ==================================================
+             CONTENU
+        =================================================== -->
+
+        <div class="contact-content">
+
+
+            <!-- ==================================================
+                 INFORMATIONS
+            =================================================== -->
+
+            <div class="contact-info">
+
+                <div class="contact-intro">
+
+                    <span class="contact-index">
+                        01
+                    </span>
+
+                    <h3>
+                        The Dissidents
+                    </h3>
+
+                    <p>
+                        Rock<br>
+                        Le bruit. La poésie. La résistance.
+                    </p>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="contact-block">
+
+                    <span class="contact-label">
+                        EMAIL
+                    </span>
+
+                    <a
+                        href="mailto:ed.ferry@gmail.com"
+                        class="contact-link"
+                    >
+                        ed.ferry@gmail.com
+                    </a>
+
+                </div>
+
+                <!-- TEL -->
+
+                <div class="contact-block">
+
+                    <span class="contact-label">
+                        TELEPHONE
+                    </span>
+
+                    <a
+                        
+                    >
+                        06 13 71 41 76
+                    </a>
+
+                </div>
+
+
+                <!-- RÉSEAUX -->
+
+                <div class="contact-block">
+
+                    <span class="contact-label">
+                        SUIVRE LE GROUPE
+                    </span>
+
+                    <div class="contact-socials">
+
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Instagram
+                        </a>
+
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Facebook
+                        </a>
+
+                        <a
+                            href="https://youtu.be/5__7S3G2z7A"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            YouTube
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ==================================================
+                 FORMULAIRE
+            =================================================== -->
+
+            <div class="contact-form-wrapper">
+
+                <span class="contact-index">
+                    02
+                </span>
+
+                <h3>
+                    Envoyer un message
+                </h3>
+
+
+                <form
+                    id="contactForm"
+                    class="contact-form"
+                >
+
+
+                    <!-- NOM -->
+
+                    <div class="form-group">
+
+                        <label for="contactName">
+                            Votre nom
+                        </label>
+
+                        <input
+                            type="text"
+                            id="contactName"
+                            name="name"
+                            placeholder="Nom / prénom"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="contactEmail">
+                            Votre adresse email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="contactEmail"
+                            name="email"
+                            placeholder="vous@exemple.fr"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- SUJET -->
+
+                    <div class="form-group">
+
+                        <label for="contactSubject">
+                            Sujet
+                        </label>
+
+                        <select
+                            id="contactSubject"
+                            name="subject"
+                        >
+
+                            <option value="">
+                                Choisir un sujet
+                            </option>
+
+                            <option value="concert">
+                                Concert / programmation
+                            </option>
+
+                            <option value="collaboration">
+                                Collaboration
+                            </option>
+
+                            <option value="presse">
+                                Presse / média
+                            </option>
+
+                            <option value="autre">
+                                Autre
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- MESSAGE -->
+
+                    <div class="form-group">
+
+                        <label for="contactMessage">
+                            Votre message
+                        </label>
+
+                        <textarea
+                            id="contactMessage"
+                            name="message"
+                            rows="6"
+                            placeholder="Écrivez votre message..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- BOUTON -->
+
+                    <button
+                        type="submit"
+                        class="btn-main contact-submit"
+                    >
+                        Envoyer le message
+                        <span>→</span>
+                    </button>
+
+
+                    <!-- MESSAGE DE RETOUR -->
+
+                    <p
+                        id="contactStatus"
+                        class="contact-status"
+                        aria-live="polite"
+                    ></p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 <script src="js/navigation.js"></script>
 <script src="js/scroll.js"></script>
 <script src="js/hero.js"></script>
 <script src="js/app.js"></script>
+<script src="js/music.js"></script>
+<script src="js/gallery.js"></script>
 
 </body>
 
