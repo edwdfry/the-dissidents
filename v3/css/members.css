@@ -1,0 +1,337 @@
+/* ==========================================================
+   SECTION — LES MEMBRES
+========================================================== */
+
+.members {
+
+    padding: 130px 8%;
+
+    background-image: url("../assets/images/fond.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    position: relative;
+    overflow: hidden;
+
+}
+
+.members::before {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: var(--hero-overlay);
+
+    z-index: 0;
+
+}
+
+.members-header,
+.members-grid {
+
+    position: relative;
+    z-index: 1;
+
+}
+
+
+/* ----------------------------------------------------------
+   En-tête
+---------------------------------------------------------- */
+
+.members-header {
+
+    max-width: 1200px;
+
+    margin: 0 auto 70px;
+
+}
+
+.members-header .section-label {
+
+    display: block;
+
+    margin-bottom: 20px;
+
+    color: #0f4c5c;
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    letter-spacing: .25em;
+
+}
+
+.members-header h2 {
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(2.8rem, 6vw, 3rem);
+
+    line-height: .95;
+
+    letter-spacing: -.04em;
+
+}
+
+
+/* ----------------------------------------------------------
+   Grille
+---------------------------------------------------------- */
+
+.members-grid {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 70px 45px;
+
+}
+
+
+/* ----------------------------------------------------------
+   Carte
+---------------------------------------------------------- */
+
+.member-card {
+
+    position: relative;
+
+}
+
+
+/* ----------------------------------------------------------
+   Zone photo
+---------------------------------------------------------- */
+
+.member-photo {
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    overflow: hidden;
+
+    background: #151515;
+
+    position: relative;
+
+}
+
+
+/*
+   Emplacement temporaire des photos.
+   Il disparaîtra dès qu'on intégrera les vraies images.
+*/
+
+.member-photo-placeholder {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: flex-start;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #101010,
+            #142f35
+        );
+
+}
+
+
+.member-photo-placeholder span {
+
+    color: rgba(255,255,255,.15);
+
+    font-size: 7rem;
+
+    font-weight: 800;
+
+    line-height: 1;
+
+}
+
+
+/* ----------------------------------------------------------
+   Quand les vraies photos seront ajoutées
+---------------------------------------------------------- */
+
+.member-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    filter: grayscale(15%);
+
+    transition:
+        transform .6s ease,
+        filter .6s ease;
+
+}
+
+
+.member-card:hover .member-photo img {
+
+    transform: scale(1.04);
+
+    filter: grayscale(0%);
+
+}
+
+
+/* ----------------------------------------------------------
+   Informations
+---------------------------------------------------------- */
+
+.member-info {
+
+    padding: 25px 5px 0;
+
+}
+
+
+.member-role {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #0f4c5c;
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    letter-spacing: .2em;
+
+}
+
+
+.member-info h3 {
+
+    margin: 0 0 15px;
+
+    color: #ffffff;
+
+    font-size: clamp(2rem, 4vw, 3.2rem);
+
+    line-height: 1;
+
+}
+
+
+.member-info p {
+
+    margin-top:40px;
+
+    margin-bottom:60px;
+
+    color:#dddddd;
+
+    font-size:1.3rem;
+
+    line-height:2;
+
+}
+
+
+/* ----------------------------------------------------------
+   Ligne décorative
+---------------------------------------------------------- */
+
+.member-card::after {
+
+    content: "";
+
+    display: block;
+
+    width: 45px;
+
+    height: 2px;
+
+    margin-top: 25px;
+
+    background: #0f4c5c;
+
+    transition: width .4s ease;
+
+}
+
+
+.member-card:hover::after {
+
+    width: 100px;
+
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 700px) {
+
+    .members {
+
+        padding: 90px 7%;
+
+    }
+
+
+    .members-header {
+
+        margin-bottom: 50px;
+
+    }
+
+
+    .members-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 65px;
+
+    }
+
+
+    .member-photo {
+
+        aspect-ratio: 4 / 5;
+
+    }
+
+
+    .member-info h3 {
+
+        font-size: 2.5rem;
+
+    }
+
+}

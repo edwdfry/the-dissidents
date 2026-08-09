@@ -1,0 +1,471 @@
+/* ==========================================================
+   SECTION MUSIQUE
+========================================================== */
+
+.music-section {
+
+    padding: 140px 8%;
+
+    background-image: url("../assets/images/fond.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    position: relative;
+    overflow: hidden;
+
+}
+
+.music-section::before {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: var(--hero-overlay);
+
+    z-index: 0;
+
+}
+
+.music-container {
+
+    position: relative;
+    z-index: 1;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+}
+
+
+/* ----------------------------------------------------------
+   EN-TÊTE
+---------------------------------------------------------- */
+
+.music-header {
+
+    max-width: 750px;
+
+    margin-bottom: 70px;
+
+}
+
+
+.music-header .section-label {
+
+    display: block;
+
+    margin-bottom: 20px;
+
+    color: #0f4c5c;
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    letter-spacing: .25em;
+
+}
+
+
+.music-header h2 {
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(2.8rem, 6vw, 3rem);
+
+    line-height: .95;
+
+    letter-spacing: -.04em;
+
+}
+
+
+.music-header p {
+
+    margin-top:40px;
+
+    margin-bottom:60px;
+
+    color:#dddddd;
+
+    font-size:1.3rem;
+
+    line-height:2;
+
+}
+
+
+/* ----------------------------------------------------------
+   ÉCRAN DE VERROUILLAGE
+---------------------------------------------------------- */
+
+.music-lock {
+
+    max-width: 650px;
+
+    padding: 55px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    background: rgba(255,255,255,.025);
+
+    text-align: center;
+
+}
+
+
+.lock-icon {
+
+    margin-bottom: 20px;
+
+    font-size: 2rem;
+
+}
+
+
+.music-lock h3 {
+
+    margin: 0 0 15px;
+
+    color: #fff;
+
+    font-size: 2rem;
+
+}
+
+
+.music-lock > p {
+
+    margin: 0 auto 35px;
+
+    max-width: 500px;
+
+    color: #999;
+
+    line-height: 1.7;
+
+}
+
+
+/* ----------------------------------------------------------
+   MOT DE PASSE
+---------------------------------------------------------- */
+
+.password-form {
+
+    max-width: 450px;
+
+    margin: 0 auto;
+
+    text-align: left;
+
+}
+
+
+.password-form label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #aaa;
+
+    font-size: .75rem;
+
+    letter-spacing: .15em;
+
+    text-transform: uppercase;
+
+}
+
+
+.password-row {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+
+.password-row input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 15px 18px;
+
+    border: 1px solid #333;
+
+    outline: none;
+
+    background: #111;
+
+    color: #fff;
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+}
+
+
+.password-row input:focus {
+
+    border-color: #0f4c5c;
+
+}
+
+
+.password-row .btn-main {
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+
+.music-error {
+
+    min-height: 20px;
+
+    margin: 12px 0 0;
+
+    color: #c97865;
+
+    font-size: .85rem;
+
+}
+
+
+/* ----------------------------------------------------------
+   LECTEUR
+---------------------------------------------------------- */
+
+.music-player {
+
+    animation: musicReveal .7s ease both;
+
+}
+
+
+@keyframes musicReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+.music-player-header {
+
+    margin-bottom: 35px;
+
+}
+
+
+.music-player-header h3 {
+
+    margin: 12px 0 0;
+
+    color: #fff;
+
+    font-size: 2.5rem;
+
+}
+
+
+/* ----------------------------------------------------------
+   MORCEAUX
+---------------------------------------------------------- */
+
+.track {
+
+    display: grid;
+
+    grid-template-columns: 70px 1fr auto;
+
+    gap: 25px;
+
+    align-items: center;
+
+    padding: 25px 0;
+
+    border-top: 1px solid rgba(255,255,255,.1);
+
+}
+
+
+.track:last-of-type {
+
+    border-bottom: 1px solid rgba(255,255,255,.1);
+
+}
+
+
+.track-number {
+
+    color: #0f4c5c;
+
+    font-size: 1.1rem;
+
+    font-weight: 700;
+
+}
+
+
+.track-info h4 {
+
+    margin: 0 0 7px;
+
+    color: #fff;
+
+    font-size: 1.2rem;
+
+}
+
+
+.track-info span {
+
+    color: #777;
+
+    font-size: .85rem;
+
+}
+
+
+.track audio {
+
+    width: 320px;
+
+}
+
+
+/* ----------------------------------------------------------
+   VERROUILLAGE
+---------------------------------------------------------- */
+
+.music-lock-button {
+
+    margin-top: 35px;
+
+    padding: 12px 20px;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    background: transparent;
+
+    color: #aaa;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+
+}
+
+
+.music-lock-button:hover {
+
+    border-color: #0f4c5c;
+
+    color: #fff;
+
+}
+
+
+/* ----------------------------------------------------------
+   MOBILE
+---------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+    .music-section {
+
+        padding: 90px 7%;
+
+    }
+
+
+    .music-lock {
+
+        padding: 35px 25px;
+
+    }
+
+
+    .password-row {
+
+        flex-direction: column;
+
+    }
+
+
+    .password-row .btn-main {
+
+        width: 100%;
+
+    }
+
+
+    .track {
+
+        grid-template-columns: 45px 1fr;
+
+        gap: 15px;
+
+    }
+
+
+    .track audio {
+
+        grid-column: 1 / -1;
+
+        width: 100%;
+
+    }
+
+}
+/* ==========================================================
+   CORRECTION AFFICHAGE LECTEUR MUSIQUE
+========================================================== */
+
+.music-player[hidden] {
+    display: none !important;
+}
+
+.music-player:not([hidden]) {
+    display: block !important;
+}
+
+.track {
+    display: grid !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.track audio {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
