@@ -168,28 +168,44 @@ scale(1.25);
    SECTION LE GROUPE
 ========================================================== */
 
-.about{
+.about {
+    position: relative;
 
-    background:#090909;
+    background-image: url("../assets/images/fond.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 
-    padding:120px 8%;
+    padding: 120px 8%;
 
+    overflow: hidden;
 }
 
-.about-container{
+.about::before {
+    content: "";
+    position: absolute;
+    inset: 0;
 
-    display:grid;
+    background: var(--hero-overlay);
 
-    grid-template-columns:1fr 1fr;
+    z-index: 0;
+}
 
-    gap:70px;
+.about-container {
+    position: relative;
+    z-index: 1;
 
-    align-items:center;
+    display: grid;
 
-    max-width:1400px;
+    grid-template-columns: 1fr 1fr;
 
-    margin:auto;
+    gap: 70px;
 
+    align-items: center;
+
+    max-width: 1400px;
+
+    margin: auto;
 }
 
 .about-image img{
@@ -611,18 +627,42 @@ gap:20px;
    SECTION MUSIQUE
 ========================================================== */
 
-.music-section {
+/* ==========================================================
+SECTION — LES MEMBRES
+========================================================== */
 
-    padding: 140px 8%;
+.members {
 
-    background:
-        linear-gradient(
-            180deg,
-            #090909 0%,
-            #0d1517 100%
-        );
+    padding: 130px 8%;
+
+    background-image: url("../assets/images/fond.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 
     position: relative;
+    overflow: hidden;
+
+}
+
+.members::before {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: var(--hero-overlay);
+
+    z-index: 0;
+
+}
+
+.members-header,
+.members-grid {
+
+    position: relative;
+    z-index: 1;
 
 }
 
