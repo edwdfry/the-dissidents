@@ -1,0 +1,62 @@
+/* ==========================================================
+   VARIABLES GLOBALES
+
+   Toutes les couleurs du site sont définies ici.
+
+   Si vous souhaitez modifier l'identité graphique,
+   changez uniquement ces valeurs.
+
+========================================================== */
+
+:root{
+
+    /* Couleurs */
+
+    --color-black:#090909;
+
+    --color-white:#F5F4F2;
+
+    --color-petrol:#0F4C5C;
+
+    --color-red:#8D1E2F;
+
+    --color-copper:#A36A45;
+
+    --color-grey:#8C8C8C;
+
+    /* Espacements */
+
+    --space-xs:.5rem;
+
+    --space-s:1rem;
+
+    --space-m:2rem;
+
+    --space-l:4rem;
+
+    --space-xl:8rem;
+
+    /* Coins */
+
+    --radius:10px;
+
+    /* Transitions */
+
+    --transition:.35s ease;
+
+/* ==========================================================
+   OMBRES ET EFFETS
+========================================================== */
+
+--shadow-blue:0 0 80px rgba(15,76,92,.45);
+
+--shadow-red:0 0 80px rgba(177,28,46,.25);
+
+--hero-overlay:linear-gradient(
+180deg,
+rgba(0,0,0,.45),
+rgba(0,0,0,.80)
+);
+
+}
+

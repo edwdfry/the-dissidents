@@ -1,0 +1,36 @@
+/* ==========================================================
+   BOUTON PRINCIPAL
+========================================================== */
+
+.btn-main{
+
+    display:inline-block;
+
+    padding:18px 55px;
+
+    border:2px solid var(--color-petrol);
+
+    color:white;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-blue);
+
+}
+
+.btn-main:hover{
+
+    background:var(--color-petrol);
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 0 45px rgba(15,76,92,.75);
+
+
+}
