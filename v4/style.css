@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
 /* =========================================================
    VARIABLES
    ========================================================= */
@@ -93,15 +95,20 @@ img {
     align-items: center;
     justify-content: center;
 
-    gap: 53px;
+    gap: 100px;
     margin-left: 78px;
 }
 
 .main-nav a {
-    font-family: var(--font-display);
-    font-size: 16px;
+    font-family: 'Archivo Black', serif;
+    font-size: 15px;
+
     white-space: nowrap;
+
+    transform: scaleX(1.75);
+    transform-origin: center ;
 }
+
 
 .main-nav .active {
     text-decoration: underline;
@@ -220,11 +227,14 @@ img {
 
     color: var(--color-yellow);
 
-    font-family: var(--font-display);
-    font-size: clamp(60px, 7vw, 110px);
+    font-family: 'Archivo Black', serif;
+    font-size: clamp(60px, 7vw, 90px);
     font-weight: 900;
     line-height: 0.88;
     letter-spacing: 2px;
+
+    transform: scaleX(1.75);
+    transform-origin: left center;
 
     text-transform: uppercase;
 }
@@ -396,12 +406,16 @@ img {
 
     color: var(--color-yellow);
 
-    font-family: var(--font-display);
+    font-family: 'Archivo Black', serif;
     font-size: 53px;
     line-height: 1;
 
+    transform: scaleX(1.75);
+    transform-origin: center;
+
     text-align: center;
 }
+
 
 .story-columns {
     width: 1195px;
@@ -449,12 +463,16 @@ img {
 }
 
 .rest h2 {
-    margin-bottom: 55px;
+    margin-bottom: 43px;
 
     color: var(--color-yellow);
 
-    font-family: var(--font-display);
-    font-size: 42px;
+    font-family: 'Archivo Black', serif;
+    font-size: 53px;
+    line-height: 1;
+
+    transform: scaleX(1.75);
+    transform-origin: center;
 
     text-align: center;
 }
@@ -549,9 +567,12 @@ img {
 .music-card h3 {
     margin: 0;
 
-    font-family: var(--font-display);
+    font-family: 'Archivo Black', serif;
     font-size: 20px;
     line-height: 1.2;
+
+    transform: scaleX(1.75);
+    transform-origin: left;
 }
 
 .music-card p {
@@ -926,12 +947,17 @@ footer {
 }
 
 .gallery h2 {
-    margin-bottom: 35px;
+    margin-bottom: 43px;
 
     color: var(--color-yellow);
 
-    font-family: var(--font-display);
-    font-size: 42px;
+    font-family: 'Archivo Black', serif;
+    font-size: 53px;
+    line-height: 1;
+
+    transform: scaleX(1.75);
+    transform-origin: center;
+
     text-align: center;
 }
 

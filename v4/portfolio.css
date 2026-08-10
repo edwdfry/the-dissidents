@@ -112,7 +112,6 @@ img {
     transform-origin: center ;
 }
 
-
 .main-nav .active {
     text-decoration: underline;
     text-underline-offset: 3px;
@@ -146,11 +145,11 @@ img {
    MEMBRES
    ========================================================= */
 
-.members {
+.portfolio {
     padding: 90px 7vw 120px;
 }
 
-.members h1 {
+.portfolio h1 {
     margin: 0;
 
     color: var(--color-yellow);
@@ -172,7 +171,7 @@ img {
    GRILLE
    ========================================================= */
 
-.members-grid {
+.portfolio-grid {
     width: 100%;
     max-width: 1200px;
 
@@ -190,10 +189,10 @@ img {
    CARTE
    ========================================================= */
 
-.member-card {
+.portfolio-card {
     padding: 10px;
 
-    background: var(--color-red);
+    background: var(--color-black);
 
     transition:
         transform 0.25s ease,
@@ -201,24 +200,12 @@ img {
 }
 
 
-/* Couleurs */
 
-.member-red {
-    background: var(--color-red);
-}
-
-.member-yellow {
-    background: var(--color-yellow);
-}
-
-.member-blue {
-    background: var(--color-blue);
-}
 
 
 /* Survol */
 
-.member-card:hover {
+.portfolio-card:hover {
     transform: translateY(-5px);
 
     box-shadow:
@@ -226,48 +213,18 @@ img {
 }
 
 
-/* =========================================================
-   IMAGE
-   ========================================================= */
-
-.member-image-link {
-    display: block;
-
-    width: 100%;
-
-    overflow: hidden;
-
-    background: #111;
-
-    cursor: zoom-in;
-}
-
-.member-image-link img {
-    width: 100%;
-
-    aspect-ratio: 4 / 5;
-
-    object-fit: cover;
-
-    transition: transform 0.4s ease;
-}
-
-.member-card:hover .member-image-link img {
-    transform: scale(1.03);
-}
-
 
 /* =========================================================
    INFORMATIONS
    ========================================================= */
 
-.member-info {
+.portfolio-info {
     padding: 18px 12px 14px;
 
     text-align: center;
 }
 
-.member-info h2 {
+.portfolio-info h2 {
     color: var(--color-black);
 
     font-family: var(--font-display);
@@ -276,7 +233,7 @@ img {
     line-height: 1.2;
 }
 
-.member-info p {
+.portfolio-info p {
     margin-top: 5px;
 
     color: var(--color-black);
@@ -428,7 +385,7 @@ img {
         font-size: 12px;
     }
 
-    .members-grid {
+    .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -488,18 +445,18 @@ img {
 
     /* Membres */
 
-    .members {
+    .portfolio {
         padding: 55px 7vw 75px;
     }
 
-    .members h1 {
+    .portfolio h1 {
         margin-bottom: 40px;
 
         font-size: 34px;
         line-height: 1.1;
     }
 
-    .members-grid {
+    .portfolio-grid {
         grid-template-columns: 1fr;
 
         gap: 25px;
