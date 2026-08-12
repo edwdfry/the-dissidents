@@ -1,0 +1,824 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+/* =========================================================
+VARIABLES
+========================================================= */
+
+:root {
+
+--color-background: #090909;
+--color-background-dark: #0d0d0d;
+
+--color-text: #ffffff;
+
+--color-yellow: #ffdc18;
+--color-red: #e51b23;
+--color-blue: #3d5c5d;
+
+--color-black: #080808;
+--color-border: #222222;
+
+--font-body: "Poppins", Arial, sans-serif;
+--font-display: "Audiowide", sans-serif;
+
+
+}
+
+/* =========================================================
+RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+background: var(--color-background);
+color: var(--color-text);
+font-family: var(--font-body);
+}
+
+a {
+color: inherit;
+text-decoration: none;
+}
+
+img {
+display: block;
+max-width: 100%;
+}
+
+/* =========================================================
+HEADER
+========================================================= */
+
+.header {
+position: relative;
+z-index: 10;
+
+
+height: 103px;
+padding: 0 24px;
+
+display: flex;
+align-items: center;
+
+background: var(--color-background-dark);
+
+
+}
+
+/* Logo */
+
+.brand {
+width: 101px;
+flex: 0 0 101px;
+}
+
+.brand img {
+width: 101px;
+height: 68px;
+
+
+object-fit: contain;
+
+
+}
+
+/* Navigation */
+
+.main-nav {
+flex: 1;
+
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+gap: 100px;
+margin-left: 78px;
+
+
+}
+
+.main-nav a {
+font-family: 'Archivo Black', sans-serif;
+font-size: 15px;
+
+white-space: nowrap;
+
+transform: scaleX(1.75);
+transform-origin: center;
+
+
+}
+
+.main-nav .active {
+text-decoration: underline;
+text-underline-offset: 3px;
+}
+
+/* Menu */
+
+.menu-toggle {
+display: none;
+
+
+width: 38px;
+
+background: none;
+border: 0;
+
+cursor: pointer;
+
+
+}
+
+.menu-toggle span {
+display: block;
+
+height: 2px;
+margin: 7px 0;
+
+background: var(--color-text);
+
+
+}
+
+/* ==========================================================
+ÉCRAN DE VERROUILLAGE
+========================================================== */
+
+.music-lock {
+position: fixed;
+inset: 0;
+
+width: 100%;
+height: 100vh;
+
+padding: 0;
+
+background: #0b0b0b;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+text-align: center;
+
+z-index: 9999;
+
+
+}
+
+/* ==========================================================
+CONTENU CENTRAL
+========================================================== */
+
+.music-lock-content {
+width: 100%;
+max-width: 500px;
+
+
+padding: 30px;
+
+
+}
+
+/* ==========================================================
+TITRE
+========================================================== */
+
+.music-lock h3 {
+margin: 0 0 12px;
+
+
+color: #ffffff;
+
+font-size: 3rem;
+font-weight: 700;
+
+line-height: 1.1;
+
+letter-spacing: -0.04em;
+
+
+}
+
+/* ==========================================================
+SOUS-TITRE
+========================================================== */
+
+.music-lock-content > p {
+margin: 0 0 60px;
+
+
+color: #eeeeee;
+
+font-size: 1rem;
+line-height: 1.5;
+
+
+}
+
+/* ==========================================================
+FORMULAIRE
+========================================================== */
+
+.password-form {
+width: 100%;
+max-width: 312px;
+
+
+margin: 0 auto;
+
+text-align: left;
+
+
+}
+
+/* ==========================================================
+CHAMP MOT DE PASSE
+========================================================== */
+
+.password-form input {
+display: block;
+
+
+width: 100%;
+height: 45px;
+
+padding: 8px 2px;
+
+border: none;
+border-bottom: 1px solid #7f0808;
+
+outline: none;
+
+background: transparent;
+
+color: #ffffff;
+
+font-family: inherit;
+font-size: 1rem;
+
+transition: border-color 0.25s ease;
+
+
+}
+
+.password-form input::placeholder {
+color: #3f3f3f;
+opacity: 1;
+}
+
+.password-form input:focus {
+border-bottom-color: #ff0000;
+}
+
+/* ==========================================================
+BOUTON OK
+========================================================== */
+
+.music-password-button {
+display: block;
+
+
+width: 100%;
+height: 50px;
+
+margin-top: 53px;
+
+padding: 0;
+
+border: none;
+
+background: #f00000;
+
+color: #ffffff;
+
+font-family: inherit;
+font-size: 1rem;
+font-weight: 400;
+
+cursor: pointer;
+
+transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+
+}
+
+.music-password-button:hover {
+background: #ff1010;
+}
+
+.music-password-button:active {
+transform: scale(0.99);
+}
+
+/* ==========================================================
+MESSAGE D'ERREUR
+========================================================== */
+
+.music-error {
+min-height: 20px;
+
+
+margin: 15px 0 0;
+
+color: #ff5555;
+
+font-size: 0.85rem;
+
+text-align: center;
+
+
+}
+
+/* ==========================================================
+PAGE COMPOSITIONS
+========================================================== */
+
+.music-section {
+position: relative;
+
+
+width: 100%;
+min-height: 100vh;
+
+padding: 80px 4% 150px;
+
+background: #0b0b0b;
+
+overflow: hidden;
+
+
+}
+
+/* ==========================================================
+CONTENEUR
+========================================================== */
+
+.music-container {
+position: relative;
+
+width: 100%;
+max-width: 1480px;
+
+margin: 0 auto;
+
+}
+
+/* ==========================================================
+EN-TÊTE
+========================================================== */
+
+.music-header {
+max-width: 700px;
+
+
+margin-bottom: 75px;
+
+}
+
+.music-header .section-label {
+display: block;
+
+margin-bottom: 18px;
+
+color: var(--color-yellow);
+
+font-family: "Archivo Black", sans-serif;
+
+font-size: .85rem;
+
+letter-spacing: .25em;
+
+text-transform: uppercase;
+
+}
+
+.music-header h2 {
+margin: 0;
+
+    color: var(--color-yellow);
+
+    font-family: 'Archivo Black', serif;
+    font-size: clamp(60px, 7vw, 90px);
+    font-weight: 900;
+    line-height: 0.88;
+    letter-spacing: 2px;
+
+    transform: scaleX(1.75);
+    transform-origin: left center;
+
+    text-transform: uppercase;
+
+}
+
+.music-header p {
+max-width: 550px;
+
+margin-top: 28px;
+
+color: #888888;
+
+font-size: 1rem;
+
+line-height: 1.7;
+
+}
+
+/* ==========================================================
+GRILLE DES COMPOSITIONS
+========================================================== */
+
+.compositions-grid {
+display: grid;
+
+grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+column-gap: 48px;
+row-gap: 0;
+
+align-items: start;
+
+}
+
+/* ==========================================================
+PLACEMENT EN QUINCONCE
+
+1             2
+
+```
+    3             4
+```
+
+========================================================== */
+
+.composition-card:nth-child(1) {
+grid-column: 1;
+grid-row: 1;
+
+transform: translateY(0);
+
+}
+
+.composition-card:nth-child(2) {
+grid-column: 3;
+grid-row: 1;
+
+transform: translateY(0);
+
+}
+
+.composition-card:nth-child(3) {
+grid-column: 2;
+grid-row: 2;
+
+transform: translateY(170px);
+
+}
+
+.composition-card:nth-child(4) {
+grid-column: 4;
+grid-row: 2;
+
+transform: translateY(170px);
+
+}
+
+/* ==========================================================
+CARTE
+========================================================== */
+
+.composition-card {
+width: 100%;
+
+padding: 18px 18px 24px;
+
+background: #000000;
+
+border-radius: 12px;
+
+overflow: hidden;
+
+box-shadow: none;
+
+transition:
+    transform .35s ease,
+    background .35s ease;
+
+}
+
+/* ==========================================================
+IMAGE OVALE
+========================================================== */
+
+.composition-image {
+position: relative;
+
+width: 100%;
+
+aspect-ratio: .82;
+
+overflow: hidden;
+
+border-radius: 50%;
+
+background: #111111;
+
+}
+
+.composition-image img {
+display: block;
+
+ 
+width: 100%;
+height: 100%;
+
+object-fit: cover;
+
+transition:
+    transform .5s ease,
+    filter .5s ease;
+ 
+
+}
+
+/* ==========================================================
+HOVER
+========================================================== */
+
+.composition-card:hover .composition-image img {
+transform: scale(1.035);
+
+ 
+filter: brightness(1.08);
+ 
+
+}
+
+/* ==========================================================
+TITRE DU MORCEAU
+========================================================== */
+
+.composition-card h3 {
+margin: 10px 0 13px;
+
+ 
+color: var(--color-yellow);
+
+font-family: 'Archivo Black', serif;
+
+font-size: 1.05rem;
+
+font-weight: 500;
+
+line-height: 1.2;
+ 
+     letter-spacing: 2px;
+
+    /*transform: scaleX(1.75);
+    transform-origin: left center;
+
+    text-transform: uppercase; */
+
+
+}
+
+/* ==========================================================
+LECTEUR AUDIO
+========================================================== */
+
+.composition-card audio {
+display: block;
+
+ 
+width: 100%;
+
+height: 24px;
+
+margin: 0;
+
+border: 0;
+
+accent-color: var(--color-yellow);
+ 
+
+}
+
+/* ==========================================================
+CHROME / EDGE / SAFARI
+========================================================== */
+
+.composition-card audio::-webkit-media-controls-panel {
+background-color: #000000;
+}
+
+.composition-card audio::-webkit-media-controls-play-button {
+color: var(--color-yellow);
+}
+
+.composition-card audio::-webkit-media-controls-timeline {
+accent-color: var(--color-yellow);
+}
+
+.composition-card audio::-webkit-media-controls-current-time-display,
+.composition-card audio::-webkit-media-controls-time-remaining-display {
+color: #777777;
+}
+
+/* ==========================================================
+BOUTON VERROUILLAGE
+========================================================== */
+
+.music-lock-button {
+display: block;
+
+ 
+margin: 220px auto 0;
+
+padding: 12px 20px;
+
+border: 1px solid rgba(255,255,255,.15);
+
+background: transparent;
+
+color: #888888;
+
+font-family: var(--font-body);
+
+font-size: .85rem;
+
+cursor: pointer;
+
+transition:
+    border-color .3s ease,
+    color .3s ease;
+ 
+
+}
+
+.music-lock-button:hover {
+border-color: var(--color-yellow);
+
+ 
+color: #ffffff;
+ 
+
+}
+
+/* ==========================================================
+TABLETTE
+========================================================== */
+
+@media (max-width: 1100px) {
+
+ 
+.music-section {
+    padding: 80px 5% 130px;
+}
+
+
+.compositions-grid {
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    column-gap: 45px;
+
+    row-gap: 60px;
+}
+
+
+.composition-card:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+
+    transform: none;
+}
+
+
+.composition-card:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+
+    transform: none;
+}
+
+
+.composition-card:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+
+    transform: none;
+}
+
+
+.composition-card:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+
+    transform: none;
+}
+
+
+.music-lock-button {
+    margin-top: 60px;
+}
+ 
+
+}
+
+/* ==========================================================
+MOBILE
+========================================================== */
+
+@media (max-width: 650px) {
+
+.music-section {
+    padding: 70px 6% 100px;
+}
+
+
+.music-header {
+    margin-bottom: 55px;
+}
+
+
+.music-header h2 {
+    font-size: 3rem;
+}
+
+
+.music-header p {
+    font-size: .95rem;
+}
+
+
+.compositions-grid {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 45px;
+}
+
+
+.composition-card {
+    width: 100%;
+
+    max-width: 360px;
+
+    margin: 0 auto;
+}
+
+
+.composition-card:nth-child(1),
+.composition-card:nth-child(2),
+.composition-card:nth-child(3),
+.composition-card:nth-child(4) {
+    transform: none;
+}
+
+
+.music-lock-button {
+    margin-top: 50px;
+}
+
+
+.music-lock-content {
+    max-width: 100%;
+
+    padding: 25px;
+}
+
+
+.music-lock h3 {
+    font-size: 2.3rem;
+}
+
+
+.music-lock-content > p {
+    margin-bottom: 45px;
+
+    font-size: .95rem;
+}
+
+
+.password-form {
+    max-width: 100%;
+}
+
+
+.music-password-button {
+    margin-top: 45px;
+}
