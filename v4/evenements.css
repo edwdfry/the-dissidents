@@ -1,0 +1,722 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+/* ==========================================================
+   ÉVÉNEMENTS — THE DISSIDENTS
+========================================================== */
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background: #0b0b0b;
+
+    color: #ffffff;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+/* ==========================================================
+   NAVIGATION
+========================================================== */
+
+.site-header {
+
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    height: 70px;
+
+    padding:
+        0 3.3vw;
+
+    background: #0b0b0b;
+
+}
+
+
+.site-logo {
+
+    display: block;
+
+    width: 105px;
+
+    flex-shrink: 0;
+
+}
+
+
+.site-logo img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    object-fit: contain;
+
+}
+
+
+.main-navigation {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 42px;
+
+    margin-left: 55px;
+
+}
+
+
+.main-navigation a {
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    transition:
+        opacity .25s ease;
+
+}
+
+
+.main-navigation a:hover,
+.main-navigation a.active {
+
+    opacity: .6;
+
+}
+
+
+/* ==========================================================
+   PAGE
+========================================================== */
+
+.events-page {
+
+    width: 100%;
+
+    padding:
+        10px 3.3vw 50px;
+
+}
+
+
+/* ==========================================================
+   GRILLE
+========================================================== */
+
+.events-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 10px;
+
+}
+
+
+/* ==========================================================
+   CARTE
+========================================================== */
+
+.event-card {
+
+    min-width: 0;
+
+    border:
+        1px solid #202020;
+
+    background: #0b0b0b;
+
+}
+
+
+/* ==========================================================
+   ZONE IMAGE
+========================================================== */
+
+.event-image {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    background: #111111;
+
+}
+
+
+/* ==========================================================
+   IMAGE
+========================================================== */
+
+.event-image > img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform .65s cubic-bezier(.2,.65,.25,1);
+
+}
+
+
+/*
+   Léger zoom au survol.
+
+   La valeur 1.045 signifie +4,5 %.
+   Pour un effet plus marqué :
+   1.06 ou 1.08
+*/
+
+.event-card:hover .event-image > img {
+
+    transform: scale(1.045);
+
+}
+
+
+/* ==========================================================
+   PANNEAU NOIR "PLUS D'INFOS"
+========================================================== */
+
+.event-overlay {
+
+    position: absolute;
+
+    z-index: 5;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 40px;
+
+    background: #0b0b0b;
+
+    transform:
+        translateY(100%);
+
+    transition:
+        transform .55s cubic-bezier(.77,0,.18,1);
+
+}
+
+
+/*
+   Quand la carte reçoit la classe .show-overlay,
+   le panneau remonte depuis le bas.
+*/
+
+.event-card.show-overlay .event-overlay {
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* ==========================================================
+   BOUTON FERMETURE
+========================================================== */
+
+.overlay-close {
+
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    width: 30px;
+    height: 30px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    font-weight: 300;
+
+    cursor: pointer;
+
+    opacity: .7;
+
+}
+
+
+.overlay-close:hover {
+
+    opacity: 1;
+
+}
+
+
+/* ==========================================================
+   CONTENU DU PANNEAU
+========================================================== */
+
+.overlay-content {
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+
+.overlay-label {
+
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: #888888;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: .18em;
+
+}
+
+
+.overlay-content h3 {
+
+    margin: 0 auto 20px;
+
+    max-width: 360px;
+
+    font-size:
+        clamp(1.2rem, 1.8vw, 1.7rem);
+
+    font-weight: 400;
+
+    line-height: 1.15;
+
+}
+
+
+.overlay-content p {
+
+    margin: 0 auto 15px;
+
+    max-width: 380px;
+
+    color: #cccccc;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+}
+
+
+.overlay-content .overlay-location {
+
+    color: #ffffff;
+
+    font-size: 11px;
+
+}
+
+
+/* ==========================================================
+   CONTENU DE LA CARTE
+========================================================== */
+
+.event-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    min-height: 132px;
+
+    padding:
+        15px
+        15px
+        17px;
+
+    text-align: center;
+
+}
+
+
+/* ==========================================================
+   TITRE
+========================================================== */
+
+.event-title {
+
+    margin: 0;
+
+    max-width: 330px;
+
+    font-size:
+        clamp(.95rem, 1.25vw, 1.15rem);
+
+    font-weight: 500;
+
+    line-height: 1.2;
+
+}
+
+
+.event-title a {
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    transition:
+        opacity .25s ease;
+
+}
+
+
+.event-title a:hover {
+
+    opacity: .65;
+
+}
+
+
+/* ==========================================================
+   DATE / LIEU
+========================================================== */
+
+.event-meta {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    margin-top: 6px;
+
+    max-width: 100%;
+
+    color: #dddddd;
+
+    font-size: 9px;
+
+    line-height: 1.3;
+
+}
+
+
+.event-meta span {
+
+    display: inline-block;
+
+}
+
+
+/* ==========================================================
+   PLUS D'INFOS
+========================================================== */
+
+.event-more {
+
+    margin-top: 8px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    text-decoration: underline;
+
+    font-size: 9px;
+
+    cursor: pointer;
+
+}
+
+
+.event-more:hover {
+
+    opacity: .6;
+
+}
+
+
+/* ==========================================================
+   BOUTON ROUGE
+========================================================== */
+
+.event-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 85px;
+
+    min-height: 22px;
+
+    margin-top: auto;
+
+    padding:
+        5px
+        13px;
+
+    border: 0;
+
+    border-radius: 0;
+
+    background: #ff0000;
+
+    color: #000000;
+
+    text-decoration: none;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 9px;
+
+    line-height: 1;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+
+}
+
+
+.event-button:hover {
+
+    background: #ffffff;
+
+    color: #000000;
+
+}
+
+
+/* ==========================================================
+   TABLETTE
+========================================================== */
+
+@media (max-width: 900px) {
+
+    .main-navigation {
+
+        gap: 22px;
+
+        margin-left: 35px;
+
+    }
+
+
+    .events-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 600px) {
+
+
+    .site-header {
+
+        height: auto;
+
+        min-height: 70px;
+
+        padding:
+            12px 20px;
+
+    }
+
+
+    .site-logo {
+
+        width: 85px;
+
+    }
+
+
+    .main-navigation {
+
+        gap: 14px;
+
+        margin-left: auto;
+
+        overflow-x: auto;
+
+        padding-left: 20px;
+
+    }
+
+
+    .main-navigation a {
+
+        white-space: nowrap;
+
+        font-size: 9px;
+
+    }
+
+
+    .events-page {
+
+        padding:
+            10px 12px 40px;
+
+    }
+
+
+    .events-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+    }
+
+
+    .event-image {
+
+        aspect-ratio: 1 / 1;
+
+    }
+
+
+    /* ==========================================================
+   PANNEAU NOIR — REMPLACE TOUTE LA CARTE
+========================================================== */
+
+.event-card {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/*
+   Le panneau est maintenant positionné par rapport
+   à .event-card et non plus par rapport à .event-image.
+
+   Il recouvre donc toute la carte :
+   - image
+   - titre
+   - date
+   - lieu
+   - bouton "Plus d'infos"
+   - bouton d'action
+*/
+
+.event-overlay {
+
+    position: absolute;
+
+    z-index: 20;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 40px;
+
+    background: #0b0b0b;
+
+    transform: translateY(100%);
+
+    transition:
+        transform .55s cubic-bezier(.77, 0, .18, 1);
+
+}
+
+
+/*
+   Lorsque le JavaScript ajoute cette classe,
+   le panneau remonte depuis le bas de toute la carte.
+*/
+
+.event-card.show-overlay .event-overlay {
+
+    transform: translateY(0);
+
+}
+
+}
