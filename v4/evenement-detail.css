@@ -35,77 +35,83 @@ body {
 }
 
 
-/* ==========================================================
-   NAVIGATION
-========================================================== */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
-.site-header {
+.header {
+    position: relative;
+    z-index: 10;
 
-    height: 70px;
-
-    width: 100%;
+    height: 103px;
+    padding: 0 24px;
 
     display: flex;
-
     align-items: center;
 
-    padding:
-        0 50px;
-
-    background: #090909;
-
+    background: var(--color-background-dark);
 }
 
 
-.site-logo {
+/* Logo */
 
-    width: 80px;
+.brand {
+    width: 101px;
+    flex: 0 0 101px;
+}
 
-    display: block;
-
+.brand img {
+    width: 101px;
+    height: 68px;
+    object-fit: contain;
 }
 
 
-.site-logo img {
+/* Navigation */
 
-    width: 100%;
-
-    height: auto;
-
-    display: block;
-
-}
-
-
-.site-header nav {
+.main-nav {
+    flex: 1;
 
     display: flex;
+    align-items: center;
+    justify-content: center;
 
-    gap: 40px;
+    gap: 100px;
+    margin-left: 78px;
+}
 
-    margin-left: 70px;
+.main-nav a {
+    font-family: 'Archivo Black', serif;
+    font-size: 15px;
 
+    white-space: nowrap;
+
+    transform: scaleX(1.75);
+    transform-origin: center ;
 }
 
 
-.site-header nav a {
-
-    color: #ffffff;
-
-    text-decoration: none;
-
-    font-size: 11px;
-
-    font-weight: 600;
-
+.main-nav .active {
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 
-.site-header nav a:hover {
+/* Menu mobile */
 
-    opacity: .55;
+.menu-toggle {
+    display: none;
 
+    background: none;
+    border: 0;
+
+    cursor: pointer;
 }
+
+.menu-toggle span {
+    display: block;
+}
+
 
 
 /* ==========================================================

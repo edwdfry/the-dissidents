@@ -1,74 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta charset="UTF-8">
+    <title>The Dissidents</title>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Événements — The Dissidents</title>
-
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
+        href="https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:wght@400;500;600&display=swap"
         rel="stylesheet"
-        href="evenements.css"
     >
 
+    <!-- Styles -->
+    <link rel="stylesheet" href="evenements.css">
 </head>
-
 
 <body>
 
+    <!-- Header -->
+    <header class="header">
+        <a class="brand" href="index.html" aria-label="Retour à l'accueil">
+            <img
+                src="assets/images/logo-detoure.png"
+                alt="The Dissidents"
+            >
+        </a>
 
-<!-- ==========================================================
-     NAVIGATION
-=========================================================== -->
+        <nav class="main-nav" aria-label="Navigation principale">
+            <a class="active" href="#accueil">ACCUEIL</a>
+            <a href="portfolio.html">PORTFOLIO</a>
+            <a href="membres.html">MEMBRES</a>
+            <a href="evenements.html">ÉVÉNEMENTS</a>
+            <a href="compo.html">COMPO</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
 
-<header class="site-header">
-
-    <a href="index.html" class="site-logo">
-
-        <img
-            src="assets/images/logo.jpg"
-            alt="The Dissidents"
+        <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
         >
-
-    </a>
-
-
-    <nav class="main-navigation">
-
-        <a href="index.html">
-            ACCUEIL
-        </a>
-
-        <a href="portfolio.html">
-            PORTFOLIO
-        </a>
-
-        <a href="membres.html">
-            MEMBRES
-        </a>
-
-        <a href="evenements.html" class="active">
-            ÉVÉNEMENTS
-        </a>
-
-        <a href="compo.html">
-            COMPO
-        </a>
-
-        <a href="contact.html">
-            CONTACT
-        </a>
-
-    </nav>
-
-</header>
-
+            <span></span>
+            <span></span>
+        </button>
+    </header>
 
 
 <!-- ==========================================================
