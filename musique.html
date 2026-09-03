@@ -91,7 +91,7 @@
 <!--
     <img src="images/logo.jpg" alt="Logo The Dissidents">
 -->
-    <h2>Accs membres</h2>
+    <h2>Acces membres</h2>
 
     <p>
         Cette page est réservée aux membres du groupe.
@@ -160,7 +160,7 @@
 
 <audio controls controlsList="nodownload">
 <source
-data-filename="AT_THAT_TIME_tom_gaby_ed_165bpm_sauf_bridge_v4.mp3"
+src="audio/2026_09_02/AT_THAT_TIME_tom_gaby_ed_165bpm_sauf_bridge_v4.mp3"
 type="audio/mpeg">
 </audio>
 
@@ -168,7 +168,7 @@ type="audio/mpeg">
 
 <audio controls controlsList="nodownload">
 <source
-data-filename="TRIGGER_2026_07_22.mp3"
+src="audio/2026_09_02/TRIGGER_2026_07_22.mp3"
 type="audio/mpeg">
 </audio>
 
@@ -176,7 +176,7 @@ type="audio/mpeg">
 
 <audio controls controlsList="nodownload">
 <source
-data-filename="HUSH_2026_07_22_150.mp3"
+src="audio/2026_09_02/HUSH_2026_07_22_150.mp3"
 type="audio/mpeg">
 </audio>
 
@@ -184,7 +184,7 @@ type="audio/mpeg">
 
 <audio controls controlsList="nodownload">
 <source
-data-filename="vine_roots_2026_08_13_bass.mp3"
+src="audio/2026_09_02/vine_roots_2026_08_13_bass.mp3"
 type="audio/mpeg">
 </audio>
 
@@ -192,7 +192,7 @@ type="audio/mpeg">
 
 <audio controls controlsList="nodownload">
 <source
-data-filename="TALK_TO_ME_piano_2026_08_06_bridge_ensemble_bass.mp3"
+src="audio/2026_09_02/TALK_TO_ME_piano_2026_08_06_bridge_ensemble_bass.mp3"
 type="audio/mpeg">
 </audio>
 
@@ -200,7 +200,7 @@ type="audio/mpeg">
 
 <audio controls controlsList="nodownload">
 <source
-data-filename="LOVE_AT_FIRST_SIGHT_2026_08_06_voixgab.mp3"
+src="audio/2026_09_02/LOVE_AT_FIRST_SIGHT_2026_08_06_voixgab.mp3"
 type="audio/mpeg">
 </audio>
 
@@ -208,7 +208,7 @@ type="audio/mpeg">
 
 <audio controls controlsList="nodownload">
 <source
-data-filename="#1PRIORITY_2026_08_06_voixed.mp3"
+src="audio/2026_09_02/#1PRIORITY_2026_08_06_voixed.mp3"
 type="audio/mpeg">
 </audio>
 
@@ -258,98 +258,56 @@ Retour accueil
 
 <script>
 
-const API_URL = "https://the-dissidents-audio.ed-ferry.workers.dev";
+async function hashPassword(password) {
 
-let authToken = null;
+    const data = new TextEncoder().encode(password);
 
+    const hashBuffer =
+        await crypto.subtle.digest("SHA-256", data);
 
-async function checkPassword() {
+    const hashArray =
+        Array.from(new Uint8Array(hashBuffer));
 
-    const password =
-        document.getElementById("passwordInput").value;
-
-    const error =
-        document.getElementById("passwordError");
-
-    error.textContent = "";
-
-    try {
-
-        const response = await fetch(`${API_URL}/login`, {
-
-            method: "POST",
-
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-                password: password
-            })
-
-        });
-
-
-        const data = await response.json();
-
-
-        if (!response.ok) {
-
-            error.textContent =
-                data.error || "Mot de passe incorrect.";
-
-            document
-                .getElementById("passwordInput")
-                .value = "";
-
-            return;
-        }
-
-
-        // On conserve le token Cloudflare
-        authToken = data.token;
-
-
-        // On masque la fenêtre de connexion
-        document
-            .getElementById("passwordOverlay")
-            .style.display = "none";
-
-
-        // On donne les URLs Cloudflare aux lecteurs audio
-        loadAudio();
-
-
-    } catch (e) {
-
-        error.textContent =
-            "Impossible de contacter le serveur.";
-
-    }
+    return hashArray
+        .map(byte => byte.toString(16).padStart(2, "0"))
+        .join("");
 
 }
 
 
-function loadAudio() {
+async function checkPassword() {
 
-    document
-        .querySelectorAll("audio source[data-filename]")
-        .forEach(source => {
+    const motDePasseEntre =
+        document.getElementById("passwordInput").value;
 
-            const filename =
-                source.dataset.filename;
-
-            source.src =
-                `${API_URL}/audio/${filename}?token=${encodeURIComponent(authToken)}`;
-
-        });
+    const hash = await hashPassword(motDePasseEntre);
 
 
-    document
-        .querySelectorAll("audio")
-        .forEach(audio => {
-            audio.load();
-        });
+   
+    const hashCorrect =
+        "cbd2f85803188ffe860ee3d45c6106ba775a5182e347bdd7a47469b4cb29e52b";
+
+
+    if (hash === hashCorrect) {
+
+        document
+            .getElementById("passwordOverlay")
+            .style.display = "none";
+
+    }
+
+    else {
+
+        document
+            .getElementById("passwordError")
+            .textContent =
+                "Mot de passe incorrect.";
+
+        document
+            .getElementById("passwordInput")
+            .value = "";
+
+    }
 
 }
 
