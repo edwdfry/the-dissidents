@@ -160,7 +160,7 @@
 
 <audio controls controlsList="nodownload">
 <source
-src="audio/2026_09_02/AT_THAT_TIME_tom_gaby_ed_165bpm_sauf_bridge_v4.mp3"
+data-filename="AT_THAT_TIME_tom_gaby_ed_165bpm_sauf_bridge_v4.mp3"
 type="audio/mpeg">
 </audio>
 
@@ -168,7 +168,7 @@ type="audio/mpeg">
 
 <audio controls controlsList="nodownload">
 <source
-src="audio/2026_09_02/TRIGGER_2026_07_22.mp3"
+data-filename="TRIGGER_2026_07_22.mp3"
 type="audio/mpeg">
 </audio>
 
@@ -176,7 +176,7 @@ type="audio/mpeg">
 
 <audio controls controlsList="nodownload">
 <source
-src="audio/2026_09_02/HUSH_2026_07_22_150.mp3"
+data-filename="HUSH_2026_07_22_150.mp3"
 type="audio/mpeg">
 </audio>
 
@@ -184,7 +184,7 @@ type="audio/mpeg">
 
 <audio controls controlsList="nodownload">
 <source
-src="audio/2026_09_02/vine_roots_2026_08_13_bass.mp3"
+data-filename="vine_roots_2026_08_13_bass.mp3"
 type="audio/mpeg">
 </audio>
 
@@ -192,7 +192,7 @@ type="audio/mpeg">
 
 <audio controls controlsList="nodownload">
 <source
-src="audio/2026_09_02/TALK_TO_ME_piano_2026_08_06_bridge_ensemble_bass.mp3"
+data-filename="TALK_TO_ME_piano_2026_08_06_bridge_ensemble_bass.mp3"
 type="audio/mpeg">
 </audio>
 
@@ -200,7 +200,7 @@ type="audio/mpeg">
 
 <audio controls controlsList="nodownload">
 <source
-src="audio/2026_09_02/LOVE_AT_FIRST_SIGHT_2026_08_06_voixgab.mp3"
+data-filename="LOVE_AT_FIRST_SIGHT_2026_08_06_voixgab.mp3"
 type="audio/mpeg">
 </audio>
 
@@ -208,7 +208,7 @@ type="audio/mpeg">
 
 <audio controls controlsList="nodownload">
 <source
-src="audio/2026_09_02/#1PRIORITY_2026_08_06_voixed.mp3"
+data-filename="#1PRIORITY_2026_08_06_voixed.mp3"
 type="audio/mpeg">
 </audio>
 
@@ -258,56 +258,98 @@ Retour accueil
 
 <script>
 
-async function hashPassword(password) {
+const API_URL = "https://the-dissidents-audio.ed-ferry.workers.dev";
 
-    const data = new TextEncoder().encode(password);
-
-    const hashBuffer =
-        await crypto.subtle.digest("SHA-256", data);
-
-    const hashArray =
-        Array.from(new Uint8Array(hashBuffer));
-
-    return hashArray
-        .map(byte => byte.toString(16).padStart(2, "0"))
-        .join("");
-
-}
+let authToken = null;
 
 
 async function checkPassword() {
 
-    const motDePasseEntre =
+    const password =
         document.getElementById("passwordInput").value;
 
-    const hash = await hashPassword(motDePasseEntre);
+    const error =
+        document.getElementById("passwordError");
+
+    error.textContent = "";
+
+    try {
+
+        const response = await fetch(`${API_URL}/login`, {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                password: password
+            })
+
+        });
 
 
-   
-    const hashCorrect =
-        "cbd2f85803188ffe860ee3d45c6106ba775a5182e347bdd7a47469b4cb29e52b";
+        const data = await response.json();
 
 
-    if (hash === hashCorrect) {
+        if (!response.ok) {
 
+            error.textContent =
+                data.error || "Mot de passe incorrect.";
+
+            document
+                .getElementById("passwordInput")
+                .value = "";
+
+            return;
+        }
+
+
+        // On conserve le token Cloudflare
+        authToken = data.token;
+
+
+        // On masque la fenêtre de connexion
         document
             .getElementById("passwordOverlay")
             .style.display = "none";
 
-    }
 
-    else {
+        // On donne les URLs Cloudflare aux lecteurs audio
+        loadAudio();
 
-        document
-            .getElementById("passwordError")
-            .textContent =
-                "Mot de passe incorrect.";
 
-        document
-            .getElementById("passwordInput")
-            .value = "";
+    } catch (e) {
+
+        error.textContent =
+            "Impossible de contacter le serveur.";
 
     }
+
+}
+
+
+function loadAudio() {
+
+    document
+        .querySelectorAll("audio source[data-filename]")
+        .forEach(source => {
+
+            const filename =
+                source.dataset.filename;
+
+            source.src =
+                `${API_URL}/audio/${filename}?token=${encodeURIComponent(authToken)}`;
+
+        });
+
+
+    document
+        .querySelectorAll("audio")
+        .forEach(audio => {
+            audio.load();
+        });
 
 }
 
