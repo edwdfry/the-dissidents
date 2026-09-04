@@ -91,7 +91,7 @@
 <!--
     <img src="images/logo.jpg" alt="Logo The Dissidents">
 -->
-    <h2>Acces membres</h2>
+    <h2>Accs membres</h2>
 
     <p>
         Cette page est réservée aux membres du groupe.
@@ -278,18 +278,31 @@ Retour accueil
 
 <script>
 
+const AUDIO_WORKER ="https://the-dissidents-audio.ed-ferry.workers.dev";
+
+
 async function hashPassword(password) {
 
     const data = new TextEncoder().encode(password);
 
     const hashBuffer =
-        await crypto.subtle.digest("SHA-256", data);
+        await crypto.subtle.digest(
+            "SHA-256",
+            data
+        );
 
     const hashArray =
-        Array.from(new Uint8Array(hashBuffer));
+        Array.from(
+            new Uint8Array(hashBuffer)
+        );
 
     return hashArray
-        .map(byte => byte.toString(16).padStart(2, "0"))
+        .map(
+            byte =>
+                byte
+                    .toString(16)
+                    .padStart(2, "0")
+        )
         .join("");
 
 }
@@ -297,39 +310,122 @@ async function hashPassword(password) {
 
 async function checkPassword() {
 
-    const motDePasseEntre =
-        document.getElementById("passwordInput").value;
+    const input =
+        document.getElementById(
+            "passwordInput"
+        );
 
-    const hash = await hashPassword(motDePasseEntre);
-
-
-   
-    const hashCorrect =
-        "cbd2f85803188ffe860ee3d45c6106ba775a5182e347bdd7a47469b4cb29e52b";
+    const password =
+        input.value;
 
 
-    if (hash === hashCorrect) {
-
-        document
-            .getElementById("passwordOverlay")
-            .style.display = "none";
-
+    if (!password) {
+        return;
     }
 
-    else {
+
+    try {
+
+        // =========================
+        // DEMANDE DE TOKEN AU WORKER
+        // =========================
+
+        const response =
+            await fetch(
+                `${AUDIO_WORKER}/login`,
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        password: password
+                    })
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Mot de passe incorrect"
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        const token =
+            data.token;
+
+
+        // =========================
+        // CACHE LA FENÊTRE
+        // =========================
 
         document
-            .getElementById("passwordError")
+            .getElementById(
+                "passwordOverlay"
+            )
+            .style.display = "none";
+
+
+        // =========================
+        // CONFIGURE LES LECTEURS
+        // =========================
+
+        document
+            .querySelectorAll(
+                "audio[data-file]"
+            )
+            .forEach(
+                audio => {
+
+                    const filename =
+                        audio.dataset.file;
+
+
+                    const streamUrl =
+                        `${AUDIO_WORKER}/stream/` +
+                        encodeURIComponent(
+                            filename
+                        ) +
+                        `?token=` +
+                        encodeURIComponent(
+                            token
+                        );
+
+
+                    audio.src =
+                        streamUrl;
+
+                }
+            );
+
+
+    } catch (error) {
+
+        document
+            .getElementById(
+                "passwordError"
+            )
             .textContent =
                 "Mot de passe incorrect.";
 
-        document
-            .getElementById("passwordInput")
-            .value = "";
+
+        input.value = "";
 
     }
 
 }
+
+</script>
 
 </script>
 
