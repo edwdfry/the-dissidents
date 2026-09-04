@@ -5,357 +5,741 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Musique</title>
 
-<link rel="stylesheet" href="css/style.css">
+<link
+    rel="stylesheet"
+    href="css/style.css"
+>
+
 
 <style>
 
+/* =====================================================
+   FENÊTRE MOT DE PASSE
+   ===================================================== */
+
 .password-overlay {
+
     position: fixed;
+
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
+
+    background:
+        rgba(0, 0, 0, 0.85);
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     z-index: 99999;
+
 }
 
+
 .password-box {
+
     background:
+
         linear-gradient(
             rgba(0,0,0,0.45),
             rgba(0,0,0,0.45)
         ),
+
         url("images/fond.jpg");
 
     background-size: cover;
+
     background-position: center;
 
     width: 90%;
+
     max-width: 400px;
+
     padding: 35px;
+
     text-align: center;
+
     border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+
+    box-shadow:
+        0 10px 40px
+        rgba(0,0,0,0.4);
+
 }
+
 
 .password-box img {
+
     width: 130px;
+
     margin-bottom: 20px;
+
 }
+
 
 .password-box h2 {
+
     margin-bottom: 10px;
+
 }
+
 
 .password-box p {
+
     margin-bottom: 20px;
+
 }
+
 
 .password-box input {
+
     width: 100%;
+
     box-sizing: border-box;
+
     padding: 12px;
+
     font-size: 16px;
+
     margin-bottom: 15px;
+
 }
+
 
 .password-box button {
+
     width: 100%;
+
     padding: 12px;
+
     font-size: 16px;
+
     cursor: pointer;
+
 }
 
+
 .password-error {
+
     color: red;
+
     min-height: 20px;
+
     margin-top: 15px;
+
+}
+
+
+/* =====================================================
+   AUDIO
+   ===================================================== */
+
+.audio audio {
+
+    width: 100%;
+
+    max-width: 700px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.audio h3 {
+
+    margin-top: 25px;
+
+}
+
+
+/* =====================================================
+   COVERS
+   ===================================================== */
+
+.covers {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+}
+
+
+.cover img {
+
+    max-width: 200px;
+
+    height: auto;
+
+    display: block;
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
-<!-- FENÊTRE DE MOT DE PASSE -->
 
-<div class="password-overlay" id="passwordOverlay">
+<!-- =====================================================
+     FENÊTRE MOT DE PASSE
+     ===================================================== -->
 
-```
-<div class="password-box">
-<!--
-    <img src="images/logo.jpg" alt="Logo The Dissidents">
--->
-    <h2>Access membres</h2>
+<div
+    class="password-overlay"
+    id="passwordOverlay"
+>
 
-    <p>
-        Cette page est réservée aux membres du groupe.
-    </p>
 
-    <input
-        type="password"
-        id="passwordInput"
-        placeholder="Mot de passe"
-    >
+    <div class="password-box">
 
-    <button onclick="checkPassword()">
-        Accéder
-    </button>
 
-    <div
-        class="password-error"
-        id="passwordError">
+        <!--
+        <img
+            src="images/logo.jpg"
+            alt="Logo The Dissidents"
+        >
+        -->
+
+
+        <h2>
+            Acces membres
+        </h2>
+
+
+        <p>
+            Cette page est réservée aux membres du groupe.
+        </p>
+
+
+        <input
+            type="password"
+            id="passwordInput"
+            placeholder="Mot de passe"
+            autocomplete="off"
+        >
+
+
+        <button
+            type="button"
+            onclick="checkPassword()"
+        >
+            Accéder
+        </button>
+
+
+        <div
+            class="password-error"
+            id="passwordError"
+        >
+        </div>
+
+
     </div>
 
 </div>
-```
 
-</div>
 
-<!-- HEADER -->
+
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
 
 <header>
 
-```
-<div class="logo">
 
-    <a href="index.html">
+    <div class="logo">
 
-        <img
-            src="images/logo.jpg"
-            alt="Logo The Dissidents">
 
-    </a>
+        <a href="index.html">
 
-</div>
-```
+
+            <img
+                src="images/logo.jpg"
+                alt="Logo The Dissidents"
+            >
+
+
+        </a>
+
+
+    </div>
+
 
 </header>
 
+
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
+
 <nav>
+
 <ul>
-<li><a href="presentation.html">Presentation</a></li>
-<li><a href="membres.html">Membres</a></li>
-<li><a href="media.html">Photos & Videos</a></li>
-<li><a href="musique.html">Audio</a></li>
-<li><a href="contact.html">Contact</a></li>
+
+<li>
+    <a href="presentation.html">
+        Presentation
+    </a>
+</li>
+
+
+<li>
+    <a href="membres.html">
+        Membres
+    </a>
+</li>
+
+
+<li>
+    <a href="media.html">
+        Photos & Videos
+    </a>
+</li>
+
+
+<li>
+    <a href="musique.html">
+        Audio
+    </a>
+</li>
+
+
+<li>
+    <a href="contact.html">
+        Contact
+    </a>
+</li>
+
 </ul>
+
 </nav>
 
-    
-<!-- CONTENU -->
+
+
+<!-- =====================================================
+     CONTENU
+     ===================================================== -->
 
 <main>
 
+
 <div class="audio">
 
-<h2>Nos compositions</h2>
 
-<h3>At that time</h3>
+<h2>
+    Nos compositions
+</h2>
+
+
+
+<!-- =====================================================
+     AT THAT TIME
+     ===================================================== -->
+
+<h3>
+    At that time
+</h3>
+
 
 <audio
+
     controls
+
     controlsList="nodownload"
+
     crossorigin="anonymous"
+
     preload="metadata"
-    data-file="AT_THAT_TIME_tom_gaby_ed_165bpm_sauf_bridge_v4.mp3">
+
+    data-file="2026_09_02/AT_THAT_TIME_tom_gaby_ed_165bpm_sauf_bridge_v4.mp3"
+
+>
 </audio>
 
 
-<h3>Trigger</h3>
+
+<!-- =====================================================
+     TRIGGER
+     ===================================================== -->
+
+<h3>
+    Trigger
+</h3>
+
 
 <audio
+
     controls
+
     controlsList="nodownload"
+
     crossorigin="anonymous"
+
     preload="metadata"
-    data-file="2026_09_02/TRIGGER_2026_07_22.mp3">
+
+    data-file="2026_09_02/TRIGGER_2026_07_22.mp3"
+
+>
 </audio>
 
 
-<h3>Hush</h3>
+
+<!-- =====================================================
+     HUSH
+     ===================================================== -->
+
+<h3>
+    Hush
+</h3>
+
 
 <audio
+
     controls
+
     controlsList="nodownload"
+
     crossorigin="anonymous"
+
     preload="metadata"
-    data-file="2026_09_02/HUSH_2026_07_22_150.mp3">
+
+    data-file="2026_09_02/HUSH_2026_07_22_150.mp3"
+
+>
 </audio>
 
 
-<h3>Vine Roots</h3>
+
+<!-- =====================================================
+     VINE ROOTS
+     ===================================================== -->
+
+<h3>
+    Vine Roots
+</h3>
+
 
 <audio
+
     controls
+
     controlsList="nodownload"
+
     crossorigin="anonymous"
+
     preload="metadata"
-    data-file="2026_09_02/vine_roots_2026_08_13_bass.mp3">
+
+    data-file="2026_09_02/vine_roots_2026_08_13_bass.mp3"
+
+>
 </audio>
 
 
-<h3>Talk to me</h3>
+
+<!-- =====================================================
+     TALK TO ME
+     ===================================================== -->
+
+<h3>
+    talk to me
+</h3>
+
 
 <audio
+
     controls
+
     controlsList="nodownload"
+
     crossorigin="anonymous"
+
     preload="metadata"
-    data-file="2026_09_02/TALK_TO_ME_piano_2026_08_06_bridge_ensemble_bass.mp3">
+
+    data-file="TALK_TO_ME_piano_2026_08_06_bridge_ensemble_bass.mp3"
+
+>
 </audio>
 
 
-<h3>Love at first sight</h3>
+
+<!-- =====================================================
+     LOVE AT FIRST SIGHT
+     ===================================================== -->
+
+<h3>
+    love at first sight
+</h3>
+
 
 <audio
+
     controls
+
     controlsList="nodownload"
+
     crossorigin="anonymous"
+
     preload="metadata"
-    data-file="2026_09_02/LOVE_AT_FIRST_SIGHT_2026_08_06_voixgab.mp3">
+
+    data-file="LOVE_AT_FIRST_SIGHT_2026_08_06_voixgab.mp3"
+
+>
 </audio>
 
 
-<h3>#1 priority</h3>
+
+<!-- =====================================================
+     #1 PRIORITY
+     ===================================================== -->
+
+<h3>
+    #1 priority
+</h3>
+
 
 <audio
+
     controls
+
     controlsList="nodownload"
+
     crossorigin="anonymous"
+
     preload="metadata"
-    data-file="2026_09_02/#1PRIORITY_2026_08_06_voixed.mp3">
+
+    data-file="#1PRIORITY_2026_08_06_voixed.mp3"
+
+>
 </audio>
 
-<h2>Nos reprises</h2>
+
+
+<!-- =====================================================
+     REPRISES
+     ===================================================== -->
+
+<h2>
+    Nos reprises
+</h2>
+
 
 <div class="covers">
 
-```
-<div class="cover">
-    <img src="audio/cover/4nonBLondes2.jpg" alt="">
+
+    <div class="cover">
+
+        <img
+            src="audio/cover/4nonBLondes2.jpg"
+            alt=""
+        >
+
+    </div>
+
+
+    <div class="cover">
+
+        <img
+            src="audio/cover/AC8DC.png"
+            alt=""
+        >
+
+    </div>
+
+
+    <div class="cover">
+
+        <img
+            src="audio/cover/geenday.png"
+            alt=""
+        >
+
+    </div>
+
+
+    <div class="cover">
+
+        <img
+            src="audio/cover/led_zep.png"
+            alt=""
+        >
+
+    </div>
+
+
+    <div class="cover">
+
+        <img
+            src="audio/cover/offsprings.png"
+            alt=""
+        >
+
+    </div>
+
+
+    <div class="cover">
+
+        <img
+            src="audio/cover/wampas.jpg"
+            alt=""
+        >
+
+    </div>
+
+
 </div>
 
-<div class="cover">
-    <img src="audio/cover/AC8DC.png" alt="">
-</div>
-
-<div class="cover">
-    <img src="audio/cover/geenday.png" alt="">
-</div>
-
-<div class="cover">
-    <img src="audio/cover/led_zep.png" alt="">
-</div>
-
-<div class="cover">
-    <img src="audio/cover/offsprings.png" alt="">
-</div>
-
-<div class="cover">
-    <img src="audio/cover/wampas.jpg" alt="">
-</div>
-```
-
-</div>
 
 </div>
 
 </main>
 
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
 <footer>
 
+
 <a href="index.html">
-Retour accueil
+
+    Retour accueil
+
 </a>
+
 
 </footer>
 
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
 <script>
 
-const AUDIO_WORKER ="https://the-dissidents-audio.ed-ferry.workers.dev";
+
+// ========================================================
+// URL DU WORKER
+// ========================================================
+
+const AUDIO_WORKER =
+    "https://the-dissidents-audio.ed-ferry.workers.dev";
 
 
-async function hashPassword(password) {
 
-    const data = new TextEncoder().encode(password);
-
-    const hashBuffer =
-        await crypto.subtle.digest(
-            "SHA-256",
-            data
-        );
-
-    const hashArray =
-        Array.from(
-            new Uint8Array(hashBuffer)
-        );
-
-    return hashArray
-        .map(
-            byte =>
-                byte
-                    .toString(16)
-                    .padStart(2, "0")
-        )
-        .join("");
-
-}
-
+// ========================================================
+// CONNEXION
+// ========================================================
 
 async function checkPassword() {
+
 
     const input =
         document.getElementById(
             "passwordInput"
         );
 
+
+    const error =
+        document.getElementById(
+            "passwordError"
+        );
+
+
     const password =
         input.value;
 
 
     if (!password) {
+
+        error.textContent =
+            "Entrez le mot de passe.";
+
         return;
+
     }
+
+
+    // Petit indicateur
+
+    error.textContent =
+        "Connexion...";
 
 
     try {
 
-        // =========================
-        // DEMANDE DE TOKEN AU WORKER
-        // =========================
+
+        // =================================================
+        // DEMANDE DU TOKEN AU WORKER
+        // =================================================
 
         const response =
             await fetch(
+
                 `${AUDIO_WORKER}/login`,
+
                 {
+
                     method: "POST",
 
                     headers: {
+
                         "Content-Type":
                             "application/json"
+
                     },
 
-                    body: JSON.stringify({
-                        password: password
-                    })
+                    body:
+                        JSON.stringify({
+
+                            password:
+                                password
+
+                        })
+
                 }
+
             );
 
+
+        // =================================================
+        // MOT DE PASSE INCORRECT
+        // =================================================
 
         if (!response.ok) {
 
-            throw new Error(
-                "Mot de passe incorrect"
-            );
+            error.textContent =
+                "Mot de passe incorrect.";
+
+            input.value = "";
+
+            input.focus();
+
+            return;
 
         }
 
+
+        // =================================================
+        // RÉCUPÉRATION DU TOKEN
+        // =================================================
 
         const data =
             await response.json();
@@ -365,20 +749,30 @@ async function checkPassword() {
             data.token;
 
 
-        // =========================
+        if (!token) {
+
+            throw new Error(
+                "Token absent"
+            );
+
+        }
+
+
+        // =================================================
         // CACHE LA FENÊTRE
-        // =========================
+        // =================================================
 
         document
             .getElementById(
                 "passwordOverlay"
             )
-            .style.display = "none";
+            .style.display =
+                "none";
 
 
-        // =========================
-        // CONFIGURE LES LECTEURS
-        // =========================
+        // =================================================
+        // CONFIGURATION DES 7 LECTEURS
+        // =================================================
 
         document
             .querySelectorAll(
@@ -387,16 +781,23 @@ async function checkPassword() {
             .forEach(
                 audio => {
 
+
                     const filename =
                         audio.dataset.file;
 
 
+                    // URL du vrai flux audio
+
                     const streamUrl =
+
                         `${AUDIO_WORKER}/stream/` +
+
                         encodeURIComponent(
                             filename
                         ) +
+
                         `?token=` +
+
                         encodeURIComponent(
                             token
                         );
@@ -405,29 +806,57 @@ async function checkPassword() {
                     audio.src =
                         streamUrl;
 
+
                 }
             );
 
 
-    } catch (error) {
+} catch (error) {
+
+
+        console.error(error);
+
 
         document
             .getElementById(
                 "passwordError"
             )
             .textContent =
-                "Mot de passe incorrect.";
+                "Impossible de contacter le serveur.";
 
-
-        input.value = "";
 
     }
 
 }
 
-</script>
+
+
+// ========================================================
+// TOUCHE ENTRÉE DANS LE MOT DE PASSE
+// ========================================================
+
+document
+    .getElementById(
+        "passwordInput"
+    )
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                checkPassword();
+
+            }
+
+        }
+    );
+
 
 </script>
+
 
 </body>
 
