@@ -1,4 +1,4 @@
-```js
+
 /* ==========================================================
    LES DISSIDENTS — SECTION MUSIQUE
 
@@ -16,7 +16,7 @@
 ========================================================== */
 
 const AUDIO_WORKER =
-    "https://the-dissidents-audio.ed-ferry.workers.dev";
+    "https://the-dissidents-v3.ed-ferry.workers.dev";
 
 
 /* ==========================================================
@@ -447,4 +447,3 @@ document.addEventListener(
 
     }
 );
-```
