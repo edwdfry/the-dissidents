@@ -1,208 +1,322 @@
+```js
 /* ==========================================================
    LES DISSIDENTS — SECTION MUSIQUE
 
    Gestion :
-   - mot de passe SHA-256
+   - connexion via Cloudflare Worker
+   - token d'accès audio
    - affichage de la playlist
    - verrouillage de la playlist
    - validation avec la touche Entrée
 ========================================================== */
 
 
-// ========================================================
-// URL DU WORKER
-// ========================================================
+/* ==========================================================
+   CONFIGURATION CLOUDFLARE
+========================================================== */
 
 const AUDIO_WORKER =
     "https://the-dissidents-audio.ed-ferry.workers.dev";
 
 
+/* ==========================================================
+   TOKEN DE SESSION
+========================================================== */
 
-// ========================================================
-// CONNEXION
-// ========================================================
+let audioToken = null;
+
+
+/* ==========================================================
+   OUVRIR LA SECTION MUSIQUE
+========================================================== */
 
 async function checkPassword() {
 
+    const passwordInput =
+        document.getElementById("passwordInput");
 
-    const input =
-        document.getElementById(
-            "passwordInput"
+    const passwordError =
+        document.getElementById("passwordError");
+
+    const passwordOverlay =
+        document.getElementById("passwordOverlay");
+
+    const musicPlayer =
+        document.getElementById("musicPlayer");
+
+
+    /* ======================================================
+       VÉRIFICATION DES ÉLÉMENTS HTML
+    ====================================================== */
+
+    if (
+        !passwordInput ||
+        !passwordOverlay ||
+        !musicPlayer
+    ) {
+
+        console.error(
+            "Un élément de la section musique est introuvable."
         );
-
-
-    const error =
-        document.getElementById(
-            "passwordError"
-        );
-
-
-    const password =
-        input.value;
-
-
-    if (!password) {
-
-        error.textContent =
-            "Entrez le mot de passe.";
 
         return;
 
     }
 
 
-    // Petit indicateur
+    /* ======================================================
+       MOT DE PASSE SAISI
+    ====================================================== */
 
-    error.textContent =
-        "Connexion...";
+    const password =
+        passwordInput.value;
+
+
+    if (!password) {
+
+        if (passwordError) {
+
+            passwordError.textContent =
+                "Entrez le mot de passe.";
+
+        }
+
+        return;
+
+    }
+
+
+    /* Message temporaire */
+
+    if (passwordError) {
+
+        passwordError.textContent =
+            "Connexion...";
+
+    }
 
 
     try {
 
 
-        // =================================================
-        // DEMANDE DU TOKEN AU WORKER
-        // =================================================
+        /* ==================================================
+           ENVOI DU MOT DE PASSE AU WORKER
+        ================================================== */
 
         const response =
             await fetch(
-
                 `${AUDIO_WORKER}/login`,
-
                 {
-
                     method: "POST",
 
                     headers: {
-
                         "Content-Type":
                             "application/json"
-
                     },
 
-                    body:
-                        JSON.stringify({
-
-                            password:
-                                password
-
-                        })
-
+                    body: JSON.stringify({
+                        password: password
+                    })
                 }
-
             );
 
 
-        // =================================================
-        // MOT DE PASSE INCORRECT
-        // =================================================
+        /* ==================================================
+           MOT DE PASSE INCORRECT
+        ================================================== */
 
         if (!response.ok) {
 
-            error.textContent =
-                "Mot de passe incorrect.";
+            if (passwordError) {
 
-            input.value = "";
+                passwordError.textContent =
+                    "Mot de passe incorrect.";
 
-            input.focus();
+            }
+
+            passwordInput.value = "";
+
+            passwordInput.focus();
 
             return;
 
         }
 
 
-        // =================================================
-        // RÉCUPÉRATION DU TOKEN
-        // =================================================
+        /* ==================================================
+           RÉCUPÉRATION DU TOKEN
+        ================================================== */
 
         const data =
             await response.json();
 
 
-        const token =
-            data.token;
-
-
-        if (!token) {
+        if (!data.token) {
 
             throw new Error(
-                "Token absent"
+                "Le Worker n'a pas retourné de token."
             );
 
         }
 
 
-        // =================================================
-        // CACHE LA FENÊTRE
-        // =================================================
-
-        document
-            .getElementById(
-                "passwordOverlay"
-            )
-            .style.display =
-                "none";
+        audioToken =
+            data.token;
 
 
-        // =================================================
-        // CONFIGURATION DES 7 LECTEURS
-        // =================================================
+        /* ==================================================
+           CONFIGURATION DES LECTEURS AUDIO
+        ================================================== */
 
-        document
-            .querySelectorAll(
-                "audio[data-file]"
-            )
-            .forEach(
-                audio => {
-
-
-                    const filename =
-                        audio.dataset.file;
-
-
-                    // URL du vrai flux audio
-
-                    const streamUrl =
-
-                        `${AUDIO_WORKER}/stream/` +
-
-                        encodeURIComponent(
-                            filename
-                        ) +
-
-                        `?token=` +
-
-                        encodeURIComponent(
-                            token
-                        );
-
-
-                    audio.src =
-                        streamUrl;
-
-
-                }
+        const audioPlayers =
+            document.querySelectorAll(
+                "#musicPlayer audio[data-file]"
             );
 
 
-} catch (error) {
+        audioPlayers.forEach(
+            function(audio) {
+
+                const filename =
+                    audio.dataset.file;
 
 
-        console.error(error);
+                if (!filename) {
+
+                    console.error(
+                        "Fichier audio absent dans data-file.",
+                        audio
+                    );
+
+                    return;
+
+                }
 
 
-        document
-            .getElementById(
-                "passwordError"
-            )
-            .textContent =
+                /* ==========================================
+                   URL DU STREAM CLOUDFLARE
+                ========================================== */
+
+                const streamUrl =
+
+                    `${AUDIO_WORKER}/stream/` +
+
+                    encodeURIComponent(
+                        filename
+                    ) +
+
+                    `?token=` +
+
+                    encodeURIComponent(
+                        audioToken
+                    );
+
+
+                /* ==========================================
+                   SOURCE AUDIO
+                ========================================== */
+
+                audio.src =
+                    streamUrl;
+
+
+                /* ==========================================
+                   CORS
+                ========================================== */
+
+                audio.crossOrigin =
+                    "anonymous";
+
+
+                /* ==========================================
+                   Demande au navigateur de ne pas afficher
+                   le bouton Télécharger
+                ========================================== */
+
+                audio.setAttribute(
+                    "controlsList",
+                    "nodownload"
+                );
+
+
+                /* ==========================================
+                   Chargement
+                ========================================== */
+
+                audio.load();
+
+            }
+        );
+
+
+        /* ==================================================
+           MASQUER LE FORMULAIRE
+        ================================================== */
+
+        passwordOverlay.style.display =
+            "none";
+
+
+        /* ==================================================
+           AFFICHER LA PLAYLIST
+        ================================================== */
+
+        musicPlayer.hidden =
+            false;
+
+        musicPlayer.style.display =
+            "block";
+
+
+        /* ==================================================
+           NETTOYAGE
+        ================================================== */
+
+        passwordInput.value = "";
+
+        if (passwordError) {
+
+            passwordError.textContent =
+                "";
+
+        }
+
+
+        /* ==================================================
+           DESCENDRE VERS LA PLAYLIST
+        ================================================== */
+
+        setTimeout(
+            function() {
+
+                musicPlayer.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            },
+            150
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Erreur connexion Worker :",
+            error
+        );
+
+
+        if (passwordError) {
+
+            passwordError.textContent =
                 "Impossible de contacter le serveur.";
 
+        }
 
     }
 
 }
-
 
 
 /* ==========================================================
@@ -212,13 +326,19 @@ async function checkPassword() {
 function lockMusic() {
 
     const passwordOverlay =
-        document.getElementById("passwordOverlay");
+        document.getElementById(
+            "passwordOverlay"
+        );
 
     const musicPlayer =
-        document.getElementById("musicPlayer");
+        document.getElementById(
+            "musicPlayer"
+        );
 
 
-    /* Arrêter tous les lecteurs audio */
+    /* ======================================================
+       ARRÊTER TOUS LES LECTEURS
+    ====================================================== */
 
     const audioPlayers =
         document.querySelectorAll(
@@ -226,31 +346,64 @@ function lockMusic() {
         );
 
 
-    audioPlayers.forEach(function(audio) {
+    audioPlayers.forEach(
+        function(audio) {
 
-        audio.pause();
+            audio.pause();
 
-        audio.currentTime = 0;
-
-    });
+            audio.currentTime = 0;
 
 
-    /* Masquer la playlist */
+            /*
+             * On retire également la source.
+             *
+             * Cela évite de laisser l'URL /stream
+             * directement présente dans le DOM après
+             * verrouillage.
+             */
+
+            audio.removeAttribute(
+                "src"
+            );
+
+
+            audio.load();
+
+        }
+    );
+
+
+    /* ======================================================
+       SUPPRIMER LE TOKEN DE LA MÉMOIRE JS
+    ====================================================== */
+
+    audioToken =
+        null;
+
+
+    /* ======================================================
+       MASQUER LA PLAYLIST
+    ====================================================== */
 
     if (musicPlayer) {
 
-        musicPlayer.hidden = true;
+        musicPlayer.hidden =
+            true;
 
-        musicPlayer.style.display = "none";
+        musicPlayer.style.display =
+            "none";
 
     }
 
 
-    /* Réafficher le formulaire */
+    /* ======================================================
+       RÉAFFICHER LE FORMULAIRE
+    ====================================================== */
 
     if (passwordOverlay) {
 
-        passwordOverlay.style.display = "";
+        passwordOverlay.style.display =
+            "";
 
     }
 
@@ -266,7 +419,9 @@ document.addEventListener(
     function() {
 
         const passwordInput =
-            document.getElementById("passwordInput");
+            document.getElementById(
+                "passwordInput"
+            );
 
 
         if (passwordInput) {
@@ -275,7 +430,9 @@ document.addEventListener(
                 "keydown",
                 function(event) {
 
-                    if (event.key === "Enter") {
+                    if (
+                        event.key === "Enter"
+                    ) {
 
                         event.preventDefault();
 
@@ -290,3 +447,4 @@ document.addEventListener(
 
     }
 );
+```
