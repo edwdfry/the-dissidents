@@ -227,7 +227,7 @@ scale(1.25);
 
     background: rgba(0, 0, 0, .75);
 
-    border: 1px solid rgba(255,255,255,.25);
+    border: 2px solid var(--color-petrol);
 
     color: #fff;
 
@@ -262,9 +262,9 @@ scale(1.25);
 
 .hero-video-contact:hover {
 
-    background: rgba(0,0,0,.9);
+    background:var(--color-petrol);
 
-    border-color: rgba(255,255,255,.6);
+    /*border-color: rgba(255,255,255,.6);*/
 
     transform: translateY(-2px);
 

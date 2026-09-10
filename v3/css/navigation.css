@@ -12,7 +12,9 @@
 
     width:100%;
 
-    padding:20px 60px;
+    height:82px;
+
+    padding:0px 60px;
 
     display:flex;
 
@@ -58,4 +60,17 @@
 
     color:var(--color-petrol);
 
+}
+
+/* Logo */
+
+.logo {
+    width: 150;
+    flex: 0 0 150px;
+}
+
+.logo img {
+    width: 150px;
+    height: 102px;
+    object-fit: contain;
 }
