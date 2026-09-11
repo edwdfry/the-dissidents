@@ -19,6 +19,13 @@
     --color-black: #080808;
     --color-border: #222222;
 
+    --color-black:#090909;
+    --color-white:#F5F4F2;
+    --color-petrol:#0F4C5C;
+    --color-darkred:#8D1E2F;
+    --color-copper:#A36A45;
+    --color-grey:#8C8C8C;
+
     --font-body: "Poppins", Arial, sans-serif;
     --font-display: "Audiowide", sans-serif;
 }
@@ -167,6 +174,15 @@ img {
     text-transform: uppercase;
 }
 
+.members p {
+    max-width: 620px;
+    margin-top: 42px;
+
+    color: var(--color-text);
+
+    font-size: 35px;
+    line-height: 1.5;
+}
 
 /* =========================================================
    GRILLE
@@ -212,7 +228,7 @@ img {
 }
 
 .member-blue {
-    background: var(--color-blue);
+    background: var(--color-petrol);
 }
 
 
@@ -271,10 +287,22 @@ img {
     color: var(--color-black);
 
     font-family: var(--font-display);
-    font-size: 20px;
+    font-size: 30px;
 
     line-height: 1.2;
 }
+
+.member-info h3 {
+    margin-top: 5px;
+
+    color: var(--color-black);
+
+    font-size: 20px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
 
 .member-info p {
     margin-top: 5px;
@@ -292,38 +320,74 @@ img {
    FOOTER
    ========================================================= */
 
-.footer {
-    padding: 55px 7vw 25px;
+footer {
+    padding: 70px 7vw 35px;
 
     border-top: 1px solid var(--color-border);
 
-    background: var(--color-background-dark);
+    background: var(--color-background);
+
+    text-align: center;
 }
 
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
+/* ---------------------------------------------------------
+   Logo
+   --------------------------------------------------------- */
 
-    display: grid;
+.footer-logo {
+    display: flex;
+    justify-content: center;
 
-    grid-template-columns: 1fr 1fr 1fr;
-
-    align-items: center;
+    margin-bottom: 35px;
 }
-
 
 .footer-logo img {
     width: 120px;
     height: auto;
+
+    object-fit: contain;
 }
 
 
-.footer-contact {
-    font-size: 14px;
-    line-height: 2;
+/* ---------------------------------------------------------
+   Réseaux sociaux
+   --------------------------------------------------------- */
 
-    text-align: center;
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 25px;
+
+    margin-bottom: 30px;
+}
+
+.footer-socials a {
+    font-size: 13px;
+
+    transition: opacity 0.2s ease;
+}
+
+.footer-socials a:hover {
+    opacity: 0.6;
+}
+
+
+/* ---------------------------------------------------------
+   Coordonnées
+   --------------------------------------------------------- */
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 .footer-contact a {
@@ -331,14 +395,17 @@ img {
 }
 
 .footer-contact a:hover {
-    opacity: 0.7;
+    opacity: 0.65;
+}
+
+.footer-contact p {
+    margin: 0;
 }
 
 
-.footer-social {
-    min-height: 1px;
-}
-
+/* ---------------------------------------------------------
+   Copyright
+   --------------------------------------------------------- */
 
 .copyright {
     margin-top: 35px;
@@ -346,8 +413,6 @@ img {
     color: #777;
 
     font-size: 12px;
-
-    text-align: center;
 }
 
 

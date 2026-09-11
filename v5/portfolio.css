@@ -251,38 +251,74 @@ img {
    FOOTER
    ========================================================= */
 
-.footer {
-    padding: 55px 7vw 25px;
+footer {
+    padding: 70px 7vw 35px;
 
     border-top: 1px solid var(--color-border);
 
-    background: var(--color-background-dark);
+    background: var(--color-background);
+
+    text-align: center;
 }
 
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
+/* ---------------------------------------------------------
+   Logo
+   --------------------------------------------------------- */
 
-    display: grid;
+.footer-logo {
+    display: flex;
+    justify-content: center;
 
-    grid-template-columns: 1fr 1fr 1fr;
-
-    align-items: center;
+    margin-bottom: 35px;
 }
-
 
 .footer-logo img {
     width: 120px;
     height: auto;
+
+    object-fit: contain;
 }
 
 
-.footer-contact {
-    font-size: 14px;
-    line-height: 2;
+/* ---------------------------------------------------------
+   Réseaux sociaux
+   --------------------------------------------------------- */
 
-    text-align: center;
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 25px;
+
+    margin-bottom: 30px;
+}
+
+.footer-socials a {
+    font-size: 13px;
+
+    transition: opacity 0.2s ease;
+}
+
+.footer-socials a:hover {
+    opacity: 0.6;
+}
+
+
+/* ---------------------------------------------------------
+   Coordonnées
+   --------------------------------------------------------- */
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 .footer-contact a {
@@ -290,14 +326,17 @@ img {
 }
 
 .footer-contact a:hover {
-    opacity: 0.7;
+    opacity: 0.65;
+}
+
+.footer-contact p {
+    margin: 0;
 }
 
 
-.footer-social {
-    min-height: 1px;
-}
-
+/* ---------------------------------------------------------
+   Copyright
+   --------------------------------------------------------- */
 
 .copyright {
     margin-top: 35px;
@@ -305,8 +344,6 @@ img {
     color: #777;
 
     font-size: 12px;
-
-    text-align: center;
 }
 
 

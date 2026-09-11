@@ -34,6 +34,34 @@ body {
         sans-serif;
 }
 
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+:root {
+    --color-background: #090909;
+    --color-background-dark: #0d0d0d;
+
+    --color-text: #ffffff;
+
+    --color-yellow: #ffdc18;
+    --color-red: #e51b23;
+    --color-blue: #3d5c5d;
+
+    --color-black: #080808;
+    --color-border: #222222;
+
+    --color-black:#090909;
+    --color-white:#F5F4F2;
+    --color-petrol:#0F4C5C;
+    --color-darkred:#8D1E2F;
+    --color-copper:#A36A45;
+    --color-grey:#8C8C8C;
+
+    --font-body: "Poppins", Arial, sans-serif;
+    --font-display: "Audiowide", sans-serif;
+}
+
 
 /* =========================================================
    HEADER
@@ -237,9 +265,9 @@ body {
     padding:
         0 20px;
 
-    background: #ed0000;
+    background: var(--color-petrol);
 
-    color: #000000;
+    color: var(--color-white);
 
     text-decoration: none;
 
@@ -254,7 +282,9 @@ body {
 
 .event-button:hover {
 
-    background: #ffffff;
+    background: var(--color-white);
+
+    color:var(--color-petrol);
 
     transform: translateY(-2px);
 
@@ -439,9 +469,9 @@ body {
     padding:
         0 18px;
 
-    background: #ed0000;
+    background: var(--color-petrol);
 
-    color: #000000;
+    color: var(--color-text);
 
     text-decoration: none;
 
@@ -453,6 +483,8 @@ body {
 .ticket-button:hover {
 
     background: #ffffff;
+    color:var(--color-petrol);
+    transform: translateY(-2px);
 
 }
 

@@ -18,6 +18,13 @@ VARIABLES
 --color-black: #080808;
 --color-border: #222222;
 
+--color-black:#090909;
+--color-white:#F5F4F2;
+--color-petrol:#0F4C5C;
+--color-darkred:#8D1E2F;
+--color-copper:#A36A45;
+--color-grey:#8C8C8C;
+
 --font-body: "Poppins", Arial, sans-serif;
 --font-display: "Audiowide", sans-serif;
 
@@ -257,7 +264,7 @@ height: 45px;
 padding: 8px 2px;
 
 border: none;
-border-bottom: 1px solid #7f0808;
+border-bottom: 1px solid  var(--color-petrol);
 
 outline: none;
 
@@ -279,7 +286,7 @@ opacity: 1;
 }
 
 .password-form input:focus {
-border-bottom-color: #ff0000;
+border-bottom-color:  var(--color-blue);
 }
 
 /* ==========================================================
@@ -299,7 +306,7 @@ padding: 0;
 
 border: none;
 
-background: #f00000;
+background: var(--color-petrol);
 
 color: #ffffff;
 
@@ -316,7 +323,8 @@ transition:
 }
 
 .music-password-button:hover {
-background: #ff1010;
+background: var(--color-white);
+color:var(--color-petrol);
 }
 
 .music-password-button:active {
@@ -575,7 +583,7 @@ TITRE DU MORCEAU
 margin: 10px 0 13px;
 
  
-color: var(--color-yellow);
+color: var(--color-petrol);
 
 font-family: 'Archivo Black', serif;
 
@@ -822,4 +830,103 @@ MOBILE
 .music-password-button {
     margin-top: 45px;
 }
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    padding: 70px 7vw 35px;
+
+    border-top: 1px solid var(--color-border);
+
+    background: var(--color-background);
+
+    text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   Logo
+   --------------------------------------------------------- */
+
+.footer-logo {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 35px;
+}
+
+.footer-logo img {
+    width: 120px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* ---------------------------------------------------------
+   Réseaux sociaux
+   --------------------------------------------------------- */
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 25px;
+
+    margin-bottom: 30px;
+}
+
+.footer-socials a {
+    font-size: 13px;
+
+    transition: opacity 0.2s ease;
+}
+
+.footer-socials a:hover {
+    opacity: 0.6;
+}
+
+
+/* ---------------------------------------------------------
+   Coordonnées
+   --------------------------------------------------------- */
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-contact a {
+    transition: opacity 0.2s ease;
+}
+
+.footer-contact a:hover {
+    opacity: 0.65;
+}
+
+.footer-contact p {
+    margin: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Copyright
+   --------------------------------------------------------- */
+
+.copyright {
+    margin-top: 35px;
+
+    color: #777;
+
+    font-size: 12px;
 }
