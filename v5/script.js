@@ -1,140 +1,211 @@
 /* =========================================================
-   NAVIGATION
+   THE DISSIDENTS — JAVASCRIPT
    ========================================================= */
 
-const navLinks = document.querySelectorAll(".main-nav a");
+document.addEventListener("DOMContentLoaded", () => {
 
-navLinks.forEach((link) => {
 
-    link.addEventListener("click", () => {
+    /* =====================================================
+       MENU HAMBURGER
+       ===================================================== */
 
-        navLinks.forEach((item) => {
-            item.classList.remove("active");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mainNav = document.querySelector(".main-nav");
+
+    if (menuToggle && mainNav) {
+
+        menuToggle.addEventListener("click", () => {
+
+            const isOpen = mainNav.classList.toggle("is-open");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Fermer le menu" : "Ouvrir le menu"
+            );
+
         });
 
-        link.classList.add("active");
 
-    });
+        /* Fermer le menu lorsqu'on clique sur un lien */
 
-});
+        mainNav.querySelectorAll("a").forEach((link) => {
 
+            link.addEventListener("click", () => {
 
-/* =========================================================
-   LIGHTBOX
-   ========================================================= */
+                mainNav.classList.remove("is-open");
 
-const lightbox = document.querySelector("#lightbox");
-const lightboxImage = document.querySelector("#lightbox-image");
-const lightboxClose = document.querySelector(".lightbox-close");
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
-const galleryLinks = document.querySelectorAll("[data-lightbox]");
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Ouvrir le menu"
+                );
 
+            });
 
-/* Ouvrir une photo */
-
-galleryLinks.forEach((link) => {
-
-    link.addEventListener("click", (event) => {
-
-        event.preventDefault();
-
-        const image = link.querySelector("img");
-
-        lightboxImage.src = link.href;
-        lightboxImage.alt = image.alt;
-
-        lightbox.classList.add("is-open");
-        lightbox.setAttribute("aria-hidden", "false");
-
-        document.body.style.overflow = "hidden";
-
-    });
-
-});
+        });
 
 
-/* Fermer */
+        /* Fermer le menu avec la touche Échap */
 
-function closeLightbox() {
+        document.addEventListener("keydown", (event) => {
 
-    lightbox.classList.remove("is-open");
-    lightbox.setAttribute("aria-hidden", "true");
+            if (event.key === "Escape") {
 
-    document.body.style.overflow = "";
+                mainNav.classList.remove("is-open");
 
-    lightboxImage.src = "";
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
-}
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Ouvrir le menu"
+                );
 
+            }
 
-/* Bouton X */
+        });
 
-lightboxClose.addEventListener("click", closeLightbox);
-
-
-/* Cliquer sur le fond */
-
-lightbox.addEventListener("click", (event) => {
-
-    if (event.target === lightbox) {
-        closeLightbox();
     }
 
-});
 
 
-/* Touche Échap */
+    /* =====================================================
+       NAVIGATION — LIEN ACTIF
+       ===================================================== */
 
-document.addEventListener("keydown", (event) => {
+    const navLinks = document.querySelectorAll(".main-nav a");
 
-    if (event.key === "Escape") {
-        closeLightbox();
-    }
+    navLinks.forEach((link) => {
 
-});
+        link.addEventListener("click", () => {
 
+            navLinks.forEach((item) => {
+                item.classList.remove("active");
+            });
 
-const menuToggle = document.querySelector('.menu-toggle');
-const mainNav = document.querySelector('.main-nav');
-
-if (menuToggle && mainNav) {
-
-    menuToggle.addEventListener('click', () => {
-
-        const isOpen = mainNav.classList.toggle('is-open');
-
-        menuToggle.setAttribute(
-            'aria-expanded',
-            isOpen ? 'true' : 'false'
-        );
-
-        menuToggle.setAttribute(
-            'aria-label',
-            isOpen ? 'Fermer le menu' : 'Ouvrir le menu'
-        );
-
-    });
-
-
-    // Ferme le menu lorsqu'on clique sur un lien
-    mainNav.querySelectorAll('a').forEach(link => {
-
-        link.addEventListener('click', () => {
-
-            mainNav.classList.remove('is-open');
-
-            menuToggle.setAttribute(
-                'aria-expanded',
-                'false'
-            );
-
-            menuToggle.setAttribute(
-                'aria-label',
-                'Ouvrir le menu'
-            );
+            link.classList.add("active");
 
         });
 
     });
 
-}
+
+
+    /* =====================================================
+       LIGHTBOX
+       ===================================================== */
+
+    const lightbox = document.querySelector("#lightbox");
+    const lightboxImage = document.querySelector("#lightbox-image");
+    const lightboxClose = document.querySelector(".lightbox-close");
+    const galleryLinks = document.querySelectorAll("[data-lightbox]");
+
+
+    /*
+     * On initialise la lightbox uniquement si elle existe
+     * sur la page.
+     */
+
+    if (
+        lightbox &&
+        lightboxImage &&
+        lightboxClose
+    ) {
+
+
+        /* -------------------------------------------------
+           OUVRIR UNE PHOTO
+           ------------------------------------------------- */
+
+        galleryLinks.forEach((link) => {
+
+            link.addEventListener("click", (event) => {
+
+                event.preventDefault();
+
+                const image = link.querySelector("img");
+
+                if (!image) {
+                    return;
+                }
+
+                lightboxImage.src = link.href;
+                lightboxImage.alt = image.alt || "";
+
+                lightbox.classList.add("is-open");
+
+                lightbox.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+
+                document.body.style.overflow = "hidden";
+
+            });
+
+        });
+
+
+        /* -------------------------------------------------
+           FERMER LA LIGHTBOX
+           ------------------------------------------------- */
+
+        const closeLightbox = () => {
+
+            lightbox.classList.remove("is-open");
+
+            lightbox.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            document.body.style.overflow = "";
+
+            lightboxImage.src = "";
+
+        };
+
+
+        /* Bouton X */
+
+        lightboxClose.addEventListener(
+            "click",
+            closeLightbox
+        );
+
+
+        /* Cliquer sur le fond */
+
+        lightbox.addEventListener("click", (event) => {
+
+            if (event.target === lightbox) {
+                closeLightbox();
+            }
+
+        });
+
+
+        /* Touche Échap */
+
+        document.addEventListener("keydown", (event) => {
+
+            if (event.key === "Escape") {
+                closeLightbox();
+            }
+
+        });
+
+    }
+
+});
