@@ -1494,11 +1494,15 @@ footer {
 
     .header {
         height: 70px;
+        position: relative;
     }
 
     .brand,
     .brand img {
         width: 68px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .hero {

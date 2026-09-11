@@ -685,10 +685,9 @@ footer {
 
     .portfolio-card img {
         width: 100%;
-
-        aspect-ratio: 16 / 10;
-
-        object-fit: cover;
+        height: auto;
+        display: block;
+        object-fit: contain;
     }
 
 
@@ -802,11 +801,15 @@ footer {
     .header {
         height: 70px;
         padding: 0 15px;
+        position: relative;
     }
 
     .brand {
         width: 65px;
         flex-basis: 65px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .brand img {
