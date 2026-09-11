@@ -505,65 +505,27 @@ footer {
 
 @media (max-width: 760px) {
 
-    /* =====================================================
-       HEADER
-       ===================================================== */
-
     .header {
-        height: 76px;
+        height: 82px;
         padding: 0 18px;
-        position: relative;
     }
 
     .brand {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate (-50%, -50%);
-        
-        width: 75px;
-        flex: 0 0 75px;
+        width: 82px;
+        flex-basis: 82px;
     }
 
     .brand img {
-        display: block;
-        width: 75px;
-        height: auto;
+        width: 82px;
     }
 
+    .main-nav {
+        display: none;
+    }
 
-    /* Hamburger à droite */
-.menu-toggle {
-    display: flex;
-    position: absolute;
-
-    right: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-
-    width: 40px;
-    height: 40px;
-
-    margin: 0;
-    padding: 5px;
-
-    background: transparent;
-    border: 0;
-
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    z-index: 10002;
-}
-
-    .menu-toggle span {
+    .menu-toggle {
         display: block;
-        width: 30px;
-        height: 2px;
-        margin: 7px auto;
-        background: var(--color-text);
-        transition: transform .2s ease;
+        margin-left: auto;
     }
 
 
@@ -571,7 +533,8 @@ footer {
 
     .main-nav.is-open {
         position: absolute;
-        top: 76px;
+
+        top: 82px;
         left: 0;
         right: 0;
 
@@ -579,49 +542,29 @@ footer {
         flex-direction: column;
         align-items: center;
 
-        gap: 22px;
+        gap: 25px;
 
-        width: 100%;
         margin: 0;
-        padding: 28px 20px 32px;
+        padding: 30px 20px;
 
-        background: rgba(13, 13, 13, .98);
-
-        border-top: 1px solid var(--color-border);
-        box-shadow: 0 15px 30px rgba(0,0,0,.35);
-
-        z-index: 10001;
-    }
-
-    .main-nav.is-open a {
-        font-size: 16px;
-        transform: none;
+        background: var(--color-background-dark);
     }
 
 
     /* Membres */
 
     .members {
-        width: 100%;
-
-        padding: 50px 6vw 70px;
+        padding: 55px 7vw 75px;
     }
 
     .members h1 {
-        margin: 0 0 40px;
+        margin-bottom: 40px;
 
-        font-size: clamp(38px, 12vw, 58px);
-
-        line-height: 0.95;
-        letter-spacing: 1px;
-
-        transform: scaleX(1.15);
-        transform-origin: left center;
+        font-size: 34px;
+        line-height: 1.1;
     }
 
     .members-grid {
-        width: 100%;
-
         grid-template-columns: 1fr;
 
         gap: 25px;
