@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
 
@@ -9,7 +8,6 @@
 :root {
     --color-background: #090909;
     --color-background-dark: #0d0d0d;
-
     --color-text: #ffffff;
 
     --color-yellow: #ffdc18;
@@ -41,8 +39,9 @@ html {
 body {
     background: var(--color-background);
     color: var(--color-text);
-
     font-family: var(--font-body);
+
+    overflow-x: hidden;
 }
 
 a {
@@ -62,7 +61,7 @@ img {
 
 .header {
     position: relative;
-    z-index: 10;
+    z-index: 1000;
 
     height: 103px;
     padding: 0 24px;
@@ -74,7 +73,9 @@ img {
 }
 
 
-/* Logo */
+/* ---------------------------------------------------------
+   LOGO
+   --------------------------------------------------------- */
 
 .brand {
     width: 101px;
@@ -89,7 +90,9 @@ img {
 }
 
 
-/* Navigation */
+/* ---------------------------------------------------------
+   NAVIGATION DESKTOP
+   --------------------------------------------------------- */
 
 .main-nav {
     flex: 1;
@@ -109,40 +112,63 @@ img {
     white-space: nowrap;
 
     transform: scaleX(1.75);
-    transform-origin: center ;
+    transform-origin: center;
+
+    transition: opacity 0.2s ease;
+}
+
+.main-nav a:hover {
+    opacity: 0.7;
 }
 
 .main-nav .active {
     text-decoration: underline;
-    text-underline-offset: 3px;
+    text-underline-offset: 4px;
 }
 
 
-/* Menu */
+/* =========================================================
+   MENU HAMBURGER
+   ========================================================= */
 
 .menu-toggle {
     display: none;
 
-    width: 38px;
+    position: relative;
+    z-index: 10001;
 
-    background: none;
+    width: 44px;
+    height: 44px;
+
+    margin-left: auto;
+    padding: 5px;
+
     border: 0;
+    background: transparent;
 
     cursor: pointer;
+
+    flex-shrink: 0;
 }
 
 .menu-toggle span {
     display: block;
 
+    width: 30px;
     height: 2px;
-    margin: 7px 0;
+
+    margin: 6px auto;
 
     background: var(--color-text);
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.2s ease;
 }
 
 
 /* =========================================================
-   MEMBRES
+   PORTFOLIO
    ========================================================= */
 
 .portfolio {
@@ -150,7 +176,7 @@ img {
 }
 
 .portfolio h1 {
-    margin: 0;
+    margin: 0 0 70px;
 
     color: var(--color-yellow);
 
@@ -167,8 +193,6 @@ img {
 }
 
 
-
-
 /* =========================================================
    GRILLE
    ========================================================= */
@@ -181,17 +205,19 @@ img {
 
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 
     gap: 35px 28px;
 }
 
 
 /* =========================================================
-   CARTE
+   CARTES
    ========================================================= */
 
 .portfolio-card {
+    min-width: 0;
+
     padding: 10px;
 
     background: var(--color-black);
@@ -201,49 +227,62 @@ img {
         box-shadow 0.25s ease;
 }
 
+.portfolio-card a {
+    display: block;
+}
+
+.portfolio-card img {
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 16 / 10;
+
+    object-fit: cover;
+}
 
 
+/* ---------------------------------------------------------
+   TITRE
+   --------------------------------------------------------- */
+
+.portfolio-card h2 {
+    margin-top: 20px;
+
+    color: var(--color-text);
+
+    font-family: 'Archivo Black', serif;
+    font-size: 21px;
+    line-height: 1.2;
+
+    text-align: center;
+}
 
 
-/* Survol */
+/* ---------------------------------------------------------
+   TEXTE
+   --------------------------------------------------------- */
+
+.portfolio-card p {
+    margin-top: 14px;
+
+    color: #dddddd;
+
+    font-size: 14px;
+    line-height: 1.55;
+
+    text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   SURVOL
+   --------------------------------------------------------- */
 
 .portfolio-card:hover {
     transform: translateY(-5px);
 
     box-shadow:
         0 12px 30px rgba(0, 0, 0, 0.45);
-}
-
-
-
-/* =========================================================
-   INFORMATIONS
-   ========================================================= */
-
-.portfolio-info {
-    padding: 18px 12px 14px;
-
-    text-align: center;
-}
-
-.portfolio-info h2 {
-    color: var(--color-black);
-
-    font-family: var(--font-display);
-    font-size: 20px;
-
-    line-height: 1.2;
-}
-
-.portfolio-info p {
-    margin-top: 5px;
-
-    color: var(--color-black);
-
-    font-size: 13px;
-    font-weight: 600;
-
-    letter-spacing: 1px;
 }
 
 
@@ -262,9 +301,7 @@ footer {
 }
 
 
-/* ---------------------------------------------------------
-   Logo
-   --------------------------------------------------------- */
+/* Logo */
 
 .footer-logo {
     display: flex;
@@ -281,9 +318,7 @@ footer {
 }
 
 
-/* ---------------------------------------------------------
-   Réseaux sociaux
-   --------------------------------------------------------- */
+/* Réseaux */
 
 .footer-socials {
     display: flex;
@@ -306,9 +341,7 @@ footer {
 }
 
 
-/* ---------------------------------------------------------
-   Coordonnées
-   --------------------------------------------------------- */
+/* Contact */
 
 .footer-contact {
     display: flex;
@@ -334,9 +367,7 @@ footer {
 }
 
 
-/* ---------------------------------------------------------
-   Copyright
-   --------------------------------------------------------- */
+/* Copyright */
 
 .copyright {
     margin-top: 35px;
@@ -355,7 +386,7 @@ footer {
     position: fixed;
     inset: 0;
 
-    z-index: 9999;
+    z-index: 99999;
 
     display: flex;
     align-items: center;
@@ -396,144 +427,438 @@ footer {
     top: 20px;
     right: 30px;
 
+    width: 45px;
+    height: 45px;
+
     border: 0;
 
     background: transparent;
 
-    color: #fff;
+    color: #ffffff;
 
     font-size: 45px;
     font-weight: 300;
+    line-height: 1;
 
     cursor: pointer;
 }
 
 
 /* =========================================================
-   TABLETTE
+   TABLETTES
    ========================================================= */
 
 @media (max-width: 1050px) {
 
-    .main-nav {
-        gap: 27px;
-        margin-left: 20px;
-    }
-
-    .main-nav a {
-        font-size: 12px;
-    }
-
-    .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 760px) {
-
     .header {
-        height: 82px;
-        padding: 0 18px;
+        height: 90px;
+        padding: 0 25px;
     }
 
     .brand {
-        width: 82px;
-        flex-basis: 82px;
+        width: 85px;
+        flex-basis: 85px;
     }
 
     .brand img {
-        width: 82px;
+        width: 85px;
+        height: auto;
     }
 
     .main-nav {
-        display: none;
+        gap: 32px;
+        margin-left: 30px;
     }
 
-    .menu-toggle {
-        display: block;
-        margin-left: auto;
-    }
-
-
-    /* Menu ouvert */
-
-    .main-nav.is-open {
-        position: absolute;
-
-        top: 82px;
-        left: 0;
-        right: 0;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        gap: 25px;
-
-        margin: 0;
-        padding: 30px 20px;
-
-        background: var(--color-background-dark);
+    .main-nav a {
+        font-size: 11px;
+        transform: scaleX(1.35);
     }
 
 
-    /* Membres */
+    /* Portfolio */
 
     .portfolio {
-        padding: 55px 7vw 75px;
+        padding: 70px 6vw 90px;
     }
 
     .portfolio h1 {
-        margin-bottom: 40px;
-
-        font-size: 34px;
-        line-height: 1.1;
+        font-size: clamp(48px, 7vw, 70px);
+        margin-bottom: 55px;
     }
 
     .portfolio-grid {
-        grid-template-columns: 1fr;
-
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 25px;
+    }
+
+    .portfolio-card h2 {
+        font-size: 18px;
+    }
+
+    .portfolio-card p {
+        font-size: 13px;
     }
 
 
     /* Footer */
 
-    .footer {
-        padding: 45px 7vw 25px;
+    footer {
+        padding: 60px 6vw 30px;
+    }
+}
+
+
+/* =========================================================
+   MOBILES
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
+
+    .header {
+        height: 76px;
+        padding: 0 18px;
+
+        z-index: 10000;
     }
 
-    .footer-content {
+    .brand {
+        width: 72px;
+        flex: 0 0 72px;
+    }
+
+    .brand img {
+        width: 72px;
+        height: auto;
+    }
+
+
+    /* -----------------------------------------------------
+       NAVIGATION FERMÉE
+       ----------------------------------------------------- */
+
+    .main-nav {
+        display: none;
+    }
+
+
+    /* -----------------------------------------------------
+       BOUTON HAMBURGER
+       ----------------------------------------------------- */
+
+    .menu-toggle {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        flex-direction: column;
+
+        width: 44px;
+        height: 44px;
+
+        margin-left: auto;
+        padding: 4px;
+
+        position: relative;
+        z-index: 10002;
+    }
+
+    .menu-toggle span {
+        width: 28px;
+        height: 3px;
+
+        margin: 3px 0;
+
+        border-radius: 2px;
+
+        background: #ffffff;
+    }
+
+
+    /* -----------------------------------------------------
+       MENU OUVERT
+       ----------------------------------------------------- */
+
+    .main-nav.is-open {
+        position: absolute;
+
+        top: 76px;
+        left: 0;
+        right: 0;
+
+        z-index: 10001;
+
+        display: flex;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 0;
+
+        width: 100%;
+        margin: 0;
+
+        padding: 18px 20px 25px;
+
+        background: rgba(13, 13, 13, 0.98);
+
+        border-top: 1px solid var(--color-border);
+
+        box-shadow:
+            0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .main-nav.is-open a {
+        display: block;
+
+        width: 100%;
+
+        padding: 14px 10px;
+
+        font-family: 'Archivo Black', serif;
+        font-size: 15px;
+
+        text-align: center;
+
+        transform: none;
+    }
+
+
+    /* =====================================================
+       PORTFOLIO
+       ===================================================== */
+
+    .portfolio {
+        width: 100%;
+
+        padding: 50px 6vw 70px;
+    }
+
+
+    /* -----------------------------------------------------
+       TITRE
+       ----------------------------------------------------- */
+
+    .portfolio h1 {
+        margin: 0 0 40px;
+
+        font-size: clamp(38px, 12vw, 58px);
+
+        line-height: 0.95;
+        letter-spacing: 1px;
+
+        transform: scaleX(1.15);
+        transform-origin: left center;
+    }
+
+
+    /* -----------------------------------------------------
+       GRILLE
+       ----------------------------------------------------- */
+
+    .portfolio-grid {
+        width: 100%;
+
         grid-template-columns: 1fr;
 
         gap: 25px;
+    }
 
-        text-align: center;
+
+    /* -----------------------------------------------------
+       CARTES
+       ----------------------------------------------------- */
+
+    .portfolio-card {
+        width: 100%;
+
+        padding: 10px;
+
+        border-radius: 0;
+    }
+
+    .portfolio-card img {
+        width: 100%;
+
+        aspect-ratio: 16 / 10;
+
+        object-fit: cover;
+    }
+
+
+    /* -----------------------------------------------------
+       TITRE CARTE
+       ----------------------------------------------------- */
+
+    .portfolio-card h2 {
+        margin-top: 17px;
+
+        font-size: 18px;
+        line-height: 1.25;
+    }
+
+
+    /* -----------------------------------------------------
+       TEXTE CARTE
+       ----------------------------------------------------- */
+
+    .portfolio-card p {
+        margin-top: 12px;
+
+        padding: 0 5px;
+
+        font-size: 13px;
+        line-height: 1.55;
+    }
+
+
+    /* Désactive l'effet hover sur téléphone */
+
+    .portfolio-card:hover {
+        transform: none;
+
+        box-shadow: none;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    footer {
+        padding: 50px 7vw 28px;
+    }
+
+    .footer-logo {
+        margin-bottom: 28px;
     }
 
     .footer-logo img {
-        margin: 0 auto;
+        width: 95px;
+    }
+
+    .footer-socials {
+        gap: 18px;
+
+        margin-bottom: 25px;
+
+        flex-wrap: wrap;
+    }
+
+    .footer-socials a {
+        font-size: 12px;
+    }
+
+    .footer-contact {
+        font-size: 13px;
+    }
+
+    .copyright {
+        margin-top: 28px;
+
+        font-size: 11px;
+        line-height: 1.5;
     }
 
 
-    /* Lightbox */
+    /* =====================================================
+       LIGHTBOX
+       ===================================================== */
 
     .lightbox {
-        padding: 20px;
+        padding: 15px;
     }
 
     .lightbox-image {
         max-width: 94vw;
-        max-height: 85vh;
+        max-height: 82vh;
     }
 
     .lightbox-close {
         top: 10px;
-        right: 15px;
+        right: 12px;
+
+        width: 42px;
+        height: 42px;
+
+        font-size: 38px;
+    }
+
+}
+
+
+/* =========================================================
+   TRÈS PETITS TÉLÉPHONES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .header {
+        height: 70px;
+        padding: 0 15px;
+    }
+
+    .brand {
+        width: 65px;
+        flex-basis: 65px;
+    }
+
+    .brand img {
+        width: 65px;
+    }
+
+
+    /* Menu */
+
+    .main-nav.is-open {
+        top: 70px;
+    }
+
+    .main-nav.is-open a {
+        font-size: 14px;
+        padding: 13px 10px;
+    }
+
+
+    /* Portfolio */
+
+    .portfolio {
+        padding: 42px 5vw 60px;
+    }
+
+    .portfolio h1 {
+        font-size: 37px;
+        transform: scaleX(1.1);
+        margin-bottom: 35px;
+    }
+
+    .portfolio-grid {
+        gap: 20px;
+    }
+
+    .portfolio-card {
+        padding: 8px;
+    }
+
+    .portfolio-card h2 {
+        font-size: 16px;
+    }
+
+    .portfolio-card p {
+        font-size: 12.5px;
+    }
+
+
+    /* Footer */
+
+    footer {
+        padding-left: 6vw;
+        padding-right: 6vw;
     }
 }
