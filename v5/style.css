@@ -1497,12 +1497,14 @@ footer {
         position: relative;
     }
 
-    .brand,
-    .brand img {
-        width: 68px;
+    .brand {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+    }
+
+    .brand img {
+        width: 68px;
     }
 
     .hero {
