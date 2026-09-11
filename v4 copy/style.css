@@ -520,6 +520,10 @@ img {
     background: var(--color-yellow);
 }
 
+.story-card.white {
+    background: var(--color-white);
+    color: var(--color-petrol);
+}
 
 .more-link {
     display: block;
@@ -594,7 +598,7 @@ img {
 
 /* 1 — Rouge */
 .music-card:nth-child(3n + 1) {
-    border-color: var(--color-red);
+    border-color: var(--color-white);
 }
 
 /* 2 — Jaune */
@@ -604,7 +608,7 @@ img {
 
 /* 3 — Bleu */
 .music-card:nth-child(3n + 3) {
-    border-color: var(--color-blue);
+    border-color: var(--color-petrol);
 }
 
 
