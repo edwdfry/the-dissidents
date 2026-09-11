@@ -205,7 +205,7 @@ img {
 
     display: grid;
 
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 35px 28px;
 }
@@ -216,8 +216,6 @@ img {
    ========================================================= */
 
 .portfolio-card {
-    min-width: 0;
-
     padding: 10px;
 
     background: var(--color-black);
@@ -227,19 +225,22 @@ img {
         box-shadow 0.25s ease;
 }
 
+
 .portfolio-card a {
     display: block;
 }
 
-.portfolio-card img {
-    width: 100%;
-    height: auto;
 
-    aspect-ratio: 16 / 10;
 
-    object-fit: cover;
+/* =========================================================
+   INFORMATIONS
+   ========================================================= */
+
+.portfolio-info {
+    padding: 18px 12px 14px;
+
+    text-align: center;
 }
-
 
 /* ---------------------------------------------------------
    TITRE
@@ -677,7 +678,7 @@ footer {
         width: 100%;
         height: auto;
         display: block;
-        object-fit: contain;
+        /*object-fit: contain;*/
     }
 
 
