@@ -1,98 +1,120 @@
 <!doctype html>
-
 <html lang="fr">
 
 <head>
 
+    <meta charset="utf-8">
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
 
-<title>The Dissidents</title>
+    <title>The Dissidents — Compositions</title>
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
-<link
-    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:wght@400;500;600&display=swap"
-    rel="stylesheet"
->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Audiowide&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
 
-<!-- Styles -->
-<link rel="stylesheet" href="compo.css">
-<link rel="stylesheet" href="style.css">
-
+    <!-- Styles -->
+    <link rel="stylesheet" href="compo.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
+
 <body>
 
-<!-- ==========================================================
-     ZONE PROTÉGÉE
-=========================================================== -->
 
-<div id="passwordOverlay" class="music-lock">
+    <!-- ======================================================
+         ZONE PROTÉGÉE
+    ======================================================= -->
 
+    <div
+        id="passwordOverlay"
+        class="music-lock"
+    >
 
-<div class="music-lock-content">
+        <div class="music-lock-content">
 
-    <h3>
-        Espace réservé
-    </h3>
+            <h3>
+                Espace réservé
+            </h3>
 
-    <p>
-        Veuillez saisir le mot de passe ci-dessous.
-    </p>
+            <p>
+                Veuillez saisir le mot de passe ci-dessous.
+            </p>
 
-    <div class="password-form">
+            <div class="password-form">
 
-        <input
-            type="password"
-            id="passwordInput"
-            placeholder="Mot de passe"
-            autocomplete="off"
-        >
+                <input
+                    type="password"
+                    id="passwordInput"
+                    placeholder="Mot de passe"
+                    autocomplete="off"
+                    aria-label="Mot de passe"
+                >
 
-        <button
-            type="button"
-            class="music-password-button"
-            onclick="checkPassword()"
-        >
-            OK
-        </button>
+                <button
+                    type="button"
+                    class="music-password-button"
+                    onclick="checkPassword()"
+                >
+                    OK
+                </button>
+
+            </div>
+
+            <p
+                id="passwordError"
+                class="music-error"
+                aria-live="polite"
+            ></p>
+
+        </div>
 
     </div>
 
-    <p
-        id="passwordError"
-        class="music-error"
-        aria-live="polite"
-    ></p>
 
-</div>
-
-
-</div>
-
-    <!-- =====================================================
+    <!-- ======================================================
          HEADER
-         ===================================================== -->
+    ======================================================= -->
 
     <header class="header">
 
-        <a class="brand" href="index.html">
+        <a
+            class="brand"
+            href="index.html"
+            aria-label="Retour à l'accueil"
+        >
             <img
                 src="assets/images/logo_officiel_detoure.png"
-                alt="Les Dissidents"
+                alt="The Dissidents"
             >
         </a>
 
-        <nav class="main-nav">
 
-            <a href="index.html">ACCUEIL</a>
+        <nav
+            class="main-nav"
+            aria-label="Navigation principale"
+        >
 
-            <a href="portfolio.html">PORTFOLIO</a>
+            <a href="index.html">
+                ACCUEIL
+            </a>
+
+            <a href="portfolio.html">
+                PORTFOLIO
+            </a>
 
             <a href="membres.html">
                 MEMBRES
@@ -102,7 +124,10 @@
                 ÉVÉNEMENTS
             </a>
 
-            <a class="active" href="compo.html">
+            <a
+                class="active"
+                href="compo.html"
+            >
                 COMPO
             </a>
 
@@ -111,6 +136,9 @@
             </a>
 
         </nav>
+
+
+        <!-- Hamburger -->
 
         <button
             class="menu-toggle"
@@ -124,355 +152,388 @@
 
     </header>
 
-<main>
 
-<!-- ==========================================================
-     COMPOSITIONS
-=========================================================== -->
+    <!-- ======================================================
+         CONTENU PRINCIPAL
+    ======================================================= -->
 
-<section
-    id="compo"
-    class="music-section"
->
+    <main>
 
 
-<div class="music-container">
+        <!-- ==================================================
+             COMPOSITIONS
+        =================================================== -->
 
-
-    <!-- EN-TÊTE -->
-
-    <div class="music-header">
-
-        <!-- <span class="section-label">
-            COMPOSITIONS
-        </span> -->
-
-        <h2>
-            Compos
-        </h2>
-
-        <!-- <p>
-            Retrouvez ici les compositions originales de The Dissidents.
-        </p> -->
-
-    </div>
-
-
-    <!-- ==================================================
-         GRILLE
-    =================================================== -->
-
-    <div class="compositions-grid">
-
-
-        <!-- AT THAT TIME -->
-
-        <article class="composition-card">
-
-            <div class="composition-image">
-
-                <img
-                    src="assets/images/compos/tunnel_vege.png"
-                    alt="At That Time"
-                >
-
-            </div>
-
-            <h3>
-                At That Time
-            </h3>
-
-            <audio
-                controls
-                preload="metadata"
-                controlsList="nodownload"
-            >
-
-                <source
-                    src="assets/audio/2026_09_02/AT_THAT_TIME_tom_gaby_ed_165bpm_sauf_bridge_v4.mp3"
-                    type="audio/mpeg"
-                >
-
-                Votre navigateur ne supporte pas l'audio.
-
-            </audio>
-
-        </article>
-
-
-        <!-- HUSH -->
-
-        <article class="composition-card">
-
-            <div class="composition-image">
-
-                <img
-                    src="assets/images/compos/hush.jpg"
-                    alt="Hush"
-                >
-
-            </div>
-
-            <h3>
-                Hush
-            </h3>
-
-            <audio
-                controls
-                preload="metadata"
-                controlsList="nodownload"
-            >
-
-                <source
-                    src="assets/audio/2026_09_02/HUSH_2026_07_22_150.mp3"
-                    type="audio/mpeg"
-                >
-
-                Votre navigateur ne supporte pas l'audio.
-
-            </audio>
-
-        </article>
-
-
-        <!-- TRIGGER -->
-
-        <article class="composition-card">
-
-            <div class="composition-image">
-
-                <img
-                    src="assets/images/compos/trigger.png"
-                    alt="Trigger"
-                >
-
-            </div>
-
-            <h3>
-                Trigger
-            </h3>
-
-            <audio
-                controls
-                preload="metadata"
-                controlsList="nodownload"
-            >
-
-                <source
-                    src="assets/audio/2026_09_02/TRIGGER_2026_07_22.mp3"
-                    type="audio/mpeg"
-                >
-
-                Votre navigateur ne supporte pas l'audio.
-
-            </audio>
-
-        </article>
-
-
-        <!-- VINE ROOTS -->
-
-        <article class="composition-card">
-
-            <div class="composition-image">
-
-                <img
-                    src="assets/images/compos/vine.jpg"
-                    alt="Vine Roots"
-                >
-
-            </div>
-
-            <h3>
-                Vine Roots
-            </h3>
-
-            <audio
-                controls
-                preload="metadata"
-                controlsList="nodownload"
-            >
-
-                <source
-                    src="assets/audio/2026_09_02/vine_roots_2026_08_13_bass.mp3"
-                    type="audio/mpeg"
-                >
-
-                Votre navigateur ne supporte pas l'audio.
-
-            </audio>
-
-        </article>
-
-
-        <!-- TALK TO ME -->
-
-        <article class="composition-card">
-
-            <div class="composition-image">
-
-                <img
-                    src="assets/images/compos/talk.png"
-                    alt="Vine Roots"
-                >
-
-            </div>
-
-            <h3>
-                Talk To Me
-            </h3>
-
-            <audio
-                controls
-                preload="metadata"
-                controlsList="nodownload"
-            >
-
-                <source
-                    src="assets/audio/2026_09_02/TALK_TO_ME_piano_2026_08_06_bridge_ensemble_bass.mp3"
-                    type="audio/mpeg"
-                >
-
-                Votre navigateur ne supporte pas l'audio.
-
-            </audio>
-
-        </article>
-
-        <!-- LOVE @ 1ST SIGHT -->
-
-        <article class="composition-card">
-
-            <div class="composition-image">
-
-                <img
-                    src="assets/images/compos/love.png"
-                    alt="Vine Roots"
-                >
-
-            </div>
-
-            <h3>
-                Love @ 1st Sight
-            </h3>
-
-            <audio
-                controls
-                preload="metadata"
-                controlsList="nodownload"
-            >
-
-                <source
-                    src="assets/audio/2026_09_02/LOVE_AT_FIRST_SIGHT_2026_08_06_voixgab.mp3"
-                    type="audio/mpeg"
-                >
-
-                Votre navigateur ne supporte pas l'audio.
-
-            </audio>
-
-        </article>
-
-        <!-- #1 PRIORITY -->
-
-        <article class="composition-card">
-
-            <div class="composition-image">
-
-                <img
-                    src="assets/images/compos/priority.png"
-                    alt="#1 Priority"
-                >
-
-            </div>
-
-            <h3>
-                #1 Priority
-            </h3>
-
-            <audio
-                controls
-                preload="metadata"
-                controlsList="nodownload"
-            >
-
-                <source
-                    src="assets/audio/2026_09_02/#1PRIORITY_2026_08_06_voixed.mp3"
-                    type="audio/mpeg"
-                >
-
-                Votre navigateur ne supporte pas l'audio.
-
-            </audio>
-
-        </article>
-
-    </div>
-
-
-    <!-- ==================================================
-         BOUTON VERROUILLAGE
-    =================================================== -->
-
-    <button
-        type="button"
-        class="music-lock-button"
-        onclick="lockMusic()"
-    >
-        🔒 Verrouiller les morceaux
-    </button>
-
-
-</div>
-
-
-</section>
-
-
-<!-- =====================================================
-     FOOTER
-     ===================================================== -->
-
-<footer id="contact">
-
-    <div class="footer-logo">
-        <img
-            src="assets/images/logo_officiel_detoure.png"
-            alt="The Dissidents"
+        <section
+            id="compo"
+            class="music-section"
         >
-    </div>
 
-    <div class="footer-socials">
-        <a href="#" aria-label="Instagram">Instagram</a>
-        <a href="#" aria-label="Facebook">Facebook</a>
-        <a href="#" aria-label="YouTube">YouTube</a>
-    </div>
-
-    <div class="footer-contact">
-
-        <a href="mailto:ed.ferry@gmail.com">
-            ed.ferry@gmail.com
-        </a>
-
-        <a href="tel:+33613714176">
-            06 13 71 41 76
-        </a>
-
-        <p>Orléans, France</p>
-
-    </div>
-
-    <p class="copyright">
-        © 2026 Les Dissidents. Tous droits réservés.
-    </p>
-
-</footer>
+            <div class="music-container">
 
 
-</main>
+                <!-- EN-TÊTE -->
 
-<script src="compo.js"></script>
-<script src="script.js"></script>
+                <div class="music-header">
+
+                    <h2>
+                        Compos
+                    </h2>
+
+                </div>
+
+
+                <!-- ==================================================
+                     GRILLE DES COMPOSITIONS
+                =================================================== -->
+
+                <div class="compositions-grid">
+
+
+                    <!-- AT THAT TIME -->
+
+                    <article class="composition-card">
+
+                        <div class="composition-image">
+
+                            <img
+                                src="assets/images/compos/tunnel_vege.png"
+                                alt="At That Time"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+                        <h3>
+                            At That Time
+                        </h3>
+
+                        <audio
+                            controls
+                            preload="metadata"
+                            controlsList="nodownload"
+                            aria-label="Écouter At That Time"
+                        >
+
+                            <source
+                                src="assets/audio/2026_09_02/AT_THAT_TIME_tom_gaby_ed_165bpm_sauf_bridge_v4.mp3"
+                                type="audio/mpeg"
+                            >
+
+                            Votre navigateur ne supporte pas l'audio.
+
+                        </audio>
+
+                    </article>
+
+
+                    <!-- HUSH -->
+
+                    <article class="composition-card">
+
+                        <div class="composition-image">
+
+                            <img
+                                src="assets/images/compos/hush.jpg"
+                                alt="Hush"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+                        <h3>
+                            Hush
+                        </h3>
+
+                        <audio
+                            controls
+                            preload="metadata"
+                            controlsList="nodownload"
+                            aria-label="Écouter Hush"
+                        >
+
+                            <source
+                                src="assets/audio/2026_09_02/HUSH_2026_07_22_150.mp3"
+                                type="audio/mpeg"
+                            >
+
+                            Votre navigateur ne supporte pas l'audio.
+
+                        </audio>
+
+                    </article>
+
+
+                    <!-- TRIGGER -->
+
+                    <article class="composition-card">
+
+                        <div class="composition-image">
+
+                            <img
+                                src="assets/images/compos/trigger.png"
+                                alt="Trigger"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+                        <h3>
+                            Trigger
+                        </h3>
+
+                        <audio
+                            controls
+                            preload="metadata"
+                            controlsList="nodownload"
+                            aria-label="Écouter Trigger"
+                        >
+
+                            <source
+                                src="assets/audio/2026_09_02/TRIGGER_2026_07_22.mp3"
+                                type="audio/mpeg"
+                            >
+
+                            Votre navigateur ne supporte pas l'audio.
+
+                        </audio>
+
+                    </article>
+
+
+                    <!-- VINE ROOTS -->
+
+                    <article class="composition-card">
+
+                        <div class="composition-image">
+
+                            <img
+                                src="assets/images/compos/vine.jpg"
+                                alt="Vine Roots"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+                        <h3>
+                            Vine Roots
+                        </h3>
+
+                        <audio
+                            controls
+                            preload="metadata"
+                            controlsList="nodownload"
+                            aria-label="Écouter Vine Roots"
+                        >
+
+                            <source
+                                src="assets/audio/2026_09_02/vine_roots_2026_08_13_bass.mp3"
+                                type="audio/mpeg"
+                            >
+
+                            Votre navigateur ne supporte pas l'audio.
+
+                        </audio>
+
+                    </article>
+
+
+                    <!-- TALK TO ME -->
+
+                    <article class="composition-card">
+
+                        <div class="composition-image">
+
+                            <img
+                                src="assets/images/compos/talk.png"
+                                alt="Talk To Me"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+                        <h3>
+                            Talk To Me
+                        </h3>
+
+                        <audio
+                            controls
+                            preload="metadata"
+                            controlsList="nodownload"
+                            aria-label="Écouter Talk To Me"
+                        >
+
+                            <source
+                                src="assets/audio/2026_09_02/TALK_TO_ME_piano_2026_08_06_bridge_ensemble_bass.mp3"
+                                type="audio/mpeg"
+                            >
+
+                            Votre navigateur ne supporte pas l'audio.
+
+                        </audio>
+
+                    </article>
+
+
+                    <!-- LOVE AT FIRST SIGHT -->
+
+                    <article class="composition-card">
+
+                        <div class="composition-image">
+
+                            <img
+                                src="assets/images/compos/love.png"
+                                alt="Love at First Sight"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+                        <h3>
+                            Love @ 1st Sight
+                        </h3>
+
+                        <audio
+                            controls
+                            preload="metadata"
+                            controlsList="nodownload"
+                            aria-label="Écouter Love at First Sight"
+                        >
+
+                            <source
+                                src="assets/audio/2026_09_02/LOVE_AT_FIRST_SIGHT_2026_08_06_voixgab.mp3"
+                                type="audio/mpeg"
+                            >
+
+                            Votre navigateur ne supporte pas l'audio.
+
+                        </audio>
+
+                    </article>
+
+
+                    <!-- #1 PRIORITY -->
+
+                    <article class="composition-card">
+
+                        <div class="composition-image">
+
+                            <img
+                                src="assets/images/compos/priority.png"
+                                alt="#1 Priority"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+                        <h3>
+                            #1 Priority
+                        </h3>
+
+                        <audio
+                            controls
+                            preload="metadata"
+                            controlsList="nodownload"
+                            aria-label="Écouter #1 Priority"
+                        >
+
+                            <source
+                                src="assets/audio/2026_09_02/#1PRIORITY_2026_08_06_voixed.mp3"
+                                type="audio/mpeg"
+                            >
+
+                            Votre navigateur ne supporte pas l'audio.
+
+                        </audio>
+
+                    </article>
+
+
+                </div>
+
+
+                <!-- ==================================================
+                     VERROUILLAGE
+                =================================================== -->
+
+                <button
+                    type="button"
+                    class="music-lock-button"
+                    onclick="lockMusic()"
+                >
+                    🔒 Verrouiller les morceaux
+                </button>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================================
+             FOOTER
+        ======================================================= -->
+
+        <footer id="contact">
+
+            <div class="footer-logo">
+
+                <img
+                    src="assets/images/logo_officiel_detoure.png"
+                    alt="The Dissidents"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="footer-socials">
+
+                <a href="#" aria-label="Instagram">
+                    Instagram
+                </a>
+
+                <a href="#" aria-label="Facebook">
+                    Facebook
+                </a>
+
+                <a href="#" aria-label="YouTube">
+                    YouTube
+                </a>
+
+            </div>
+
+
+            <div class="footer-contact">
+
+                <a href="mailto:ed.ferry@gmail.com">
+                    ed.ferry@gmail.com
+                </a>
+
+                <a href="tel:+33613714176">
+                    06 13 71 41 76
+                </a>
+
+                <p>
+                    Orléans, France
+                </p>
+
+            </div>
+
+
+            <p class="copyright">
+                © 2026 Les Dissidents. Tous droits réservés.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- Scripts -->
+
+    <script src="compo.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
