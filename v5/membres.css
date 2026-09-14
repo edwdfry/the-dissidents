@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
 
@@ -15,16 +14,10 @@
     --color-yellow: #ffdc18;
     --color-red: #e51b23;
     --color-blue: #3d5c5d;
+    --color-petrol: #0f4c5c;
 
-    --color-black: #080808;
+    --color-black: #090909;
     --color-border: #222222;
-
-    --color-black:#090909;
-    --color-white:#F5F4F2;
-    --color-petrol:#0F4C5C;
-    --color-darkred:#8D1E2F;
-    --color-copper:#A36A45;
-    --color-grey:#8C8C8C;
 
     --font-body: "Poppins", Arial, sans-serif;
     --font-display: "Audiowide", sans-serif;
@@ -46,6 +39,8 @@ html {
 }
 
 body {
+    min-height: 100vh;
+
     background: var(--color-background);
     color: var(--color-text);
 
@@ -81,7 +76,9 @@ img {
 }
 
 
-/* Logo */
+/* ---------------------------------------------------------
+   Logo
+   --------------------------------------------------------- */
 
 .brand {
     width: 101px;
@@ -89,6 +86,8 @@ img {
 }
 
 .brand img {
+    display: block;
+
     width: 101px;
     height: 68px;
 
@@ -96,7 +95,9 @@ img {
 }
 
 
-/* Navigation */
+/* ---------------------------------------------------------
+   Navigation
+   --------------------------------------------------------- */
 
 .main-nav {
     flex: 1;
@@ -110,15 +111,20 @@ img {
 }
 
 .main-nav a {
-    font-family: 'Archivo Black', serif;
+    font-family: 'Archivo Black', sans-serif;
     font-size: 15px;
 
     white-space: nowrap;
 
     transform: scaleX(1.75);
-    transform-origin: center ;
+    transform-origin: center;
+
+    transition: opacity 0.2s ease;
 }
 
+.main-nav a:hover {
+    opacity: 0.7;
+}
 
 .main-nav .active {
     text-decoration: underline;
@@ -126,14 +132,19 @@ img {
 }
 
 
-/* Menu */
+/* ---------------------------------------------------------
+   Hamburger
+   --------------------------------------------------------- */
 
 .menu-toggle {
     display: none;
 
-    width: 38px;
+    width: 40px;
+    height: 40px;
 
-    background: none;
+    padding: 5px;
+
+    background: transparent;
     border: 0;
 
     cursor: pointer;
@@ -142,8 +153,10 @@ img {
 .menu-toggle span {
     display: block;
 
+    width: 30px;
     height: 2px;
-    margin: 7px 0;
+
+    margin: 4px 0;
 
     background: var(--color-text);
 }
@@ -162,7 +175,7 @@ img {
 
     color: var(--color-yellow);
 
-    font-family: 'Archivo Black', serif;
+    font-family: 'Archivo Black', sans-serif;
     font-size: clamp(60px, 7vw, 90px);
     font-weight: 900;
     line-height: 0.88;
@@ -174,15 +187,17 @@ img {
     text-transform: uppercase;
 }
 
-.members p {
+.members-intro {
     max-width: 620px;
+
     margin-top: 42px;
 
     color: var(--color-text);
 
     font-size: 35px;
-    line-height: 1.5;
+    line-height: 1.4;
 }
+
 
 /* =========================================================
    GRILLE
@@ -192,11 +207,10 @@ img {
     width: 100%;
     max-width: 1200px;
 
-    margin: 0 auto;
+    margin: 65px auto 0;
 
     display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 
     gap: 35px 28px;
 }
@@ -260,6 +274,7 @@ img {
 
 .member-image-link img {
     width: 100%;
+    height: auto;
 
     aspect-ratio: 4 / 5;
 
@@ -303,16 +318,16 @@ img {
     letter-spacing: 1px;
 }
 
-
 .member-info p {
-    margin-top: 5px;
+    margin-top: 10px;
 
     color: var(--color-black);
 
     font-size: 13px;
     font-weight: 600;
 
-    letter-spacing: 1px;
+    line-height: 1.55;
+    letter-spacing: 0.4px;
 }
 
 
@@ -484,17 +499,57 @@ footer {
 
 @media (max-width: 1050px) {
 
+    /* Header */
+
+    .header {
+        height: 90px;
+        padding: 0 25px;
+    }
+
+    .brand {
+        width: 85px;
+        flex: 0 0 85px;
+    }
+
+    .brand img {
+        width: 85px;
+        height: auto;
+    }
+
     .main-nav {
-        gap: 27px;
-        margin-left: 20px;
+        gap: 35px;
+        margin-left: 30px;
     }
 
     .main-nav a {
-        font-size: 12px;
+        font-size: 11px;
+        transform: scaleX(1.35);
     }
 
+
+    /* Membres */
+
+    .members {
+        padding: 75px 5vw 100px;
+    }
+
+    .members h1 {
+        font-size: clamp(55px, 8vw, 78px);
+    }
+
+    .members-intro {
+        font-size: 28px;
+    }
+
+
+    /* Grille */
+
     .members-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 30px 24px;
+
+        margin-top: 55px;
     }
 }
 
@@ -512,81 +567,93 @@ footer {
     .header {
         height: 76px;
         padding: 0 18px;
+
         position: relative;
     }
 
+
+    /* Logo centré */
+
     .brand {
         position: absolute;
+
         left: 50%;
         top: 50%;
+
         transform: translate(-50%, -50%);
-        
+
         width: 75px;
-        flex: 0 0 75px;
+        flex: none;
     }
 
     .brand img {
         display: block;
+
         width: 75px;
         height: auto;
     }
 
 
-    /* -----------------------------------------------------
-       NAVIGATION FERMÉE
-       ----------------------------------------------------- */
+    /* Navigation fermée */
 
     .main-nav {
         display: none;
     }
 
 
-    /* Hamburger à droite */
-.menu-toggle {
-    display: flex;
-    position: absolute;
+    /* Hamburger */
 
-    right: 18px;
-    top: 50%;
-    transform: translateY(-50%);
+    .menu-toggle {
+        display: flex;
 
-    width: 40px;
-    height: 40px;
+        position: absolute;
 
-    margin: 0;
-    padding: 5px;
+        right: 18px;
+        top: 50%;
 
-    background: transparent;
-    border: 0;
+        transform: translateY(-50%);
 
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+        width: 40px;
+        height: 40px;
 
-    z-index: 10002;
-}
+        margin: 0;
+        padding: 5px;
+
+        background: transparent;
+        border: 0;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        z-index: 10002;
+    }
 
     .menu-toggle span {
         display: block;
+
         width: 30px;
         height: 2px;
-        margin: 7px auto;
+
+        margin: 4px 0;
+
         background: var(--color-text);
-        transition: transform .2s ease;
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        MENU OUVERT
-       ----------------------------------------------------- */
+       ===================================================== */
 
     .main-nav.is-open {
         position: absolute;
+
         top: 76px;
         left: 0;
         right: 0;
 
         display: flex;
+
         flex-direction: column;
         align-items: center;
 
@@ -596,10 +663,12 @@ footer {
         margin: 0;
         padding: 28px 20px 32px;
 
-        background: rgba(13, 13, 13, .98);
+        background: rgba(13, 13, 13, 0.98);
 
         border-top: 1px solid var(--color-border);
-        box-shadow: 0 15px 30px rgba(0,0,0,.35);
+
+        box-shadow:
+            0 15px 30px rgba(0, 0, 0, 0.35);
 
         z-index: 10001;
     }
@@ -610,47 +679,148 @@ footer {
     }
 
 
-
-    /* Membres */
+    /* =====================================================
+       MEMBRES
+       ===================================================== */
 
     .members {
-        padding: 55px 7vw 75px;
+        padding: 55px 20px 75px;
     }
 
     .members h1 {
-        margin-bottom: 40px;
+        margin: 0;
 
-        font-size: 34px;
-        line-height: 1.1;
+        font-size: clamp(44px, 13vw, 64px);
+        line-height: 0.95;
+        letter-spacing: 1px;
+
+        transform: scaleX(1.15);
     }
+
+    .members-intro {
+        max-width: 100%;
+
+        margin-top: 30px;
+
+        font-size: 22px;
+        line-height: 1.35;
+    }
+
+
+    /* =====================================================
+       GRILLE
+       ===================================================== */
 
     .members-grid {
-        grid-template-columns: 1fr;
+        width: 100%;
 
-        gap: 25px;
+        margin-top: 40px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 38px;
     }
 
 
-    /* Footer */
+    /* =====================================================
+       CARTES
+       ===================================================== */
 
-    .footer {
-        padding: 45px 7vw 25px;
+    .member-card {
+        width: 100%;
+        max-width: 350px;
+
+        padding: 9px;
     }
 
-    .footer-content {
-        grid-template-columns: 1fr;
+    .member-card:hover {
+        transform: none;
 
-        gap: 25px;
+        box-shadow: none;
+    }
 
-        text-align: center;
+
+    /* Images */
+
+    .member-image-link img {
+        aspect-ratio: 4 / 5;
+
+        object-fit: cover;
+
+        transition: none;
+    }
+
+    .member-card:hover .member-image-link img {
+        transform: none;
+    }
+
+
+    /* Informations */
+
+    .member-info {
+        padding: 17px 10px 16px;
+    }
+
+    .member-info h2 {
+        font-size: 26px;
+    }
+
+    .member-info h3 {
+        margin-top: 4px;
+
+        font-size: 17px;
+    }
+
+    .member-info p {
+        margin-top: 10px;
+
+        font-size: 12px;
+        line-height: 1.5;
+        letter-spacing: 0.25px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    footer {
+        padding: 50px 20px 28px;
+    }
+
+    .footer-logo {
+        margin-bottom: 28px;
     }
 
     .footer-logo img {
-        margin: 0 auto;
+        width: 100px;
+    }
+
+    .footer-socials {
+        flex-wrap: wrap;
+
+        gap: 15px 25px;
+
+        margin-bottom: 25px;
+    }
+
+    .footer-contact {
+        font-size: 13px;
+    }
+
+    .copyright {
+        margin-top: 28px;
+
+        font-size: 11px;
+        line-height: 1.5;
     }
 
 
-    /* Lightbox */
+    /* =====================================================
+       LIGHTBOX
+       ===================================================== */
 
     .lightbox {
         padding: 20px;
@@ -664,8 +834,11 @@ footer {
     .lightbox-close {
         top: 10px;
         right: 15px;
+
+        font-size: 40px;
     }
 }
+
 
 /* =========================================================
    TRÈS PETITS TÉLÉPHONES
@@ -673,26 +846,38 @@ footer {
 
 @media (max-width: 400px) {
 
+    /* Header */
+
     .header {
         height: 70px;
         padding: 0 15px;
-        position: relative;
     }
 
+
+    /* Logo */
+
     .brand {
-        width: 65px;
-        flex-basis: 65px;
         position: absolute;
+
         left: 50%;
-        transform: translateX(-50%,-50%);
+        top: 50%;
+
+        width: 68px;
+
+        transform: translate(-50%, -50%);
     }
 
     .brand img {
-        width: 65px;
+        width: 68px;
+        height: auto;
     }
 
 
     /* Menu */
+
+    .menu-toggle {
+        right: 12px;
+    }
 
     .main-nav.is-open {
         top: 70px;
@@ -700,12 +885,45 @@ footer {
 
     .main-nav.is-open a {
         font-size: 14px;
-        padding: 13px 10px;
+        padding: 5px 10px;
     }
+
+
+    /* Membres */
+
+    .members {
+        padding: 45px 16px 60px;
+    }
+
+    .members h1 {
+        font-size: 40px;
+    }
+
+    .members-intro {
+        margin-top: 25px;
+
+        font-size: 19px;
+    }
+
+    .members-grid {
+        margin-top: 32px;
+
+        gap: 30px;
+    }
+
+    .member-card {
+        max-width: 100%;
+    }
+
+
     /* Footer */
 
     footer {
-        padding-left: 6vw;
-        padding-right: 6vw;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .footer-socials {
+        gap: 12px 18px;
     }
 }
