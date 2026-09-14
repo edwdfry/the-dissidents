@@ -702,4 +702,10 @@ footer {
         font-size: 14px;
         padding: 13px 10px;
     }
+    /* Footer */
+
+    footer {
+        padding-left: 6vw;
+        padding-right: 6vw;
+    }
 }
