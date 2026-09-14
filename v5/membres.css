@@ -666,3 +666,40 @@ footer {
         right: 15px;
     }
 }
+
+/* =========================================================
+   TRÈS PETITS TÉLÉPHONES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .header {
+        height: 70px;
+        padding: 0 15px;
+        position: relative;
+    }
+
+    .brand {
+        width: 65px;
+        flex-basis: 65px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%,-50%);
+    }
+
+    .brand img {
+        width: 65px;
+    }
+
+
+    /* Menu */
+
+    .main-nav.is-open {
+        top: 70px;
+    }
+
+    .main-nav.is-open a {
+        font-size: 14px;
+        padding: 13px 10px;
+    }
+}
