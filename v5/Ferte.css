@@ -1,42 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
 
-/* ==========================================================
-   CONCERT — LES DISSIDENTS
-   Mise en page type portfolio / événement
-========================================================== */
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+:root {
+    --color-background: #0b0b0b;
+    --color-background-dark: #0d0d0d;
+
+    --color-text: #ffffff;
+    --color-yellow: #ffdc18;
+
+    --color-border: #222222;
+
+    --font-body: Arial, Helvetica, sans-serif;
+    --font-display: 'Archivo Black', sans-serif;
+}
 
 
-
-/* ==========================================================
+/* =========================================================
    RESET
-========================================================== */
+   ========================================================= */
 
 * {
     box-sizing: border-box;
-}
-
-
-html {
     margin: 0;
     padding: 0;
+}
 
+html {
     scroll-behavior: smooth;
 }
 
-
 body {
-    margin: 0;
-    padding: 0;
+    min-height: 100vh;
 
-    background: #0b0b0b;
+    background: var(--color-background);
+    color: var(--color-text);
 
-    color: #ffffff;
+    font-family: var(--font-body);
+}
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
 }
 
 
@@ -58,7 +71,9 @@ body {
 }
 
 
-/* Logo */
+/* ---------------------------------------------------------
+   Logo
+   --------------------------------------------------------- */
 
 .brand {
     width: 101px;
@@ -66,6 +81,8 @@ body {
 }
 
 .brand img {
+    display: block;
+
     width: 101px;
     height: 68px;
 
@@ -73,7 +90,9 @@ body {
 }
 
 
-/* Navigation */
+/* ---------------------------------------------------------
+   Navigation
+   --------------------------------------------------------- */
 
 .main-nav {
     flex: 1;
@@ -87,15 +106,20 @@ body {
 }
 
 .main-nav a {
-    font-family: 'Archivo Black', serif;
+    font-family: 'Archivo Black', sans-serif;
     font-size: 15px;
 
     white-space: nowrap;
 
     transform: scaleX(1.75);
-    transform-origin: center ;
+    transform-origin: center;
+
+    transition: opacity 0.2s ease;
 }
 
+.main-nav a:hover {
+    opacity: 0.7;
+}
 
 .main-nav .active {
     text-decoration: underline;
@@ -103,14 +127,19 @@ body {
 }
 
 
-/* Menu */
+/* ---------------------------------------------------------
+   Hamburger
+   --------------------------------------------------------- */
 
 .menu-toggle {
     display: none;
 
-    width: 38px;
+    width: 40px;
+    height: 40px;
 
-    background: none;
+    padding: 5px;
+
+    background: transparent;
     border: 0;
 
     cursor: pointer;
@@ -119,282 +148,202 @@ body {
 .menu-toggle span {
     display: block;
 
+    width: 30px;
     height: 2px;
-    margin: 7px 0;
+
+    margin: 4px 0;
 
     background: var(--color-text);
 }
 
 
-
-/* ==========================================================
-   PAGE
-========================================================== */
+/* =========================================================
+   PAGE CONCERT
+   ========================================================= */
 
 .concert-page {
     width: 100%;
 }
 
 
-/* ==========================================================
+/* =========================================================
    INTRODUCTION
-========================================================== */
+   ========================================================= */
 
 .concert-intro {
+    width: 100%;
+    min-height: calc(100vh - 103px);
 
     display: grid;
-
-    grid-template-columns:
-        49% 51%;
-
-    width: 100%;
-
-    min-height: 100vh;
-
+    grid-template-columns: 49% 51%;
 }
 
 
-/* ==========================================================
+/* =========================================================
    COLONNE INFORMATIONS
-========================================================== */
+   ========================================================= */
 
 .concert-info {
-
     display: flex;
-
     align-items: stretch;
 
-    background: #0b0b0b;
+    min-width: 0;
 
-    padding:  
-        5vh
-        3.5vw
-        4vh;
+    background: var(--color-background);
 
+    padding: 55px 4vw 50px;
 }
 
-
 .concert-info-content {
-
     width: 100%;
 
     display: flex;
-
     flex-direction: column;
 
-    padding : 100px;
-
+    min-width: 0;
 }
 
 
-/* ==========================================================
+/* =========================================================
    TITRE
-========================================================== */
+   ========================================================= */
 
 .concert-info h1 {
     margin: 0;
 
     color: var(--color-yellow);
 
-    font-family: 'Archivo Black', serif;
-    font-size: clamp(3rem, 7vw, 4rem);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 5.3vw, 5.3rem);
     font-weight: 900;
-    line-height: 1.2;
+
+    line-height: 0.95;
     letter-spacing: 2px;
 
-    transform: scaleX(1.75);
+    transform: scaleX(1.45);
     transform-origin: left center;
 
     text-transform: uppercase;
-
-    
-
 }
 
 
-/* ==========================================================
+/* =========================================================
    DESCRIPTION
-========================================================== */
+   ========================================================= */
 
 .concert-description {
-
     max-width: 610px;
 
     margin-top: auto;
+    margin-bottom: 55px;
 
-    margin-bottom: 12vh;
-
-    font-size:
-        clamp(1rem, 1.15vw, 1.25rem);
-
-    line-height: 1.45;
+    font-size: clamp(1rem, 1.15vw, 1.25rem);
+    line-height: 1.5;
 
     color: #f2f2f2;
-
-    
-
 }
 
 
-/* ==========================================================
+/* =========================================================
    INFORMATIONS
-========================================================== */
+   ========================================================= */
 
 .concert-details {
-
     width: 100%;
-
-    margin-top: auto;
-
-
 }
 
-
 .detail-row {
-
     display: grid;
-
-    grid-template-columns:
-        175px 1fr;
+    grid-template-columns: 160px minmax(0, 1fr);
 
     align-items: center;
 
     min-height: 53px;
 
-    border-top:
-        1px solid rgba(255,255,255,.75);
-
+    border-top: 1px solid rgba(255, 255, 255, 0.75);
 }
-
 
 .detail-row:last-child {
-
-    border-bottom:
-        1px solid rgba(255,255,255,.75);
-
+    border-bottom: 1px solid rgba(255, 255, 255, 0.75);
 }
-
 
 .detail-label,
 .detail-value {
-
-    font-size:
-        clamp(.9rem, 1vw, 1.05rem);
-
+    font-size: clamp(0.9rem, 1vw, 1.05rem);
     line-height: 1.3;
-
 }
-
 
 .detail-label {
-
     color: #dddddd;
-
 }
-
 
 .detail-value {
-
     color: #ffffff;
-
     font-weight: 500;
-
 }
 
 
-/* ==========================================================
+/* =========================================================
    IMAGE PRINCIPALE
-========================================================== */
+   ========================================================= */
 
 .concert-cover {
-
     width: 100%;
-
-    height: 100vh;
+    min-height: 100%;
 
     overflow: hidden;
 
     background: #111;
-
 }
 
-
 .concert-cover img {
-
     display: block;
 
     width: 100%;
-
     height: 100%;
 
-    padding : 100px;
-
-    /*
-       La photo remplit complètement
-       la colonne droite.
-    */
-
     object-fit: cover;
-
     object-position: center;
-
 }
 
 
-/* ==========================================================
-   GALERIE — MOSAÏQUE
-========================================================== */
+/* =========================================================
+   GALERIE
+   ========================================================= */
 
 .concert-gallery {
-
     width: 100%;
 
-    padding: 200px;
+    padding: 90px 7vw;
 
-    background: #0b0b0b;
-
+    background: var(--color-background);
 }
 
 
-/* ==========================================================
-   LIGNES DE LA GALERIE
-========================================================== */
-
-/*
-   Les photos d'une même ligne sont collées.
-   Le seul espace visible est le padding général de 8px.
-*/
+/* =========================================================
+   LIGNES DE GALERIE
+   ========================================================= */
 
 .gallery-row {
+    width: 100%;
 
     display: grid;
-
-    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
     gap: 0;
 
+    margin: 0;
 }
 
 
-/* Deux photos côte à côte */
-
-.gallery-row-2 {
-
-    grid-template-columns: 1fr 1fr;
-
-}
-
-
-/* ==========================================================
+/* =========================================================
    PHOTO
-========================================================== */
+   ========================================================= */
 
 .gallery-photo {
-
     position: relative;
 
     width: 100%;
-
     margin: 0;
 
     padding: 8px;
@@ -402,129 +351,62 @@ body {
     overflow: hidden;
 
     background: #111;
-
 }
 
-
-/* ==========================================================
-   IMAGES
-========================================================== */
-
 .gallery-photo img {
-
     display: block;
 
     width: 100%;
-
     height: auto;
 
-    /*
-       IMPORTANT :
-       on ne force pas de hauteur.
+    object-fit: contain;
 
-       L'image conserve donc son ratio original
-       et n'est jamais coupée.
-    */
-
+    transition: transform 0.5s ease;
 }
 
 
-/* ==========================================================
+/* =========================================================
    PHOTO LARGE
-========================================================== */
+   ========================================================= */
 
 .gallery-photo-large {
-
     width: 100%;
-
 }
 
 
-/* ==========================================================
-   EFFET AU SURVOL
-========================================================== */
-
-.gallery-photo img {
-
-    transition:
-        transform .5s ease;
-
-}
-
+/* =========================================================
+   SURVOL
+   ========================================================= */
 
 .gallery-photo:hover img {
-
     transform: scale(1.015);
-
 }
 
 
-/* ==========================================================
-   MOBILE
-========================================================== */
-
-@media (max-width: 700px) {
-
-
-    .concert-gallery {
-
-        padding: 8px;
-
-    }
-
-
-    /*
-       Sur téléphone, les deux photos sont
-       empilées afin de conserver une bonne
-       lisibilité et les proportions originales.
-    */
-
-    .gallery-row-2 {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .gallery-photo img {
-
-        width: 100%;
-
-        height: auto;
-
-    }
-
-}
-
-/* ==========================================================
+/* =========================================================
    NAVIGATION ENTRE LES CONCERTS
-========================================================== */
+   ========================================================= */
 
 .concert-navigation {
-
     display: grid;
-
     grid-template-columns: 1fr 1fr;
 
     width: 100%;
 
-    padding: 70px 40px;
+    padding: 70px 7vw;
 
-    background: #0b0b0b;
+    background: var(--color-background);
 
-    border-top: 1px solid rgba(255, 255, 255, .25);
-
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 
-/* ==========================================================
+/* =========================================================
    LIENS
-========================================================== */
+   ========================================================= */
 
 .concert-nav-link {
-
     display: flex;
-
     align-items: center;
 
     gap: 25px;
@@ -533,198 +415,612 @@ body {
 
     text-decoration: none;
 
-    transition:
-        opacity .3s ease;
-
+    transition: opacity 0.3s ease;
 }
-
 
 .concert-nav-link:hover {
-
-    opacity: .65;
-
+    opacity: 0.65;
 }
 
 
-/* ==========================================================
-   CONCERT PRÉCÉDENT
-========================================================== */
+/* =========================================================
+   PRÉCÉDENT
+   ========================================================= */
 
 .concert-nav-previous {
-
     justify-content: flex-start;
-
 }
 
 
-/* ==========================================================
-   CONCERT SUIVANT
-========================================================== */
+/* =========================================================
+   SUIVANT
+   ========================================================= */
 
 .concert-nav-next {
-
     justify-content: flex-end;
 
     text-align: right;
-
 }
 
 
-/* ==========================================================
+/* =========================================================
    FLÈCHES
-========================================================== */
+   ========================================================= */
 
 .concert-nav-arrow {
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     width: 65px;
-
     height: 65px;
 
     flex-shrink: 0;
 
-    border: 1px solid rgba(255, 255, 255, .6);
-
+    border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 50%;
 
     font-size: 2rem;
-
     line-height: 1;
 
     transition:
-        background .3s ease,
-        color .3s ease,
-        transform .3s ease;
-
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 
-/* Animation flèche gauche */
+/* Flèche gauche */
 
 .concert-nav-previous:hover .concert-nav-arrow {
-
     transform: translateX(-6px);
 
     background: #ffffff;
-
-    color: #0b0b0b;
-
+    color: var(--color-background);
 }
 
 
-/* Animation flèche droite */
+/* Flèche droite */
 
 .concert-nav-next:hover .concert-nav-arrow {
-
     transform: translateX(6px);
 
     background: #ffffff;
-
-    color: #0b0b0b;
-
+    color: var(--color-background);
 }
 
 
-/* ==========================================================
-   TEXTE
-========================================================== */
+/* =========================================================
+   TEXTE NAVIGATION
+   ========================================================= */
 
 .concert-nav-text {
-
     display: flex;
-
     flex-direction: column;
 
     gap: 7px;
-
 }
-
 
 .concert-nav-text small {
-
-    font-size: .7rem;
-
+    font-size: 0.7rem;
     font-weight: 600;
 
-    letter-spacing: .15em;
+    letter-spacing: 0.15em;
 
     color: #999999;
-
 }
 
-
 .concert-nav-text strong {
-
     max-width: 280px;
 
     font-size: 1.15rem;
-
     font-weight: 500;
 
     line-height: 1.2;
-
 }
 
 
-/* ==========================================================
-   MOBILE
-========================================================== */
+/* =========================================================
+   TABLETTE
+   ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 1050px) {
 
+    /* Header */
+
+    .header {
+        height: 90px;
+        padding: 0 25px;
+    }
+
+    .brand {
+        width: 85px;
+        flex: 0 0 85px;
+    }
+
+    .brand img {
+        width: 85px;
+        height: auto;
+    }
+
+    .main-nav {
+        gap: 35px;
+        margin-left: 30px;
+    }
+
+    .main-nav a {
+        font-size: 11px;
+        transform: scaleX(1.35);
+    }
+
+
+    /* Intro */
+
+    .concert-intro {
+        min-height: calc(100vh - 90px);
+    }
+
+    .concert-info {
+        padding: 50px 4vw 45px;
+    }
+
+    .concert-info h1 {
+        font-size: clamp(2.7rem, 5.8vw, 4.5rem);
+    }
+
+    .concert-description {
+        margin-bottom: 45px;
+        font-size: 1rem;
+    }
+
+
+    /* Galerie */
+
+    .concert-gallery {
+        padding: 70px 4vw;
+    }
+
+
+    /* Navigation */
 
     .concert-navigation {
+        padding: 60px 4vw;
+    }
+}
 
-        grid-template-columns: 1fr;
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
+
+    .header {
+        height: 76px;
+        padding: 0 18px;
+
+        position: relative;
+    }
+
+
+    /* Logo centré */
+
+    .brand {
+        position: absolute;
+
+        left: 50%;
+        top: 50%;
+
+        transform: translate(-50%, -50%);
+
+        width: 75px;
+        flex: none;
+    }
+
+    .brand img {
+        display: block;
+
+        width: 75px;
+        height: auto;
+    }
+
+
+    /* Navigation fermée */
+
+    .main-nav {
+        display: none;
+    }
+
+
+    /* =====================================================
+       HAMBURGER
+       ===================================================== */
+
+    .menu-toggle {
+        display: flex;
+
+        position: absolute;
+
+        right: 18px;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        width: 40px;
+        height: 40px;
+
+        margin: 0;
+        padding: 5px;
+
+        background: transparent;
+        border: 0;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        z-index: 10002;
+    }
+
+    .menu-toggle span {
+        display: block;
+
+        width: 30px;
+        height: 2px;
+
+        margin: 4px 0;
+
+        background: var(--color-text);
+    }
+
+
+    /* =====================================================
+       MENU OUVERT
+       ===================================================== */
+
+    .main-nav.is-open {
+        position: absolute;
+
+        top: 76px;
+        left: 0;
+        right: 0;
+
+        display: flex;
+
+        flex-direction: column;
+        align-items: center;
+
+        gap: 22px;
+
+        width: 100%;
+        margin: 0;
+
+        padding: 28px 20px 32px;
+
+        background: rgba(13, 13, 13, 0.98);
+
+        border-top: 1px solid var(--color-border);
+
+        box-shadow:
+            0 15px 30px rgba(0, 0, 0, 0.35);
+
+        z-index: 10001;
+    }
+
+    .main-nav.is-open a {
+        font-size: 16px;
+        transform: none;
+    }
+
+
+    /* =====================================================
+       INTRO CONCERT
+       ===================================================== */
+
+    .concert-intro {
+        display: flex;
+        flex-direction: column;
+
+        min-height: auto;
+    }
+
+
+    /* -----------------------------------------------------
+       Informations
+       ----------------------------------------------------- */
+
+    .concert-info {
+        width: 100%;
+
+        padding: 50px 20px 45px;
+    }
+
+    .concert-info-content {
+        width: 100%;
+    }
+
+
+    /* -----------------------------------------------------
+       Titre
+       ----------------------------------------------------- */
+
+    .concert-info h1 {
+        font-size: clamp(2.8rem, 13vw, 4.4rem);
+        line-height: 0.95;
+
+        letter-spacing: 1px;
+
+        transform: scaleX(1.15);
+    }
+
+
+    /* -----------------------------------------------------
+       Description
+       ----------------------------------------------------- */
+
+    .concert-description {
+        margin-top: 45px;
+        margin-bottom: 35px;
+
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+
+    /* -----------------------------------------------------
+       Détails
+       ----------------------------------------------------- */
+
+    .detail-row {
+        grid-template-columns: 110px minmax(0, 1fr);
+
+        min-height: 50px;
+    }
+
+    .detail-label,
+    .detail-value {
+        font-size: 0.85rem;
+    }
+
+
+    /* =====================================================
+       IMAGE PRINCIPALE
+       ===================================================== */
+
+    .concert-cover {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+
+        aspect-ratio: 4 / 3;
+    }
+
+    .concert-cover img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+    }
+
+
+    /* =====================================================
+       GALERIE
+       ===================================================== */
+
+    .concert-gallery {
+        padding: 35px 12px;
+    }
+
+    .gallery-row {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .gallery-photo {
+        width: 100%;
+
+        padding: 6px;
+    }
+
+    .gallery-photo img {
+        width: 100%;
+        height: auto;
+
+        object-fit: contain;
+
+        transition: none;
+    }
+
+    .gallery-photo:hover img {
+        transform: none;
+    }
+
+
+    /* =====================================================
+       NAVIGATION CONCERTS
+       ===================================================== */
+
+    .concert-navigation {
+        display: flex;
+        flex-direction: column;
 
         gap: 35px;
 
         padding: 50px 20px;
-
     }
 
+    .concert-nav-link {
+        width: 100%;
+
+        gap: 18px;
+    }
 
     .concert-nav-next {
-
         justify-content: flex-start;
 
         text-align: left;
-
     }
-
-
-    /*
-       On remet la flèche à droite du texte
-       pour le concert suivant.
-    */
 
     .concert-nav-next .concert-nav-arrow {
-
         order: 2;
-
     }
 
-
     .concert-nav-arrow {
-
         width: 55px;
-
         height: 55px;
 
         font-size: 1.6rem;
-
     }
 
+    .concert-nav-text {
+        min-width: 0;
+    }
 
     .concert-nav-text strong {
+        max-width: 230px;
 
         font-size: 1rem;
+        line-height: 1.3;
+    }
+}
 
+
+/* =========================================================
+   TRÈS PETITS TÉLÉPHONES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
+
+    .header {
+        height: 70px;
+        padding: 0 15px;
     }
 
+
+    /* Logo */
+
+    .brand {
+        position: absolute;
+
+        left: 50%;
+        top: 50%;
+
+        width: 68px;
+
+        transform: translate(-50%, -50%);
+    }
+
+    .brand img {
+        width: 68px;
+        height: auto;
+    }
+
+
+    /* Hamburger */
+
+    .menu-toggle {
+        right: 12px;
+    }
+
+    .main-nav.is-open {
+        top: 70px;
+    }
+
+    .main-nav.is-open a {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+
+    /* =====================================================
+       INTRO
+       ===================================================== */
+
+    .concert-info {
+        padding: 42px 16px 40px;
+    }
+
+    .concert-info h1 {
+        font-size: 2.7rem;
+
+        line-height: 0.98;
+
+        transform: scaleX(1.1);
+    }
+
+    .concert-description {
+        margin-top: 38px;
+
+        font-size: 0.92rem;
+    }
+
+
+    /* Détails */
+
+    .detail-row {
+        grid-template-columns: 95px minmax(0, 1fr);
+
+        min-height: 48px;
+    }
+
+    .detail-label,
+    .detail-value {
+        font-size: 0.78rem;
+    }
+
+
+    /* =====================================================
+       IMAGE
+       ===================================================== */
+
+    .concert-cover {
+        aspect-ratio: 4 / 3;
+    }
+
+
+    /* =====================================================
+       GALERIE
+       ===================================================== */
+
+    .concert-gallery {
+        padding: 25px 8px;
+    }
+
+    .gallery-photo {
+        padding: 4px;
+    }
+
+
+    /* =====================================================
+       NAVIGATION
+       ===================================================== */
+
+    .concert-navigation {
+        padding: 40px 16px;
+    }
+
+    .concert-nav-arrow {
+        width: 50px;
+        height: 50px;
+
+        font-size: 1.4rem;
+    }
+
+    .concert-nav-text small {
+        font-size: 0.62rem;
+    }
+
+    .concert-nav-text strong {
+        font-size: 0.9rem;
+    }
 }
