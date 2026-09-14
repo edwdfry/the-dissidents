@@ -750,7 +750,7 @@ TABLETTE
 MOBILE
 ========================================================== */
 
-@media (max-width: 650px) {
+@media (max-width: 760px) {
 
 .music-section {
     padding: 70px 6% 100px;
@@ -929,4 +929,73 @@ footer {
     color: #777;
 
     font-size: 12px;
+}
+
+/* ---------------------------------------------------------
+   TRÈS PETITS TÉLÉPHONES
+   --------------------------------------------------------- */
+
+@media (max-width: 400px) {
+
+    .header {
+        height: 70px;
+        position: relative;
+    }
+
+    .brand {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%,-50%);
+    }
+
+    .brand img {
+        width: 68px;
+    }
+
+    .music-section {
+        height: calc(100svh - 70px);
+        min-height: 500px;
+    }
+
+    .music-container {
+        left: 6vw;
+        width: 88vw;
+    }
+
+    .music-header {
+        font-size: 43px;
+        transform: scaleX(1.12);
+    }
+
+    .music-container p {
+        font-size: 13px;
+    }
+
+    .petrol-button,
+    .more-button {
+        width: 150px;
+        height: 58px;
+    }
+
+    .story-card {
+        padding: 24px 20px;
+    }
+
+    .story-card p {
+        font-size: 13px;
+    }
+
+    .rest {
+        padding-left: 6vw;
+        padding-right: 6vw;
+    }
+
+    .music-card {
+        padding: 13px;
+    }
+
+    .gallery {
+        padding-left: 4vw;
+        padding-right: 4vw;
+    }
 }
