@@ -1,237 +1,218 @@
-/* ==========================================================
-LES DISSIDENTS — SECTION MUSIQUE
+// ========================================================
+// URL DU WORKER
+// ========================================================
 
-Gestion :
-
-* mot de passe SHA-256
-* affichage de la playlist
-* verrouillage de la playlist
-* validation avec la touche Entrée
-  ========================================================== */
-
-/* ==========================================================
-CALCUL SHA-256
-========================================================== */
-
-async function hashPassword(password) {
+const AUDIO_WORKER =
+    "https://the-dissidents-audio.ed-ferry.workers.dev";
 
 
-const data =
-    new TextEncoder().encode(password);
 
-const hashBuffer =
-    await crypto.subtle.digest(
-        "SHA-256",
-        data
-    );
-
-const hashArray =
-    Array.from(
-        new Uint8Array(hashBuffer)
-    );
-
-return hashArray
-    .map(
-        byte =>
-            byte
-                .toString(16)
-                .padStart(2, "0")
-    )
-    .join("");
-
-
-}
-
-/* ==========================================================
-OUVRIR LA SECTION MUSIQUE
-========================================================== */
+// ========================================================
+// CONNEXION
+// ========================================================
 
 async function checkPassword() {
 
 
-const passwordInput =
-    document.getElementById(
-        "passwordInput"
-    );
-
-const passwordError =
-    document.getElementById(
-        "passwordError"
-    );
-
-const passwordOverlay =
-    document.getElementById(
-        "passwordOverlay"
-    );
-
-
-/* Vérification des éléments */
-
-if (
-    !passwordInput ||
-    !passwordOverlay
-) {
-
-    console.error(
-        "Un élément du verrouillage est introuvable."
-    );
-
-    return;
-}
-
-
-/* Mot de passe saisi */
-
-const motDePasseEntre =
-    passwordInput.value;
-
-
-/* Calcul SHA-256 */
-
-const hash =
-    await hashPassword(
-        motDePasseEntre
-    );
-
-
-/* ======================================================
-   HASH DU MOT DE PASSE CORRECT
-======================================================= */
-
-const hashCorrect =
-        "cbd2f85803188ffe860ee3d45c6106ba775a5182e347bdd7a47469b4cb29e52b";
-
-
-/* ======================================================
-   MOT DE PASSE CORRECT
-======================================================= */
-
-if (hash === hashCorrect) {
-
-    /* Masquer l'écran de verrouillage */
-
-    passwordOverlay.style.display =
-        "none";
-
-
-    /* Nettoyage */
-
-    passwordInput.value = "";
-
-
-    if (passwordError) {
-
-        passwordError.textContent =
-            "";
-
-    }
-
-}
-
-
-/* ======================================================
-   MOT DE PASSE INCORRECT
-======================================================= */
-
-else {
-
-    if (passwordError) {
-
-        passwordError.textContent =
-            "Mot de passe incorrect.";
-
-    }
-
-    passwordInput.value = "";
-
-    passwordInput.focus();
-
-}
-
-
-}
-
-/* ==========================================================
-VERROUILLER LA PLAYLIST
-========================================================== */
-
-function lockMusic() {
-
-
-const passwordOverlay =
-    document.getElementById(
-        "passwordOverlay"
-    );
-
-
-/* Arrêter tous les lecteurs audio */
-
-const audioPlayers =
-    document.querySelectorAll(
-        ".music-section audio"
-    );
-
-
-audioPlayers.forEach(
-    function(audio) {
-
-        audio.pause();
-
-        audio.currentTime = 0;
-
-    }
-);
-
-
-/* Réafficher le verrouillage */
-
-if (passwordOverlay) {
-
-    passwordOverlay.style.display =
-        "flex";
-
-}
-
-
-}
-
-/* ==========================================================
-VALIDATION AVEC LA TOUCHE ENTRÉE
-========================================================== */
-
-document.addEventListener(
-"DOMContentLoaded",
-function() {
-
-
-    const passwordInput =
+    const input =
         document.getElementById(
             "passwordInput"
         );
 
 
-    if (passwordInput) {
+    const error =
+        document.getElementById(
+            "passwordError"
+        );
 
-        passwordInput.addEventListener(
-            "keydown",
-            function(event) {
 
-                if (
-                    event.key === "Enter"
-                ) {
+    const password =
+        input.value;
 
-                    event.preventDefault();
 
-                    checkPassword();
+    if (!password) {
+
+        error.textContent =
+            "Entrez le mot de passe.";
+
+        return;
+
+    }
+
+
+    // Petit indicateur
+
+    error.textContent =
+        "Connexion...";
+
+
+    try {
+
+
+        // =================================================
+        // DEMANDE DU TOKEN AU WORKER
+        // =================================================
+
+        const response =
+            await fetch(
+
+                `${AUDIO_WORKER}/login`,
+
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body:
+                        JSON.stringify({
+
+                            password:
+                                password
+
+                        })
 
                 }
 
-            }
-        );
+            );
+
+
+        // =================================================
+        // MOT DE PASSE INCORRECT
+        // =================================================
+
+        if (!response.ok) {
+
+            error.textContent =
+                "Mot de passe incorrect.";
+
+            input.value = "";
+
+            input.focus();
+
+            return;
+
+        }
+
+
+        // =================================================
+        // RÉCUPÉRATION DU TOKEN
+        // =================================================
+
+        const data =
+            await response.json();
+
+
+        const token =
+            data.token;
+
+
+        if (!token) {
+
+            throw new Error(
+                "Token absent"
+            );
+
+        }
+
+
+        // =================================================
+        // CACHE LA FENÊTRE
+        // =================================================
+
+        document
+            .getElementById(
+                "passwordOverlay"
+            )
+            .style.display =
+                "none";
+
+
+        // =================================================
+        // CONFIGURATION DES 7 LECTEURS
+        // =================================================
+
+        document
+            .querySelectorAll(
+                "audio[data-file]"
+            )
+            .forEach(
+                audio => {
+
+
+                    const filename =
+                        audio.dataset.file;
+
+
+                    // URL du vrai flux audio
+
+                    const streamUrl =
+
+                        `${AUDIO_WORKER}/stream/` +
+
+                        encodeURIComponent(
+                            filename
+                        ) +
+
+                        `?token=` +
+
+                        encodeURIComponent(
+                            token
+                        );
+
+
+                    audio.src =
+                        streamUrl;
+
+
+                }
+            );
+
+
+} catch (error) {
+
+
+        console.error(error);
+
+
+        document
+            .getElementById(
+                "passwordError"
+            )
+            .textContent =
+                "Impossible de contacter le serveur.";
+
 
     }
 
 }
 
 
-);
+
+// ========================================================
+// TOUCHE ENTRÉE DANS LE MOT DE PASSE
+// ========================================================
+
+document
+    .getElementById(
+        "passwordInput"
+    )
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                checkPassword();
+
+            }
+
+        }
+    );
