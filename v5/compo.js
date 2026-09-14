@@ -166,12 +166,9 @@ async function checkPassword() {
                         );
 
 
-                    console.log("🎵 Fichier :", filename);
-        console.log("🔗 Stream :", streamUrl);
 
         audio.src = streamUrl;
 
-        console.log("🎧 Audio src :", audio.src);
                         
 
 
