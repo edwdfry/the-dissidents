@@ -1151,7 +1151,7 @@ footer {
     .brand {
         position: absolute;
         left: 50%;
-        top: 50%;
+        top: 5%;
         transform: translate (-50%, -5%);
         
         width: 75px;
