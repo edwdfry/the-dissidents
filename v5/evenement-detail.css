@@ -1,9 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
+
 /* ==========================================================
-   EVENT DETAIL
-   THE DISSIDENTS
+   VARIABLES
 ========================================================== */
+
+:root {
+    --color-background: #090909;
+    --color-background-dark: #0d0d0d;
+
+    --color-text: #ffffff;
+    --color-white: #f5f4f2;
+
+    --color-yellow: #ffdc18;
+    --color-red: #e51b23;
+    --color-blue: #20a9d8;
+
+    --color-petrol: #0f4c5c;
+    --color-darkred: #8d1e2f;
+    --color-copper: #a36a45;
+    --color-grey: #8c8c8c;
+
+    --color-border: #222222;
+
+    --font-body: "Poppins", Arial, sans-serif;
+    --font-display: "Audiowide", sans-serif;
+    --font-title: "Archivo Black", Arial, sans-serif;
+}
 
 
 /* ==========================================================
@@ -14,62 +37,40 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
-html,
 body {
     margin: 0;
     padding: 0;
+
+    background: var(--color-background);
+    color: var(--color-text);
+
+    font-family: var(--font-body);
+
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 
-body {
-
-    background: #090909;
-
-    color: #ffffff;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-}
-
-/* =========================================================
-   VARIABLES
-   ========================================================= */
-
-:root {
-    --color-background: #090909;
-    --color-background-dark: #0d0d0d;
-
-    --color-text: #ffffff;
-
-    --color-yellow: #ffdc18;
-    --color-red: #e51b23;
-    --color-blue: #3d5c5d;
-
-    --color-black: #080808;
-    --color-border: #222222;
-
-    --color-black:#090909;
-    --color-white:#F5F4F2;
-    --color-petrol:#0F4C5C;
-    --color-darkred:#8D1E2F;
-    --color-copper:#A36A45;
-    --color-grey:#8C8C8C;
-
-    --font-body: "Poppins", Arial, sans-serif;
-    --font-display: "Audiowide", sans-serif;
-}
-
-
-/* =========================================================
+/* ==========================================================
    HEADER
-   ========================================================= */
+========================================================== */
 
 .header {
     position: relative;
-    z-index: 10;
+    z-index: 100;
 
     height: 103px;
     padding: 0 24px;
@@ -81,7 +82,9 @@ body {
 }
 
 
-/* Logo */
+/* ----------------------------------------------------------
+   LOGO
+---------------------------------------------------------- */
 
 .brand {
     width: 101px;
@@ -89,13 +92,18 @@ body {
 }
 
 .brand img {
+    display: block;
+
     width: 101px;
     height: 68px;
+
     object-fit: contain;
 }
 
 
-/* Navigation */
+/* ----------------------------------------------------------
+   NAVIGATION
+---------------------------------------------------------- */
 
 .main-nav {
     flex: 1;
@@ -109,15 +117,22 @@ body {
 }
 
 .main-nav a {
-    font-family: 'Archivo Black', serif;
+    font-family: var(--font-title);
+
     font-size: 15px;
+    line-height: 1;
 
     white-space: nowrap;
 
     transform: scaleX(1.75);
-    transform-origin: center ;
+    transform-origin: center;
+
+    transition: opacity .2s ease;
 }
 
+.main-nav a:hover {
+    opacity: .65;
+}
 
 .main-nav .active {
     text-decoration: underline;
@@ -125,212 +140,214 @@ body {
 }
 
 
-/* Menu mobile */
+/* ==========================================================
+   HAMBURGER
+========================================================== */
 
 .menu-toggle {
     display: none;
 
-    background: none;
+    width: 40px;
+    height: 40px;
+
+    margin: 0;
+    padding: 5px;
+
+    position: absolute;
+    right: 18px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: transparent;
     border: 0;
 
     cursor: pointer;
+
+    z-index: 10002;
 }
 
 .menu-toggle span {
     display: block;
+
+    width: 30px;
+    height: 2px;
+
+    margin: 4px 0;
+
+    background: var(--color-text);
+
+    transition:
+        transform .25s ease,
+        opacity .25s ease;
 }
 
 
-
 /* ==========================================================
-   CONTENEUR CENTRAL
+   PAGE
 ========================================================== */
 
 .event-page {
-
     width: 100%;
-
     max-width: 1000px;
 
     margin: 0 auto;
 
     padding-bottom: 80px;
-
 }
 
 
 /* ==========================================================
-   HEADER ÉVÉNEMENT
+   EVENT HEADER
 ========================================================== */
 
 .event-header {
-
     position: relative;
-
     z-index: 1;
 
     width: 100%;
-
     min-height: 350px;
 
-    padding:
-        35px 35px 85px;
+    padding: 35px 35px 85px;
 
     text-align: center;
 
-    background:
-        #250909;
-
+    background: #250909;
 }
 
 
-.event-type {
+/* Type */
 
+.event-type {
     display: block;
 
     margin-bottom: 18px;
 
-    color: #888888;
+    color: #888;
 
     font-size: 9px;
-
     letter-spacing: .2em;
-
 }
 
 
+/* Title */
+
 .event-header h1 {
+    max-width: 600px;
 
     margin: 0 auto;
 
-        font-family: 'Archivo Black', serif;
+    font-family: var(--font-title);
 
+    color: #fff;
 
-    max-width: 600px;
-
-    color: #ffffff;
-
-    font-size:
-        clamp(34px, 5vw, 54px);
-
+    font-size: clamp(34px, 5vw, 54px);
     line-height: 1.2;
 
-    font-weight: 700;
+    font-weight: 400;
 
     letter-spacing: -.035em;
 
-    transform: scaleX(1.75);
-    transform-origin: center ;
-
+    transform: scaleX(1.5);
+    transform-origin: center;
 }
 
+
+/* Date */
 
 .event-date {
-
     margin-top: 18px;
 
-    color: #ffffff;
+    color: #fff;
 
     font-size: 20px;
-
+    line-height: 1.4;
 }
 
+
+/* Intro */
 
 .event-intro {
-
     max-width: 600px;
 
-    margin:
-        18px auto 20px;
+    margin: 18px auto 20px;
 
-    color: #dddddd;
+    color: #ddd;
 
     font-size: 18px;
-
     line-height: 1.5;
-
 }
 
 
-.event-button {
+/* ==========================================================
+   BUTTON PRINCIPAL
+========================================================== */
 
+.event-button {
     display: inline-flex;
 
     align-items: center;
-
     justify-content: center;
 
-    height: 46px;
+    min-height: 46px;
 
-    padding:
-        0 20px;
+    padding: 0 20px;
 
     background: var(--color-petrol);
-
     color: var(--color-white);
-
-    text-decoration: none;
 
     font-size: 15px;
 
     transition:
         transform .25s ease,
-        background .25s ease;
-
+        background .25s ease,
+        color .25s ease;
 }
 
-
 .event-button:hover {
-
     background: var(--color-white);
-
-    color:var(--color-petrol);
+    color: var(--color-petrol);
 
     transform: translateY(-2px);
-
 }
 
 
 /* ==========================================================
-   IMAGE QUI CHEVAUCHE LE HEADER
+   IMAGE
 ========================================================== */
 
 .event-image {
-
     position: relative;
-
     z-index: 2;
 
     width: calc(100% - 90px);
 
-    margin:
-        -55px auto 0;
+    margin: -55px auto 0;
 
     overflow: hidden;
 
+    background: #050505;
 }
 
-
 .event-image img {
-
     display: block;
 
     width: 100%;
+    height: auto;
 
-    height: 100%;
+    aspect-ratio: 16 / 9;
 
     object-fit: cover;
 
-    transition:
-        transform .6s ease;
-
+    transition: transform .6s ease;
 }
 
-
 .event-image:hover img {
-
     transform: scale(1.025);
-
 }
 
 
@@ -339,11 +356,9 @@ body {
 ========================================================== */
 
 .event-content {
-
     width: calc(100% - 90px);
 
     margin: 0 auto;
-
 }
 
 
@@ -352,45 +367,32 @@ body {
 ========================================================== */
 
 .event-section {
-
-    padding:
-        25px 0 5px;
-
+    padding: 25px 0 5px;
 }
-
 
 .event-section h2 {
+    margin: 0 0 10px;
 
-    margin:
-        0 0 10px;
+    font-family: var(--font-title);
 
-    color: #ffffff;
+    color: #fff;
 
     font-size: 32px;
-
     line-height: 1.1;
 
-    font-weight: 700;
+    font-weight: 400;
 
-        font-family: 'Archivo Black', serif;
-
-    transform: scaleX(1.75);
-    transform-origin: left center ;
-
+    transform: scaleX(1.45);
+    transform-origin: left center;
 }
 
-
 .event-section p {
+    margin: 4px 0;
 
-    margin:
-        4px 0;
-
-    color: #eeeeee;
+    color: #eee;
 
     font-size: 15px;
-
     line-height: 1.5;
-
 }
 
 
@@ -399,93 +401,75 @@ body {
 ========================================================== */
 
 .ticket-section {
-
     padding-top: 22px;
-
 }
-
 
 .ticket-row {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
-    padding:
-        12px 0;
+    gap: 20px;
 
-    border-top:
-        1px solid #444444;
+    padding: 12px 0;
 
-    border-bottom:
-        1px solid #444444;
-
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
 }
 
-
 .ticket-price {
-
     display: flex;
-
     flex-direction: column;
 
     gap: 4px;
 
+    flex-shrink: 0;
 }
-
 
 .ticket-price span {
-
-    color: #999999;
+    color: #999;
 
     font-size: 12px;
-
 }
-
 
 .ticket-price strong {
+    color: #fff;
 
-    color: #ffffff;
-
-    font-size: 12px;
-
-    font-weight: 400;
-
+    font-size: 16px;
+    font-weight: 500;
 }
 
 
-.ticket-button {
+/* Ticket button */
 
+.ticket-button {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
-    height: 50px;
+    min-height: 50px;
 
-    padding:
-        0 18px;
+    padding: 0 18px;
 
     background: var(--color-petrol);
-
     color: var(--color-text);
 
-    text-decoration: none;
+    font-size: 16px;
 
-    font-size: 18px;
+    text-align: center;
 
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        color .25s ease;
 }
 
-
 .ticket-button:hover {
+    background: #fff;
+    color: var(--color-petrol);
 
-    background: #ffffff;
-    color:var(--color-petrol);
     transform: translateY(-2px);
-
 }
 
 
@@ -494,29 +478,23 @@ body {
 ========================================================== */
 
 .event-map {
-
     width: 100%;
-
     height: 220px;
 
     margin-top: 18px;
 
     overflow: hidden;
-
 }
 
-
 .event-map iframe {
+    display: block;
 
     width: 100%;
-
     height: 100%;
 
     border: 0;
 
-    filter:
-        grayscale(100%);
-
+    filter: grayscale(100%);
 }
 
 
@@ -525,47 +503,33 @@ body {
 ========================================================== */
 
 .event-share {
-
     padding-top: 25px;
-
 }
-
-
-.event-share h2 {
-
-    margin: 0 0 12px;
-
-    font-size: 18px;
-
-    font-weight: 700;
-
-}
-
 
 .share-links {
-
     display: flex;
 
     gap: 18px;
-
 }
-
 
 .share-links a {
+    display: flex;
 
-    color: #ffffff;
+    align-items: center;
+    justify-content: center;
 
-    text-decoration: none;
+    width: 38px;
+    height: 38px;
 
-    font-size: 30px;
+    color: #fff;
 
+    font-size: 24px;
+
+    transition: opacity .2s ease;
 }
 
-
 .share-links a:hover {
-
     opacity: .5;
-
 }
 
 
@@ -573,33 +537,44 @@ body {
    TABLETTE
 ========================================================== */
 
-@media (max-width: 700px) {
+@media (max-width: 1050px) {
 
-    .site-header {
-
-        padding:
-            0 25px;
-
+    .header {
+        height: 90px;
+        padding: 0 25px;
     }
 
+    .brand {
+        width: 85px;
+        flex: 0 0 85px;
+    }
 
-    .site-header nav {
+    .brand img {
+        width: 85px;
+        height: auto;
+    }
 
-        gap: 20px;
-
+    .main-nav {
+        gap: 35px;
         margin-left: 30px;
-
-        overflow-x: auto;
-
     }
 
+    .main-nav a {
+        font-size: 11px;
+        transform: scaleX(1.35);
+    }
 
     .event-page {
-
         max-width: 100%;
-
     }
 
+    .event-header h1 {
+        transform: scaleX(1.35);
+    }
+
+    .event-section h2 {
+        transform: scaleX(1.3);
+    }
 }
 
 
@@ -609,340 +584,344 @@ body {
 
 @media (max-width: 760px) {
 
-
-    /* =====================================================
+    /* ------------------------------------------------------
        HEADER
-       ===================================================== */
+    ------------------------------------------------------ */
 
     .header {
         height: 76px;
         padding: 0 18px;
+
         position: relative;
     }
 
+
+    /* Logo centré */
+
     .brand {
         position: absolute;
+
         left: 50%;
         top: 50%;
+
         transform: translate(-50%, -50%);
-        
+
         width: 75px;
-        flex: 0 0 75px;
+        flex: none;
     }
 
     .brand img {
         display: block;
+
         width: 75px;
         height: auto;
     }
 
-    /* Navigation masquée */
-.main-nav {
-    display: none;
-}
 
-/* Hamburger à droite */
-.menu-toggle {
-    display: flex;
-    position: absolute;
+    /* Navigation cachée */
 
-    right: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-
-    width: 40px;
-    height: 40px;
-
-    margin: 0;
-    padding: 5px;
-
-    background: transparent;
-    border: 0;
-
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    z-index: 10002;
-}
-
-    .menu-toggle span {
-        display: block;
-        width: 30px;
-        height: 2px;
-        margin: 7px auto;
-        background: var(--color-text);
-        transition: transform .2s ease;
+    .main-nav {
+        display: none;
     }
 
 
-    /* MENU OUVERT */
+    /* Hamburger */
+
+    .menu-toggle {
+        display: flex;
+    }
+
+
+    /* Menu ouvert */
 
     .main-nav.is-open {
         position: absolute;
+
         top: 76px;
         left: 0;
         right: 0;
 
+        width: 100%;
+
         display: flex;
+
         flex-direction: column;
         align-items: center;
 
         gap: 22px;
 
-        width: 100%;
         margin: 0;
         padding: 28px 20px 32px;
 
         background: rgba(13, 13, 13, .98);
 
         border-top: 1px solid var(--color-border);
-        box-shadow: 0 15px 30px rgba(0,0,0,.35);
+
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .35);
 
         z-index: 10001;
     }
 
     .main-nav.is-open a {
         font-size: 16px;
+
         transform: none;
     }
 
 
-    .events-page {
+    /* ------------------------------------------------------
+       PAGE
+    ------------------------------------------------------ */
 
-        padding:
-            10px 12px 40px;
+    .event-page {
+        width: 100%;
 
+        padding-bottom: 45px;
     }
 
 
-    .events-grid {
+    /* ------------------------------------------------------
+       HEADER ÉVÉNEMENT
+    ------------------------------------------------------ */
 
-        grid-template-columns: 1fr;
+    .event-header {
+        min-height: auto;
 
-        gap: 12px;
-
+        padding: 28px 22px 70px;
     }
 
+    .event-type {
+        margin-bottom: 14px;
 
-    .event-image {
-
-        aspect-ratio: 1 / 1;
-
+        font-size: 8px;
+        letter-spacing: .18em;
     }
-
-
-    /* ==========================================================
-   PANNEAU NOIR — REMPLACE TOUTE LA CARTE
-========================================================== */
-
-.event-card {
-    position: relative;
-    overflow: hidden;
-}
-
-
-/*
-   Le panneau est maintenant positionné par rapport
-   à .event-card et non plus par rapport à .event-image.
-
-   Il recouvre donc toute la carte :
-   - image
-   - titre
-   - date
-   - lieu
-   - bouton "Plus d'infos"
-   - bouton d'action
-*/
-
-.event-overlay {
-
-    position: absolute;
-
-    z-index: 20;
-
-    inset: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 40px;
-
-    background: #0b0b0b;
-
-    transform: translateY(100%);
-
-    transition:
-        transform .55s cubic-bezier(.77, 0, .18, 1);
-
-}
-
-
-/*
-   Lorsque le JavaScript ajoute cette classe,
-   le panneau remonte depuis le bas de toute la carte.
-*/
-
-.event-card.show-overlay .event-overlay {
-
-    transform: translateY(0);
-
-}
-
-.event-header {
-
-        padding:
-            30px 22px 80px;
-
-    }
-
 
     .event-header h1 {
+        max-width: 100%;
 
-        font-size: 34px;
+        font-size: clamp(30px, 8vw, 38px);
 
+        line-height: 1.12;
+
+        letter-spacing: -.025em;
+
+        transform: scaleX(1.12);
     }
 
+    .event-date {
+        margin-top: 16px;
+
+        font-size: 15px;
+        line-height: 1.4;
+    }
+
+    .event-intro {
+        max-width: 100%;
+
+        margin: 16px auto 20px;
+
+        font-size: 15px;
+        line-height: 1.55;
+    }
+
+    .event-button {
+        width: 100%;
+
+        min-height: 48px;
+
+        padding: 0 16px;
+
+        font-size: 14px;
+    }
+
+
+    /* ------------------------------------------------------
+       IMAGE
+    ------------------------------------------------------ */
 
     .event-image {
-
         width: calc(100% - 40px);
 
-        margin-top: -45px;
-
+        margin: -40px auto 0;
     }
-
 
     .event-image img {
+        aspect-ratio: 4 / 3;
 
-        height: 260px;
+        width: 100%;
+        height: auto;
 
+        object-fit: cover;
     }
 
+
+    /* ------------------------------------------------------
+       CONTENU
+    ------------------------------------------------------ */
 
     .event-content {
-
         width: calc(100% - 40px);
 
+        margin: 0 auto;
     }
 
+
+    /* ------------------------------------------------------
+       SECTIONS
+    ------------------------------------------------------ */
+
+    .event-section {
+        padding: 24px 0 5px;
+    }
+
+    .event-section h2 {
+        margin-bottom: 10px;
+
+        font-size: clamp(22px, 6vw, 28px);
+
+        line-height: 1.15;
+
+        transform: scaleX(1.12);
+    }
+
+    .event-section p {
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+
+    /* ------------------------------------------------------
+       BILLETS
+    ------------------------------------------------------ */
+
+    .ticket-section {
+        padding-top: 22px;
+    }
 
     .ticket-row {
+        flex-direction: column;
 
-        align-items: flex-end;
+        align-items: stretch;
 
-        gap: 15px;
+        gap: 16px;
 
+        padding: 16px 0;
     }
 
+    .ticket-price {
+        gap: 3px;
+    }
+
+    .ticket-price span {
+        font-size: 11px;
+    }
+
+    .ticket-price strong {
+        font-size: 18px;
+    }
 
     .ticket-button {
+        width: 100%;
 
-        padding:
-            0 12px;
+        min-height: 48px;
 
+        padding: 0 12px;
+
+        font-size: 14px;
     }
 
-}
 
-/* =========================================================
-   FOOTER
-   ========================================================= */
+    /* ------------------------------------------------------
+       CARTE
+    ------------------------------------------------------ */
 
-footer {
-    padding: 70px 7vw 35px;
+    .event-map {
+        height: 220px;
 
-    border-top: 1px solid var(--color-border);
-
-    background: var(--color-background);
-
-    text-align: center;
-}
+        margin-top: 22px;
+    }
 
 
-/* ---------------------------------------------------------
-   Logo
-   --------------------------------------------------------- */
+    /* ------------------------------------------------------
+       PARTAGE
+    ------------------------------------------------------ */
 
-.footer-logo {
-    display: flex;
-    justify-content: center;
+    .event-share {
+        padding-top: 28px;
+    }
 
-    margin-bottom: 35px;
-}
+    .share-links {
+        gap: 12px;
+    }
 
-.footer-logo img {
-    width: 120px;
-    height: auto;
+    .share-links a {
+        width: 40px;
+        height: 40px;
 
-    object-fit: contain;
+        font-size: 22px;
+    }
 }
 
 
-/* ---------------------------------------------------------
-   Réseaux sociaux
-   --------------------------------------------------------- */
+/* ==========================================================
+   TRÈS PETITS TÉLÉPHONES
+========================================================== */
 
-.footer-socials {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@media (max-width: 400px) {
 
-    gap: 25px;
+    .header {
+        height: 70px;
+    }
 
-    margin-bottom: 30px;
-}
+    .brand img {
+        width: 68px;
+    }
 
-.footer-socials a {
-    font-size: 13px;
+    .main-nav.is-open {
+        top: 70px;
+    }
 
-    transition: opacity 0.2s ease;
-}
+    .event-header {
+        padding:
+            25px 18px 62px;
+    }
 
-.footer-socials a:hover {
-    opacity: 0.6;
-}
+    .event-header h1 {
+        font-size: 29px;
 
+        transform: scaleX(1.08);
+    }
 
-/* ---------------------------------------------------------
-   Coordonnées
-   --------------------------------------------------------- */
+    .event-date {
+        font-size: 14px;
+    }
 
-.footer-contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    .event-intro {
+        font-size: 14px;
+    }
 
-    gap: 6px;
+    .event-image {
+        width: calc(100% - 32px);
 
-    font-size: 14px;
-    line-height: 1.6;
-}
+        margin-top: -34px;
+    }
 
-.footer-contact a {
-    transition: opacity 0.2s ease;
-}
+    .event-content {
+        width: calc(100% - 32px);
+    }
 
-.footer-contact a:hover {
-    opacity: 0.65;
-}
+    .event-section h2 {
+        font-size: 22px;
 
-.footer-contact p {
-    margin: 0;
-}
+        transform: scaleX(1.08);
+    }
 
+    .event-section p {
+        font-size: 13px;
+    }
 
-/* ---------------------------------------------------------
-   Copyright
-   --------------------------------------------------------- */
-
-.copyright {
-    margin-top: 35px;
-
-    color: #777;
-
-    font-size: 12px;
+    .event-map {
+        height: 190px;
+    }
 }
