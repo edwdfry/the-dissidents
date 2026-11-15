@@ -619,7 +619,7 @@ img {
 .music-card img {
     width: 100%;
 
-    aspect-ratio: 1.25;
+    aspect-ratio: 1;
 
     object-fit: cover;
 
@@ -649,7 +649,7 @@ img {
     margin: 0;
 
     font-family: 'Archivo Black', serif;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1.2;
 
     transform: scaleX(1.75);
